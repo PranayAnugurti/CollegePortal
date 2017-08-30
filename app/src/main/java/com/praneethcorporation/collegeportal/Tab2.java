@@ -14,16 +14,17 @@ import android.widget.Button;
  */
 
 public class Tab2 extends Fragment {
-Button ed;
+    Button ed;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.tab2, container, false);
         Context c = getActivity().getApplicationContext();
-   ed = (Button)view.findViewById(R.id.editButton2);
+        ed = (Button) view.findViewById(R.id.editButton2);
         ed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(),Tab2Form.class);
+                Intent intent = new Intent(getContext(), Tab2Form.class);
                 startActivity(intent);
             }
         });

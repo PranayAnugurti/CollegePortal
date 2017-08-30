@@ -74,7 +74,7 @@
                 <NumberPicker
                     android:id="@+id/clas10yearPicker"
                     android:layout_width="0dp"
-                    android:layout_height="50dp"
+                    android:layout_height="75dp"
                     android:layout_weight="1"></NumberPicker>
             </LinearLayout>
 
@@ -103,7 +103,7 @@
             </LinearLayout>
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="2dp"
                 android:background="@color/black"/>
 
             <TextView
@@ -157,7 +157,7 @@
                 <NumberPicker
                     android:id="@+id/clas12yearPicker"
                     android:layout_width="0dp"
-                    android:layout_height="50dp"
+                    android:layout_height="75dp"
                     android:layout_weight="1"></NumberPicker>
             </LinearLayout>
 
