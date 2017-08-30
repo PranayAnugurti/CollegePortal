@@ -198,7 +198,9 @@ public class MainActivity extends AppCompatActivity {
                 Snackbar.make(findViewById(R.id.main), result, Snackbar.LENGTH_SHORT)
                         .show();
                 Intent intent = new Intent(getApplicationContext(),Home.class);
-                startActivity(intent);
+                intent.putExtra("reg_no",result.substring(24,32));
+                Log.d("O_MY",result.substring(24,32));
+              startActivity(intent);
             }
 
 
