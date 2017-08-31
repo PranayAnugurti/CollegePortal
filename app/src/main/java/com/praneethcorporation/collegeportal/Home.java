@@ -47,7 +47,7 @@ import org.w3c.dom.Text;
 public class Home extends AppCompatActivity
     implements NavigationView.OnNavigationItemSelectedListener {
   String reg_no;
-
+  UserInfo info;
   CircleImageView imageView;
   TextView nameView;
   TextView streamView;
@@ -78,6 +78,7 @@ streamView=(TextView)findViewById(R.id.streamTextView);
       @Override
       public void onClick(View v) {
         Intent intent = new Intent(getApplicationContext(), Profile.class);
+        intent.putExtra("reg_no",reg_no);
         startActivity(intent);
       }
     });
@@ -222,7 +223,7 @@ streamView=(TextView)findViewById(R.id.streamTextView);
       try {
 
         Log.d("O_MY",result);
-        UserInfo info;
+
         JSONObject base_json=new JSONObject(result);
         Log.d("O_MY",base_json.toString());
 

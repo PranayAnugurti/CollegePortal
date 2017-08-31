@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/background"
-    >
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:background="@color/background"
+  >
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
@@ -65,7 +66,7 @@
                 android:layout_weight="1"
                 android:ellipsize="end"
                 android:maxLines="2"
-                android:text="Yerra Bala Praneeth Kumar"
+                tools:text="Yerra Bala Praneeth Kumar"
                 android:textColor="@color/black"
                 android:textSize="18dp"
                 android:textStyle="bold" />
@@ -101,7 +102,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="20155090  "
+                    tools:text="20155090  "
                     android:textColor="@color/black"
                     android:textSize="18dp" />
 
@@ -130,7 +131,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="B.Tech"
+                    tools:text="B.Tech"
                     android:textColor="@color/black"
                     android:textSize="18dp" />
 
@@ -159,7 +160,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Electronics and Communication Engineering"
+                    tools:text="Electronics and Communication Engineering"
                     android:textColor="@color/black"
                     android:textSize="18dp" />
 
@@ -188,7 +189,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="17-05-1997"
+                    tools:text="17-05-1997"
                     android:textColor="@color/black"
                     android:textSize="18dp" />
 
@@ -206,7 +207,7 @@
                     android:layout_marginRight="10dp"
                     android:layout_weight="1"
                     android:gravity="end"
-                    android:text="E-mail ID:"
+                  android:text="E-mail ID:"
                     android:textAlignment="textEnd"
                     android:textColor="@color/black"
                     android:textSize="20dp"
@@ -219,7 +220,7 @@
                     android:layout_weight="1"
                     android:ellipsize="end"
 
-                    android:text="praneethKumarred17@gmail.com"
+                    tools:text="praneethKumarred17@gmail.com"
                     android:textColor="@color/black"
                     android:textSize="18dp" />
 
@@ -237,7 +238,7 @@
                     android:layout_marginRight="10dp"
                     android:layout_weight="1"
                     android:gravity="end"
-                    android:text="Skype ID:"
+                  android:text="Skype ID:"
                     android:textAlignment="textEnd"
                     android:textColor="@color/black"
                     android:textSize="20dp"
@@ -248,7 +249,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="praneethkumarred17"
+                    tools:text="praneethkumarred17"
                     android:textColor="@color/black"
                     android:textSize="18dp" />
 
@@ -266,7 +267,7 @@
                     android:layout_marginRight="10dp"
                     android:layout_weight="1"
                     android:gravity="end"
-                    android:text="LinkedIn ID:"
+                  android:text="LinkedIn ID:"
                     android:textAlignment="textEnd"
                     android:textColor="@color/black"
                     android:textSize="20dp"
@@ -277,7 +278,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="http://www.linkedin.com/in/praneeth-yerra-b688136"
+                    tools:text="http://www.linkedin.com/in/praneeth-yerra-b688136"
                     android:textColor="@color/black"
                     android:textSize="18dp" />
 
@@ -295,7 +296,7 @@
                     android:layout_marginRight="10dp"
                     android:layout_weight="1"
                     android:gravity="end"
-                    android:text="Geder:"
+                  android:text="Gender:"
                     android:textAlignment="textEnd"
                     android:textColor="@color/black"
                     android:textSize="20dp"
@@ -306,7 +307,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Male"
+                    tools:text="Male"
                     android:textColor="@color/black"
                     android:textSize="18dp" />
 
@@ -324,7 +325,7 @@
                     android:layout_marginRight="10dp"
                     android:layout_weight="1"
                     android:gravity="end"
-                    android:text="Category:"
+                  android:text="Category:"
                     android:textAlignment="textEnd"
                     android:textColor="@color/black"
                     android:textSize="20dp"
@@ -335,7 +336,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="General"
+                    tools:text="General"
                     android:textColor="@color/black"
                     android:textSize="18dp" />
 
@@ -353,7 +354,7 @@
                     android:layout_marginRight="10dp"
                     android:layout_weight="1"
                     android:gravity="end"
-                    android:text="Physically Challeneged:"
+                  android:text="Physically Challeneged:"
                     android:textAlignment="textEnd"
                     android:textColor="@color/black"
                     android:textSize="20dp"
@@ -364,7 +365,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Yes"
+                  tools:text="Yes"
                     android:layout_gravity="center"
                     android:textColor="@color/black"
                     android:textSize="18dp" />
@@ -383,7 +384,7 @@
                     android:layout_marginRight="10dp"
                     android:layout_weight="1"
                     android:gravity="end"
-                    android:text="Guardian:"
+                  android:text="Guardian:"
                     android:textAlignment="textEnd"
                     android:textColor="@color/black"
                     android:textSize="20dp"
@@ -394,7 +395,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Vijaya"
+                    tools:text="Vijaya"
                     android:textColor="@color/black"
                     android:textSize="18dp" />
 
@@ -412,7 +413,7 @@
                     android:layout_marginRight="10dp"
                     android:layout_weight="1"
                     android:gravity="end"
-                    android:text="Resedential Status:"
+                  android:text="Resedential Status:"
                     android:textAlignment="textEnd"
                     android:textColor="@color/black"
                     android:textSize="20dp"
@@ -423,7 +424,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Hosteller"
+                    tools:text="Hosteller"
                     android:textColor="@color/black"
                     android:textSize="18dp" />
 
@@ -440,7 +441,7 @@
                     android:layout_marginRight="10dp"
                     android:layout_weight="1"
                     android:gravity="end"
-                    android:text="Present Address:"
+                  android:text="Present Address:"
                     android:textAlignment="textEnd"
                     android:textColor="@color/black"
                     android:textSize="20dp"
@@ -451,7 +452,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Room No -114,Malviya Hostel 7754809848"
+                    tools:text="Room No -114,Malviya Hostel 7754809848"
                     android:textColor="@color/black"
                     android:textSize="18dp" />
 
@@ -470,18 +471,18 @@
                     android:layout_marginRight="10dp"
                     android:layout_weight="1"
                     android:gravity="end"
-                    android:text="Permanent Adress:"
+                  android:text="Permanent Adress:"
                     android:textAlignment="textEnd"
                     android:textColor="@color/black"
                     android:textSize="20dp"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/tv_presentAdress"
+                    android:id="@+id/tv_permanentAddress"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="34-17-15,Ray street,Gnanpuram,Visakhapatnam - 530004 9849868741"
+                    tools:text="34-17-15,Ray street,Gnanpuram,Visakhapatnam - 530004 9849868741"
                     android:textColor="@color/black"
                     android:textSize="18dp" />
 
@@ -500,7 +501,7 @@
                     android:layout_marginRight="10dp"
                     android:layout_weight="1"
                     android:gravity="end"
-                    android:text="Martial Status:"
+                  android:text="Martial Status:"
                     android:textAlignment="textEnd"
                     android:textColor="@color/black"
                     android:textSize="20dp"
@@ -511,7 +512,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Single"
+                    tools:text="Single"
                     android:textColor="@color/black"
                     android:textSize="18dp" />
 
@@ -529,7 +530,7 @@
                     android:layout_marginRight="10dp"
                     android:layout_weight="1"
                     android:gravity="end"
-                    android:text="State:"
+                  android:text="State:"
                     android:textAlignment="textEnd"
                     android:textColor="@color/black"
                     android:textSize="20dp"
@@ -540,7 +541,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Andhra Pradesh"
+                    tools:text="Andhra Pradesh"
                     android:textColor="@color/black"
                     android:textSize="18dp" />
 
@@ -558,7 +559,7 @@
                     android:layout_marginRight="10dp"
                     android:layout_weight="1"
                     android:gravity="end"
-                    android:text="Country:"
+                  android:text="Country:"
                     android:textAlignment="textEnd"
                     android:textColor="@color/black"
                     android:textSize="20dp"
@@ -569,7 +570,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="India"
+                    tools:text="India"
                     android:textColor="@color/black"
                     android:textSize="18dp" />
 
