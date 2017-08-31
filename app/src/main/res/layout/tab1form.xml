@@ -198,26 +198,29 @@
                 android:text="Physically Challenged:"
                 android:textAppearance="@style/headertextstyle" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_weight="1">
 
-                <CheckBox
+<RadioGroup
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:id="@+id/radiophGroup">
+                <RadioButton
+                    android:id="@+id/yesradio"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:checked="true"
+                    android:textAppearance="@style/normaltextstyle"
+                    android:text="NO" />
+                <RadioButton
+                    android:id="@+id/noradio"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:textAppearance="@style/normaltextstyle"
                     android:text="YES" />
+            </RadioGroup>
 
-                <CheckBox
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:textAppearance="@style/normaltextstyle"
-                    android:text="NO" />
-            </LinearLayout>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -225,26 +228,29 @@
                 android:text="Resedential Status:"
                 android:textAppearance="@style/headertextstyle" />
 
-            <LinearLayout
+            <RadioGroup
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_weight="1">
-
-                <CheckBox
-                    android:textAppearance="@style/normaltextstyle"
+                android:orientation="horizontal"
+                android:id="@+id/radioresedentialGroup">
+                <RadioButton
+                    android:id="@+id/hostellerradio"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:checked="true"
+                    android:textAppearance="@style/normaltextstyle"
                     android:text="Hosteller" />
 
-                <CheckBox
+                <RadioButton
+                    android:id="@+id/dayscholarradio"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:textAppearance="@style/normaltextstyle"
                     android:text="Day-Scholar" />
-            </LinearLayout>
+            </RadioGroup>
+
 
             <TextView
                 android:layout_width="match_parent"
@@ -307,26 +313,28 @@
                 android:text="Martial Status:"
                 android:textAppearance="@style/headertextstyle" />
 
-            <LinearLayout
+            <RadioGroup
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_weight="1">
-
-                <CheckBox
+                android:orientation="horizontal"
+                android:id="@+id/radiomartialGroup">
+                <RadioButton
+                    android:id="@+id/singleradio"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:checked="true"
                     android:textAppearance="@style/normaltextstyle"
                     android:text="Single" />
-
-                <CheckBox
+                <RadioButton
+                    android:id="@+id/marriedradio"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:textAppearance="@style/normaltextstyle"
                     android:text="Married" />
-            </LinearLayout>
+            </RadioGroup>
+
 
 
             <LinearLayout
@@ -369,8 +377,17 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"></Spinner>
-            </LinearLayout>
 
+            </LinearLayout>
+<Button
+    android:id="@+id/saveform1"
+    android:layout_marginTop="8dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorPrimaryDark"
+    android:text="SAVE"
+    android:layout_marginBottom="8dp"
+    android:textColor="@color/white"/>
         </LinearLayout>
 
 
