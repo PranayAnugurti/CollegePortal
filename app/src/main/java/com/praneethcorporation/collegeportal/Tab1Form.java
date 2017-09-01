@@ -2,12 +2,14 @@ package com.praneethcorporation.collegeportal;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.Intent;
 import android.icu.util.Calendar;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
@@ -46,6 +48,13 @@ public class Tab1Form extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tab1form);
+
+        Intent intent=getIntent();
+        Bundle b=intent.getExtras();
+        UserInfo info=b.getParcelable("personal_details");
+
+        Log.d("O_MY","Reg_no="+info.reg_no);
+
         save = (Button) findViewById(R.id.saveform1);
         radiophGroup = (RadioGroup) findViewById(R.id.radiophGroup);
         radioresedentialgroup = (RadioGroup) findViewById(R.id.radioresedentialGroup);
