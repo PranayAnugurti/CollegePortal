@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+  <ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    android:orientation="vertical">
+    >
 
     <android.support.v7.widget.CardView xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
@@ -36,7 +36,7 @@
                 android:id="@+id/et_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Yerra Bala Praneeth Kumar"
+                android:editable="false"
                 android:inputType="none"
                 android:textAppearance="@style/normaltextstyle" />
 
@@ -51,7 +51,7 @@
                 android:id="@+id/et_registration"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="20152015"
+                android:editable="false"
                 android:inputType="none"
                 android:textAppearance="@style/normaltextstyle" />
 
@@ -128,10 +128,10 @@
                 android:textColor="@color/black" />
 
             <EditText
-                android:id="@+id/et_emialId"
+                android:id="@+id/etemialId"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="xyz@gmail.com"
+
                 android:textAppearance="@style/normaltextstyle" />
 
             <TextView
@@ -143,10 +143,10 @@
                 android:textColor="@color/black" />
 
             <EditText
-                android:id="@+id/et_SkypeId"
+                android:id="@+id/etSkypeId"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="xyz"
+
                 android:textAppearance="@style/normaltextstyle" />
 
             <LinearLayout
@@ -261,10 +261,9 @@
                 android:textColor="@color/black" />
 
             <EditText
-                android:id="@+id/et_guradian"
+                android:id="@+id/etguardian"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="fathername"
                 android:textAppearance="@style/normaltextstyle" />
 
             <TextView
@@ -279,7 +278,6 @@
                 android:id="@+id/presentAddress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="adadad"
                 android:inputType="textCapSentences|textMultiLine"
                 android:maxLength="2000"
                 android:maxLines="4"
@@ -298,7 +296,6 @@
                 android:id="@+id/permanentAddress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="adadad"
                 android:inputType="textCapSentences|textMultiLine"
                 android:maxLength="2000"
                 android:maxLines="4"

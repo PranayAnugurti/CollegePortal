@@ -33,10 +33,9 @@
 
 
             <EditText
-                android:id="@+id/et_registration"
+                android:id="@+id/et_school10"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="20152015"
                 android:inputType="none"
                 android:textAppearance="@style/normaltextstyle" />
 
@@ -52,7 +51,6 @@
                 android:id="@+id/et_10thboard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="20152015"
                 android:inputType="none"
                 android:textAppearance="@style/normaltextstyle" />
 
@@ -119,7 +117,6 @@
                 android:id="@+id/et_12schoolname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="xyz"
                 android:inputType="none"
                 android:textAppearance="@style/normaltextstyle" />
 
@@ -135,7 +132,6 @@
                 android:id="@+id/et_12thboard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="xyz"
                 android:inputType="none"
                 android:textAppearance="@style/normaltextstyle" />
 
