@@ -1,582 +1,591 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools">
+  <data>
+    <variable
+      name="tab1"
+      type="com.praneethcorporation.collegeportal.Tab1"/>
+  </data>
+  <ScrollView
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
-    >
+    android:background="@color/background">
 
     <android.support.v7.widget.CardView
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="15dp"
+      android:layout_marginBottom="15dp"
+      android:layout_marginLeft="8dp"
+      android:layout_marginRight="8dp"
+      app:cardCornerRadius="8dp">
+      <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginRight="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginBottom="15dp"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        app:cardCornerRadius="8dp">
-<LinearLayout android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="20dp"
-    android:layout_marginBottom="30dp"
-    android:orientation="vertical">
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    >
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    <Button
-        android:id="@+id/editButton1"
-        android:drawableLeft="@drawable/edit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:background="@color/colorPrimaryDark"
-        android:text="EDIT"
-        android:padding="5dp"
-        android:layout_marginRight="20dp"
-        android:textColor="@color/white"
-        />
-    </RelativeLayout>
-</LinearLayout>
-    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="30dp"
+        android:orientation="vertical">
+        <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal"
+          >
+          <RelativeLayout
             android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <Button
+              android:id="@+id/editButton1"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginRight="20dp"
+              android:layout_alignParentRight="true"
+              android:padding="5dp"
+              android:background="@color/colorPrimaryDark"
+              android:drawableLeft="@drawable/edit"
+              android:text="EDIT"
+              android:textColor="@color/white"
+              />
+          </RelativeLayout>
+        </LinearLayout>
+        <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal">
+
+          <TextView
+            android:textStyle="bold"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_weight="1"
+            android:layout_marginRight="10dp"
+            android:gravity="end"
+            android:text="Name:"
+            android:textAlignment="textEnd"
+            android:textColor="@color/black"
+            android:textSize="20dp"/>
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:layout_weight="1"
-                android:gravity="end"
-                android:text="Name:"
-                android:textAlignment="textEnd"
-                android:textColor="@color/black"
-                android:textSize="20dp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tv_name"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ellipsize="end"
-                android:maxLines="2"
-                android:text="Yerra Bala Praneeth Kumar"
-                android:textColor="@color/black"
-                android:textSize="18dp"
-                android:textStyle="bold" />
+          <TextView
+            android:id="@+id/tv_name"
+            android:textStyle="bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textColor="@color/black"
+            android:textSize="18dp"
+            tools:text="Yerra Bala Praneeth Kumar"/>
 
         </LinearLayout>
 
         <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="8dp"
+          android:orientation="vertical">
+
+          <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
-                    android:layout_weight="1"
-                    android:gravity="end"
-                    android:text="Registartion ID:"
-                    android:textAlignment="textEnd"
-                    android:textColor="@color/black"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tv_renid"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="20155090  "
-                    android:textColor="@color/black"
-                    android:textSize="18dp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
-                    android:layout_weight="1"
-                    android:gravity="end"
-                    android:text="Course:"
-                    android:textAlignment="textEnd"
-                    android:textColor="@color/black"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tv_coursename"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="B.Tech"
-                    android:textColor="@color/black"
-                    android:textSize="18dp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
-                    android:layout_weight="1"
-                    android:gravity="end"
-                    android:text="Branch:"
-                    android:textAlignment="textEnd"
-                    android:textColor="@color/black"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tv_branch"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Electronics and Communication Engineering"
-                    android:textColor="@color/black"
-                    android:textSize="18dp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
-                    android:layout_weight="1"
-                    android:gravity="end"
-                    android:text="DOB:"
-                    android:textAlignment="textEnd"
-                    android:textColor="@color/black"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tv_dob"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="17-05-1997"
-                    android:textColor="@color/black"
-                    android:textSize="18dp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
-                    android:layout_weight="1"
-                    android:gravity="end"
-                    android:text="E-mail ID:"
-                    android:textAlignment="textEnd"
-                    android:textColor="@color/black"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tv_email"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:ellipsize="end"
-
-                    android:text="praneethKumarred17@gmail.com"
-                    android:textColor="@color/black"
-                    android:textSize="18dp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
-                    android:layout_weight="1"
-                    android:gravity="end"
-                    android:text="Skype ID:"
-                    android:textAlignment="textEnd"
-                    android:textColor="@color/black"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tv_skypeId"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="praneethkumarred17"
-                    android:textColor="@color/black"
-                    android:textSize="18dp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
-                    android:layout_weight="1"
-                    android:gravity="end"
-                    android:text="LinkedIn ID:"
-                    android:textAlignment="textEnd"
-                    android:textColor="@color/black"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tv_linkedinId"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="http://www.linkedin.com/in/praneeth-yerra-b688136"
-                    android:textColor="@color/black"
-                    android:textSize="18dp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
-                    android:layout_weight="1"
-                    android:gravity="end"
-                    android:text="Geder:"
-                    android:textAlignment="textEnd"
-                    android:textColor="@color/black"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tv_gender"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Male"
-                    android:textColor="@color/black"
-                    android:textSize="18dp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
-                    android:layout_weight="1"
-                    android:gravity="end"
-                    android:text="Category:"
-                    android:textAlignment="textEnd"
-                    android:textColor="@color/black"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tv_category"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="General"
-                    android:textColor="@color/black"
-                    android:textSize="18dp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
-                    android:layout_weight="1"
-                    android:gravity="end"
-                    android:text="Physically Challeneged:"
-                    android:textAlignment="textEnd"
-                    android:textColor="@color/black"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tv_physicallyChalleneged"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Yes"
-                    android:layout_gravity="center"
-                    android:textColor="@color/black"
-                    android:textSize="18dp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
-                    android:layout_weight="1"
-                    android:gravity="end"
-                    android:text="Guardian:"
-                    android:textAlignment="textEnd"
-                    android:textColor="@color/black"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tv_resedentialstatus"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Vijaya"
-                    android:textColor="@color/black"
-                    android:textSize="18dp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
-                    android:layout_weight="1"
-                    android:gravity="end"
-                    android:text="Resedential Status:"
-                    android:textAlignment="textEnd"
-                    android:textColor="@color/black"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tv_guardian"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Hosteller"
-                    android:textColor="@color/black"
-                    android:textSize="18dp" />
-
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
-                    android:layout_weight="1"
-                    android:gravity="end"
-                    android:text="Present Address:"
-                    android:textAlignment="textEnd"
-                    android:textColor="@color/black"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tv_presentAddress"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Room No -114,Malviya Hostel 7754809848"
-                    android:textColor="@color/black"
-                    android:textSize="18dp" />
-
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
-                    android:layout_weight="1"
-                    android:gravity="end"
-                    android:text="Permanent Adress:"
-                    android:textAlignment="textEnd"
-                    android:textColor="@color/black"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tv_presentAdress"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="34-17-15,Ray street,Gnanpuram,Visakhapatnam - 530004 9849868741"
-                    android:textColor="@color/black"
-                    android:textSize="18dp" />
-
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
-                    android:layout_weight="1"
-                    android:gravity="end"
-                    android:text="Martial Status:"
-                    android:textAlignment="textEnd"
-                    android:textColor="@color/black"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tv_MartialStatus"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Single"
-                    android:textColor="@color/black"
-                    android:textSize="18dp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
-                    android:layout_weight="1"
-                    android:gravity="end"
-                    android:text="State:"
-                    android:textAlignment="textEnd"
-                    android:textColor="@color/black"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tv_state"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Andhra Pradesh"
-                    android:textColor="@color/black"
-                    android:textSize="18dp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
-                    android:layout_weight="1"
-                    android:gravity="end"
-                    android:text="Country:"
-                    android:textAlignment="textEnd"
-                    android:textColor="@color/black"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tv_country"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="India"
-                    android:textColor="@color/black"
-                    android:textSize="18dp" />
-
-            </LinearLayout>
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+              android:textStyle="bold"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:layout_marginRight="10dp"
+              android:gravity="end"
+              android:text="Registartion ID:"
+              android:textAlignment="textEnd"
+              android:textColor="@color/black"
+              android:textSize="20dp"/>
+
+            <TextView
+              android:id="@+id/tv_renid"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:textColor="@color/black"
+              android:textSize="18dp"
+              tools:text="20155090  "/>
+
+          </LinearLayout>
+
+          <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+              android:textStyle="bold"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:layout_marginRight="10dp"
+              android:gravity="end"
+              android:text="Course:"
+              android:textAlignment="textEnd"
+              android:textColor="@color/black"
+              android:textSize="20dp"/>
+
+            <TextView
+              android:id="@+id/tv_coursename"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:textColor="@color/black"
+              android:textSize="18dp"
+              tools:text="B.Tech"/>
+
+          </LinearLayout>
+
+          <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+              android:textStyle="bold"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:layout_marginRight="10dp"
+              android:gravity="end"
+              android:text="Branch:"
+              android:textAlignment="textEnd"
+              android:textColor="@color/black"
+              android:textSize="20dp"/>
+
+            <TextView
+              android:id="@+id/tv_branch"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:textColor="@color/black"
+              android:textSize="18dp"
+              tools:text="Electronics and Communication Engineering"/>
+
+          </LinearLayout>
+
+          <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+              android:textStyle="bold"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:layout_marginRight="10dp"
+              android:gravity="end"
+              android:text="DOB:"
+              android:textAlignment="textEnd"
+              android:textColor="@color/black"
+              android:textSize="20dp"/>
+
+            <TextView
+              android:id="@+id/tv_dob"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:textColor="@color/black"
+              android:textSize="18dp"
+              tools:text="17-05-1997"/>
+
+          </LinearLayout>
+
+          <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+              android:textStyle="bold"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:layout_marginRight="10dp"
+              android:gravity="end"
+              android:text="E-mail ID:"
+              android:textAlignment="textEnd"
+              android:textColor="@color/black"
+              android:textSize="20dp"/>
+
+            <TextView
+              android:id="@+id/tv_email"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:ellipsize="end"
+
+              android:textColor="@color/black"
+              android:textSize="18dp"
+              tools:text="praneethKumarred17@gmail.com"/>
+
+          </LinearLayout>
+
+          <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+              android:textStyle="bold"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:layout_marginRight="10dp"
+              android:gravity="end"
+              android:text="Skype ID:"
+              android:textAlignment="textEnd"
+              android:textColor="@color/black"
+              android:textSize="20dp"/>
+
+            <TextView
+              android:id="@+id/tv_skypeId"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:textColor="@color/black"
+              android:textSize="18dp"
+              tools:text="praneethkumarred17"/>
+
+          </LinearLayout>
+
+          <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+              android:textStyle="bold"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:layout_marginRight="10dp"
+              android:gravity="end"
+              android:text="LinkedIn ID:"
+              android:textAlignment="textEnd"
+              android:textColor="@color/black"
+              android:textSize="20dp"/>
+
+            <TextView
+              android:id="@+id/tv_linkedinId"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:textColor="@color/black"
+              android:textSize="18dp"
+              tools:text="http://www.linkedin.com/in/praneeth-yerra-b688136"/>
+
+          </LinearLayout>
+
+          <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+              android:textStyle="bold"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:layout_marginRight="10dp"
+              android:gravity="end"
+              android:text="Gender:"
+              android:textAlignment="textEnd"
+              android:textColor="@color/black"
+              android:textSize="20dp"/>
+
+            <TextView
+              android:id="@+id/tv_gender"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:textColor="@color/black"
+              android:textSize="18dp"
+              tools:text="Male"/>
+
+          </LinearLayout>
+
+          <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+              android:textStyle="bold"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:layout_marginRight="10dp"
+              android:gravity="end"
+              android:text="Category:"
+              android:textAlignment="textEnd"
+              android:textColor="@color/black"
+              android:textSize="20dp"/>
+
+            <TextView
+              android:id="@+id/tv_category"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:textColor="@color/black"
+              android:textSize="18dp"
+              tools:text="General"/>
+
+          </LinearLayout>
+
+          <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+              android:textStyle="bold"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:layout_marginRight="10dp"
+              android:gravity="end"
+              android:text="Physically Challeneged:"
+              android:textAlignment="textEnd"
+              android:textColor="@color/black"
+              android:textSize="20dp"/>
+
+            <TextView
+              android:id="@+id/tv_physicallyChalleneged"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:layout_gravity="center"
+              android:textColor="@color/black"
+              android:textSize="18dp"
+              tools:text="Yes"/>
+
+          </LinearLayout>
+
+          <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+              android:textStyle="bold"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:layout_marginRight="10dp"
+              android:gravity="end"
+              android:text="Guardian:"
+              android:textAlignment="textEnd"
+              android:textColor="@color/black"
+              android:textSize="20dp"/>
+
+            <TextView
+              android:id="@+id/tv_guardian"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:textColor="@color/black"
+              android:textSize="18dp"
+              tools:text="Vijaya"/>
+
+          </LinearLayout>
+
+          <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+              android:textStyle="bold"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:layout_marginRight="10dp"
+              android:gravity="end"
+              android:text="Resedential Status:"
+              android:textAlignment="textEnd"
+              android:textColor="@color/black"
+              android:textSize="20dp"/>
+
+            <TextView
+
+              android:id="@+id/tv_resedentialstatus"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:textColor="@color/black"
+              android:textSize="18dp"
+              tools:text="Hosteller"/>
+
+          </LinearLayout>
+          <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+              android:textStyle="bold"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:layout_marginRight="10dp"
+              android:gravity="end"
+              android:text="Present Address:"
+              android:textAlignment="textEnd"
+              android:textColor="@color/black"
+              android:textSize="20dp"/>
+
+            <TextView
+              android:id="@+id/tv_presentAddress"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:textColor="@color/black"
+              android:textSize="18dp"
+              tools:text="Room No -114,Malviya Hostel 7754809848"/>
+
+          </LinearLayout>
+
+
+          <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+              android:textStyle="bold"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:layout_marginRight="10dp"
+              android:gravity="end"
+              android:text="Permanent Adress:"
+              android:textAlignment="textEnd"
+              android:textColor="@color/black"
+              android:textSize="20dp"/>
+
+            <TextView
+              android:id="@+id/tv_permanentAddress"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:textColor="@color/black"
+              android:textSize="18dp"
+              tools:text="34-17-15,Ray street,Gnanpuram,Visakhapatnam - 530004 9849868741"/>
+
+          </LinearLayout>
+
+
+          <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+              android:textStyle="bold"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:layout_marginRight="10dp"
+              android:gravity="end"
+              android:text="Martial Status:"
+              android:textAlignment="textEnd"
+              android:textColor="@color/black"
+              android:textSize="20dp"/>
+
+            <TextView
+              android:id="@+id/tv_MartialStatus"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:textColor="@color/black"
+              android:textSize="18dp"
+              tools:text="Single"/>
+
+          </LinearLayout>
+
+          <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+              android:textStyle="bold"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:layout_marginRight="10dp"
+              android:gravity="end"
+              android:text="State:"
+              android:textAlignment="textEnd"
+              android:textColor="@color/black"
+              android:textSize="20dp"/>
+
+            <TextView
+              android:id="@+id/tv_state"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:textColor="@color/black"
+              android:textSize="18dp"
+              tools:text="Andhra Pradesh"/>
+
+          </LinearLayout>
+
+          <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+              android:textStyle="bold"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:layout_marginRight="10dp"
+              android:gravity="end"
+              android:text="Country:"
+              android:textAlignment="textEnd"
+              android:textColor="@color/black"
+              android:textSize="20dp"/>
+
+            <TextView
+              android:id="@+id/tv_country"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="1"
+              android:textColor="@color/black"
+              android:textSize="18dp"
+              tools:text="India"/>
+
+          </LinearLayout>
 
 
         </LinearLayout>
-    </LinearLayout>
+      </LinearLayout>
     </android.support.v7.widget.CardView>
-</ScrollView>
+  </ScrollView>
+</layout>

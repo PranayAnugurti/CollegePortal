@@ -1,20 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  tools:context="com.praneethcorporation.collegeportal.MainActivity">
+  <data>
+    <variable
+      name="tab2"
+      type="com.praneethcorporation.collegeportal.MainActivity"/>
+  </data>
+<LinearLayout
     android:id="@+id/main"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryDark"
     android:orientation="vertical"
-    tools:context="com.praneethcorporation.collegeportal.MainActivity">
+    >
 
     <ImageView
        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:src="@drawable/image"/>
-
     <LinearLayout
         android:padding="32dp"
         android:layout_width="match_parent"
@@ -71,3 +76,4 @@
 
 
 </LinearLayout>
+</layout>

@@ -1,467 +1,483 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools">
+  <data>
+    <variable
+      name="tab2"
+      type="com.praneethcorporation.collegeportal.Tab2"/>
+  </data>
+  <ScrollView
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background">
 
     <android.support.v7.widget.CardView
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="15dp"
+      android:layout_marginBottom="20dp"
+      android:layout_marginLeft="8dp"
+      android:layout_marginRight="8dp"
+      app:cardCornerRadius="8dp">
+
+      <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginRight="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginBottom="20dp"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        app:cardCornerRadius="8dp">
+        android:layout_marginBottom="30dp"
+        android:orientation="vertical">
+
+        <Button
+          android:id="@+id/editButton2"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="20dp"
+          android:layout_marginRight="20dp"
+          android:layout_alignParentRight="true"
+          android:layout_gravity="end"
+          android:padding="5dp"
+          android:background="@color/colorPrimaryDark"
+          android:drawableLeft="@drawable/edit"
+          android:text="EDIT"
+          android:textColor="@color/white"/>
 
         <LinearLayout
-            android:layout_width="match_parent"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal">
+
+          <TextView
+            android:textStyle="bold"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="30dp"
-            android:orientation="vertical">
+            android:layout_weight="1"
+            android:layout_marginRight="10dp"
+            android:gravity="end"
+            android:text="Name:"
+            android:textAlignment="textEnd"
+            android:textColor="@color/black"
+            android:textSize="20dp"/>
+
+          <TextView
+            android:id="@+id/tv_name"
+            android:textStyle="bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textColor="@color/black"
+            android:textSize="18dp"
+            tools:text="Yerra Bala Praneeth Kumar"/>
 
-            <Button
-                android:id="@+id/editButton2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_gravity="end"
-                android:layout_marginRight="20dp"
-                android:layout_marginTop="20dp"
-                android:background="@color/colorPrimaryDark"
-                android:drawableLeft="@drawable/edit"
-                android:padding="5dp"
-                android:text="EDIT"
-                android:textColor="@color/white" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
-                    android:layout_weight="1"
-                    android:gravity="end"
-                    android:text="Name:"
-                    android:textAlignment="textEnd"
-                    android:textColor="@color/black"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tv_name"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:ellipsize="end"
-                    android:maxLines="2"
-                    android:text="Yerra Bala Praneeth Kumar"
-                    android:textColor="@color/black"
-                    android:textSize="18dp"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
-                    android:layout_weight="1"
-                    android:gravity="end"
-                    android:text="10th School:"
-                    android:textAlignment="textEnd"
-                    android:textColor="@color/black"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tv_renid"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="A.K.M Jubilee English Medium School"
-                    android:textColor="@color/black"
-                    android:textSize="18dp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
-                    android:layout_weight="1"
-                    android:gravity="end"
-                    android:text="10th Year:"
-                    android:textAlignment="textEnd"
-                    android:textColor="@color/black"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tv_coursename"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="2013"
-                    android:textColor="@color/black"
-                    android:textSize="18dp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
-                    android:layout_weight="1"
-                    android:gravity="end"
-                    android:text="10th %:"
-                    android:textAlignment="textEnd"
-                    android:textColor="@color/black"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tv_branch"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="85.5"
-                    android:textColor="@color/black"
-                    android:textSize="18dp" />
-
-            </LinearLayout>
-
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_margin="16dp"
-                android:background="@color/black" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:layout_weight="1"
-                android:text="12 th"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:textSize="20dp"
-                android:textStyle="bold" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
-                    android:layout_weight="1"
-                    android:gravity="end"
-                    android:text="12th School:"
-                    android:textAlignment="textEnd"
-                    android:textColor="@color/black"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tv_email"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:ellipsize="end"
-
-                    android:text="Sri Chaitanya Junior College"
-                    android:textColor="@color/black"
-                    android:textSize="18dp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
-                    android:layout_weight="1"
-                    android:gravity="end"
-                    android:text="12th Board:"
-                    android:textAlignment="textEnd"
-                    android:textColor="@color/black"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tv_skypeId"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Andhra Pradesh Board of Intermediate Education"
-                    android:textColor="@color/black"
-                    android:textSize="18dp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
-                    android:layout_weight="1"
-                    android:gravity="end"
-                    android:text="12th Year:"
-                    android:textAlignment="textEnd"
-                    android:textColor="@color/black"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tv_linkedinId"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="2015"
-                    android:textColor="@color/black"
-                    android:textSize="18dp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
-                    android:layout_weight="1"
-                    android:gravity="end"
-                    android:text="12th %:"
-                    android:textAlignment="textEnd"
-                    android:textColor="@color/black"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tv_gender"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="90.6"
-                    android:textColor="@color/black"
-                    android:textSize="18dp" />
-
-            </LinearLayout>
-
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_margin="16dp"
-                android:background="@color/black" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:layout_weight="1"
-                android:text="B.Tech"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:textSize="20dp"
-                android:textStyle="bold" />
-
-            <TableLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TableRow android:gravity="center">
-
-                    <TextView
-                        android:text="Semester"
-                        android:textColor="@color/black"
-                        android:textSize="15dp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:text="   1   "
-                        android:textColor="@color/black"
-                        android:textSize="15dp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:text="   2   "
-                        android:textColor="@color/black"
-                        android:textSize="15dp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:text="   3   "
-                        android:textColor="@color/black"
-                        android:textSize="15dp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:text="   4   "
-                        android:textColor="@color/black"
-                        android:textSize="15dp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:text="   5   "
-                        android:textColor="@color/black"
-                        android:textSize="15dp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:text="   6   "
-                        android:textColor="@color/black"
-                        android:textSize="15dp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:text="   7   "
-                        android:textColor="@color/black"
-                        android:textSize="15dp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:text="   8   "
-                        android:textColor="@color/black"
-                        android:textSize="15dp"
-                        android:textStyle="bold" />
-                </TableRow>
-
-                <TableRow android:gravity="center">
-
-                    <TextView
-                        android:text="SPI"
-                        android:textColor="@color/black"
-                        android:textSize="15dp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:text=" 7.46 "
-                        android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textSize="15dp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:text=" 6.58 "
-                        android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textSize="15dp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:text=" 5.65 "
-                        android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textSize="15dp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:text=" 7.52 "
-                        android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textSize="15dp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:text=" 0 "
-                        android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textSize="15dp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:text=" 0 "
-                        android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textSize="15dp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:text=" 0 "
-                        android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textSize="15dp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:text=" 0 "
-                        android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textSize="15dp"
-                        android:textStyle="bold" />
-                </TableRow>
-            </TableLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
-                    android:layout_weight="1"
-                    android:gravity="end"
-                    android:text="CPI:"
-                    android:textAlignment="textEnd"
-                    android:textColor="@color/black"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tv_cpi"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="6.8"
-                    android:textColor="@color/black"
-                    android:textSize="18dp" />
-
-            </LinearLayout>
         </LinearLayout>
+
+
+        <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:orientation="horizontal">
+
+          <TextView
+            android:textStyle="bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginRight="10dp"
+            android:gravity="end"
+            android:text="10th School:"
+            android:textAlignment="textEnd"
+            android:textColor="@color/black"
+            android:textSize="20dp"/>
+
+          <TextView
+            android:id="@+id/tv_school10"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/black"
+            android:textSize="18dp"
+            tools:text="A.K.M Jubilee English Medium School"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:orientation="horizontal">
+
+          <TextView
+            android:textStyle="bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginRight="10dp"
+            android:gravity="end"
+            android:text="10th Year:"
+            android:textAlignment="textEnd"
+            android:textColor="@color/black"
+            android:textSize="20dp"/>
+
+          <TextView
+            android:id="@+id/tv_year10"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/black"
+            android:textSize="18dp"
+            tools:text="2013"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:orientation="horizontal">
+
+          <TextView
+            android:textStyle="bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginRight="10dp"
+            android:gravity="end"
+            android:text="10th %:"
+            android:textAlignment="textEnd"
+            android:textColor="@color/black"
+            android:textSize="20dp"/>
+
+          <TextView
+            android:id="@+id/tv_per10"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/black"
+            android:textSize="18dp"
+            tools:text="85.5"/>
+
+        </LinearLayout>
+
+
+        <View
+          android:layout_width="match_parent"
+          android:layout_height="1dp"
+          android:layout_margin="16dp"
+          android:background="@color/black"/>
+
+        <TextView
+          android:textStyle="bold"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:layout_marginRight="10dp"
+          android:text="12 th"
+          android:textAlignment="center"
+          android:textColor="@color/black"
+          android:textSize="20dp"/>
+
+        <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:orientation="horizontal">
+
+          <TextView
+            android:textStyle="bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginRight="10dp"
+            android:gravity="end"
+            android:text="12th School:"
+            android:textAlignment="textEnd"
+            android:textColor="@color/black"
+            android:textSize="20dp"/>
+
+          <TextView
+            android:id="@+id/tv_school12"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ellipsize="end"
+
+            android:textColor="@color/black"
+            android:textSize="18dp"
+            tools:text="Sri Chaitanya Junior College"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:orientation="horizontal">
+
+          <TextView
+            android:textStyle="bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginRight="10dp"
+            android:gravity="end"
+            android:text="12th Board:"
+            android:textAlignment="textEnd"
+            android:textColor="@color/black"
+            android:textSize="20dp"/>
+
+          <TextView
+            android:id="@+id/tv_board12"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/black"
+            android:textSize="18dp"
+            tools:text="Andhra Pradesh Board of Intermediate Education"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:orientation="horizontal">
+
+          <TextView
+            android:textStyle="bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginRight="10dp"
+            android:gravity="end"
+            android:text="12th Year:"
+            android:textAlignment="textEnd"
+            android:textColor="@color/black"
+            android:textSize="20dp"/>
+
+          <TextView
+            android:id="@+id/tv_year12"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/black"
+            android:textSize="18dp"
+            tools:text="2015"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:orientation="horizontal">
+
+          <TextView
+            android:textStyle="bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginRight="10dp"
+            android:gravity="end"
+            android:text="12th %:"
+            android:textAlignment="textEnd"
+            android:textColor="@color/black"
+            android:textSize="20dp"/>
+
+          <TextView
+            android:id="@+id/tv_per12"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/black"
+            android:textSize="18dp"
+            tools:text="90.6"/>
+
+        </LinearLayout>
+
+
+        <View
+          android:layout_width="match_parent"
+          android:layout_height="1dp"
+          android:layout_margin="16dp"
+          android:background="@color/black"/>
+
+        <TextView
+          android:textStyle="bold"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:layout_marginRight="10dp"
+          android:text="B.Tech"
+          android:textAlignment="center"
+          android:textColor="@color/black"
+          android:textSize="20dp"/>
+
+        <TableLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content">
+
+          <TableRow android:gravity="center">
+
+            <TextView
+              android:textStyle="bold"
+              android:text="Semester"
+              android:textColor="@color/black"
+              android:textSize="15dp"/>
+
+            <TextView
+              android:textStyle="bold"
+              android:text="   1   "
+              android:textColor="@color/black"
+              android:textSize="15dp"/>
+
+            <TextView
+              android:textStyle="bold"
+              android:text="   2   "
+              android:textColor="@color/black"
+              android:textSize="15dp"/>
+
+            <TextView
+              android:textStyle="bold"
+              android:text="   3   "
+              android:textColor="@color/black"
+              android:textSize="15dp"/>
+
+            <TextView
+              android:textStyle="bold"
+              android:text="   4   "
+              android:textColor="@color/black"
+              android:textSize="15dp"/>
+
+            <TextView
+              android:textStyle="bold"
+              android:text="   5   "
+              android:textColor="@color/black"
+              android:textSize="15dp"/>
+
+            <TextView
+              android:textStyle="bold"
+              android:text="   6   "
+              android:textColor="@color/black"
+              android:textSize="15dp"/>
+
+            <TextView
+              android:textStyle="bold"
+              android:text="   7   "
+              android:textColor="@color/black"
+              android:textSize="15dp"/>
+
+            <TextView
+              android:textStyle="bold"
+              android:text="   8   "
+              android:textColor="@color/black"
+              android:textSize="15dp"/>
+          </TableRow>
+
+          <TableRow android:gravity="center">
+
+            <TextView
+              android:textStyle="bold"
+              android:text="SPI"
+              android:textColor="@color/black"
+              android:textSize="15dp"/>
+
+            <TextView
+              android:id="@+id/spi1"
+              android:textStyle="bold"
+              android:textAlignment="center"
+              android:textColor="@color/black"
+              android:textSize="15dp"
+              tools:text=" 7.46 "/>
+
+            <TextView
+              android:id="@+id/spi2"
+              android:textStyle="bold"
+              android:textAlignment="center"
+              android:textColor="@color/black"
+              android:textSize="15dp"
+              tools:text=" 6.58 "/>
+
+            <TextView
+              android:id="@+id/spi3"
+              android:textStyle="bold"
+              android:textAlignment="center"
+              android:textColor="@color/black"
+              android:textSize="15dp"
+              tools:text=" 5.65 "/>
+
+            <TextView
+              android:id="@+id/spi4"
+              android:textStyle="bold"
+              android:textAlignment="center"
+              android:textColor="@color/black"
+              android:textSize="15dp"
+              tools:text=" 7.52 "/>
+
+            <TextView
+              android:id="@+id/spi5"
+              android:textStyle="bold"
+              android:textAlignment="center"
+              android:textColor="@color/black"
+              android:textSize="15dp"
+              tools:text=" 0 "/>
+
+            <TextView
+              android:id="@+id/spi6"
+              android:textStyle="bold"
+              android:textAlignment="center"
+              android:textColor="@color/black"
+              android:textSize="15dp"
+              tools:text=" 0 "/>
+
+            <TextView
+              android:id="@+id/spi7"
+              android:textStyle="bold"
+              android:textAlignment="center"
+              android:textColor="@color/black"
+              android:textSize="15dp"
+              tools:text=" 0 "/>
+
+            <TextView
+              android:id="@+id/spi8"
+              android:textStyle="bold"
+              android:textAlignment="center"
+              android:textColor="@color/black"
+              android:textSize="15dp"
+              tools:text=" 0 "/>
+          </TableRow>
+        </TableLayout>
+
+        <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:orientation="horizontal">
+
+          <TextView
+            android:textStyle="bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginRight="10dp"
+            android:gravity="end"
+            android:text="CPI:"
+            android:textAlignment="textEnd"
+            android:textColor="@color/black"
+            android:textSize="20dp"/>
+
+          <TextView
+            android:id="@+id/tv_cpi"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/black"
+            android:textSize="18dp"
+            tools:text="6.8"/>
+
+        </LinearLayout>
+      </LinearLayout>
     </android.support.v7.widget.CardView>
-</ScrollView>
+  </ScrollView>
+</layout>

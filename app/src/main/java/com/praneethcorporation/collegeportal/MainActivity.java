@@ -4,6 +4,9 @@ import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.databinding.DataBindingUtil;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Build.VERSION_CODES;
 import android.support.annotation.RequiresApi;
@@ -19,6 +22,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.praneethcorporation.collegeportal.databinding.ActivityMainBinding;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -33,51 +37,51 @@ import java.net.URLEncoder;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
-
-    private EditText password;
-    private EditText registration;
-    private Button mloginButton;
+ActivityMainBinding binding;
     private Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+      super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_main);
+      setContentView(R.layout.activity_main);
 
+
+      binding=DataBindingUtil.setContentView(this, R.layout.activity_main);
         context = this;
-        registration = (EditText) findViewById(R.id.registration);
-        registration.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                if (registration.length() == 7) {
-                    registration.clearFocus();
-                    password.requestFocus();
-                    password.setCursorVisible(true);
-                }
+
+        binding.registration.addTextChangedListener(new TextWatcher() {
+          @Override
+          public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            if (binding.registration.length() == 7) {
+              binding.registration.clearFocus();
+              binding.pass.requestFocus();
+              binding.pass.setCursorVisible(true);
             }
+          }
 
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
+          @Override
+          public void onTextChanged(CharSequence s, int start, int before, int count) {
 
-            }
+          }
 
-            @Override
-            public void afterTextChanged(Editable s) {
+          @Override
+          public void afterTextChanged(Editable s) {
 
-            }
+          }
         });
-        password = (EditText) findViewById(R.id.pass);
-        password.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
-        mloginButton = (Button) findViewById(R.id.loginBtn);
 
-        mloginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                BackgroundTask task = new BackgroundTask(context);
-                task.execute("login", registration.getText().toString(), password.getText().toString());
-            }
-        });  }
+      binding.pass.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+
+      binding.loginBtn.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View v) {
+
+            BackgroundTask task = new BackgroundTask(context);
+            task.execute("login", binding.registration.getText().toString(), binding.pass.getText().toString());
+          }
+        });
+      }
 
     public class BackgroundTask extends AsyncTask<String, Void, String> {
 
