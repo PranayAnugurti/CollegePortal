@@ -136,6 +136,7 @@ public class Tab2 extends Fragment {
       JSONObject a = base_json.getJSONObject("response");
 
       info=new acad_info(
+          reg_no,
           a.getString("name"),
           a.getString("school_10"),
           a.getString("board_10"),
@@ -157,6 +158,7 @@ public class Tab2 extends Fragment {
       );
       binding.tvName.setText(info.name);
       binding.tvSchool10.setText(info.school_10);
+      binding.tvBoard10.setText(info.board_10);
       binding.tvYear10.setText(info.year_10);
       binding.tvPer10.setText(info.per_10);
       binding.tvSchool12.setText(info.school_12);

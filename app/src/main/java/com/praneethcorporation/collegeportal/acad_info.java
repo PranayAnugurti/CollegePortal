@@ -9,6 +9,7 @@ import android.os.Parcelable;
 
 public class acad_info implements Parcelable{
   public static String name;
+  public static String reg_no;
   public static String school_10;
   public static String board_10;
   public static String year_10;
@@ -27,7 +28,9 @@ public class acad_info implements Parcelable{
   public static String spi8;
   public static String cpi;
 
-  public acad_info(  String name,
+  public acad_info(
+      String reg_no,
+      String name,
       String school_10,
       String board_10,
       String year_10,
@@ -45,6 +48,7 @@ public class acad_info implements Parcelable{
       String spi7,
       String spi8,
       String cpi){
+    this.reg_no=reg_no;
     this.name=name;
     this.school_10=school_10;
     this.board_10=board_10;
@@ -63,11 +67,12 @@ public class acad_info implements Parcelable{
     this.spi7=spi7;
     this.spi8=spi8;
     this.cpi=cpi;
-    
   }
 
 
   protected acad_info(Parcel in) {
+
+    reg_no=in.readString();
     name = in.readString();
     school_10 = in.readString();
     board_10 = in.readString();
@@ -107,6 +112,7 @@ public class acad_info implements Parcelable{
 
   @Override
   public void writeToParcel(Parcel dest, int flags) {
+    dest.writeString(reg_no);
     dest.writeString(name);
     dest.writeString(school_10);
     dest.writeString(board_10);

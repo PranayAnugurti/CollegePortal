@@ -21,6 +21,9 @@ android {
         enabled = true
     }
 }
+repositories {
+    mavenCentral()
+}
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
@@ -35,5 +38,6 @@ dependencies {
     compile 'de.hdodenhof:circleimageview:2.1.0'
     testCompile 'junit:junit:4.12'
     compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.github.paolorotolo:expandableheightlistview:1.0.0'
 
 }

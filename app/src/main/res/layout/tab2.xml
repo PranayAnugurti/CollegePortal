@@ -101,7 +101,34 @@
             tools:text="A.K.M Jubilee English Medium School"/>
 
         </LinearLayout>
+        <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:orientation="horizontal">
 
+          <TextView
+            android:textStyle="bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginRight="10dp"
+            android:gravity="end"
+            android:text="10th Board:"
+            android:textAlignment="textEnd"
+            android:textColor="@color/black"
+            android:textSize="20dp"/>
+
+          <TextView
+            android:id="@+id/tv_board10"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/black"
+            android:textSize="18dp"
+            tools:text="2013"/>
+
+        </LinearLayout>
         <LinearLayout
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
@@ -127,7 +154,7 @@
             android:layout_weight="1"
             android:textColor="@color/black"
             android:textSize="18dp"
-            tools:text="2013"/>
+            tools:text="AP Board of Secondary Education"/>
 
         </LinearLayout>
 

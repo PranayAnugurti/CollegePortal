@@ -178,6 +178,15 @@
                     android:layout_weight="2"></EditText>
 
             </LinearLayout>
+          <Button
+            android:id="@+id/saveform2"
+            android:layout_marginTop="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryDark"
+            android:text="SAVE"
+            android:layout_marginBottom="8dp"
+            android:textColor="@color/white"/>
 
         </LinearLayout>
 

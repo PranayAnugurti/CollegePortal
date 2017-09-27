@@ -438,7 +438,7 @@ public class Tab1Form extends AppCompatActivity {
     @Override
     protected void onPostExecute(String s) {
       super.onPostExecute(s);
-      if(s.equals("Record updated successfully")){
+      if(s.contains("Record updated successfully")){
         Toast.makeText(ctx,"Updated Personal Details!",Toast.LENGTH_LONG).show();
       }
       else{

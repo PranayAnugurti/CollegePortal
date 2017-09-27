@@ -36,7 +36,8 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.Objects;
 
-public class MainActivity extends AppCompatActivity {
+public class
+MainActivity extends AppCompatActivity {
 ActivityMainBinding binding;
     private Context context;
 
