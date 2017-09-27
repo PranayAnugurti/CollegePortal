@@ -15,6 +15,29 @@
         android:textColor="@color/black"
         android:textSize="20dp"
         android:textStyle="bold" />
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:id="@+id/imageView"
+        android:visibility="gone"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Choose Image"
+        android:id="@+id/chooseImage"
+        android:layout_below="@id/imageView"
+        android:layout_marginTop="15dp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Upload Image"
+        android:id="@+id/uploadBn"
+        android:layout_below="@id/chooseImage"
+        android:layout_marginTop="15dp"/>
 
     <View
         android:layout_width="match_parent"
