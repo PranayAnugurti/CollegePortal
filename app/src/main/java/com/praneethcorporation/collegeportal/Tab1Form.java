@@ -10,7 +10,7 @@ import android.os.AsyncTask;
 import android.provider.BaseColumns;
 import android.support.v7.app.AlertDialog;
 import com.praneethcorporation.collegeportal.Home.BackgroundTask;
-import com.praneethcorporation.collegeportal.databinding.Tab1formBinding;
+//import com.praneethcorporation.collegeportal.databinding.Tab1formBinding;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -52,7 +52,7 @@ import android.widget.Toast;
 
 public class Tab1Form extends AppCompatActivity {
 
-  Tab1formBinding binding;
+  //Tab1formBinding binding;
   EditText dateofbirth, name, reg_no, email, skype, guardian, present_address, permanent_address;
   private DatePicker datePicker;
   private Calendar calendar;

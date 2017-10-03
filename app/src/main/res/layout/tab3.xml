@@ -27,7 +27,8 @@
     <com.github.paolorotolo.expandableheightlistview.ExpandableHeightListView
         android:id="@+id/projectsList"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_margin="16dp">
     </com.github.paolorotolo.expandableheightlistview.ExpandableHeightListView>
 
 
@@ -49,6 +50,7 @@
     <com.github.paolorotolo.expandableheightlistview.ExpandableHeightListView
         android:id="@+id/intenshipsList"
         android:layout_width="match_parent"
+        android:layout_margin="16dp"
         android:layout_height="match_parent">
 
     </com.github.paolorotolo.expandableheightlistview.ExpandableHeightListView>
