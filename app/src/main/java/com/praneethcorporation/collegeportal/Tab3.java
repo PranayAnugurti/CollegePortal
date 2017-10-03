@@ -1,6 +1,8 @@
 package com.praneethcorporation.collegeportal;
 
 
+import android.app.Dialog;
+import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -8,12 +10,16 @@ import android.os.Build.VERSION_CODES;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ExpandableListView;
 import android.widget.ListView;
+import android.widget.TextView;
+
 import com.github.paolorotolo.expandableheightlistview.ExpandableHeightListView;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -69,8 +75,71 @@ public class Tab3 extends Fragment {
     projectListView.setAdapter(projectAdapter);
     projectListView.setExpanded(true);
 
+projectListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+  @Override
+  public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+
+
+    TextView title = (TextView)view.findViewById(R.id.project);
+    TextView duration = (TextView)view.findViewById(R.id.durationView);
+    TextView descriptionView = (TextView)view.findViewById(R.id.descriptionView);
+
+
+
+    Dialog dialog  =new Dialog(getContext());
+    dialog.setContentView(R.layout.projectdialog);
+
+    TextView Dtitle = (TextView)dialog.findViewById(R.id.Dproject);
+    TextView Dduration = (TextView)dialog.findViewById(R.id.DdurationView);
+    TextView DdescriptionView = (TextView)dialog.findViewById(R.id.DdescriptionView);
+
+Dtitle.setText(title.getText().toString().trim());
+    Dduration.setText(duration.getText().toString().trim());
+    DdescriptionView.setText(descriptionView.getText().toString().toString());
+    dialog.setTitle("Project");
+    dialog.setCancelable(true);
+dialog.show();
+  }
+});
+
+    listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+      @Override
+      public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+        TextView internship = (TextView)view.findViewById(R.id.internshipTextView);
+        TextView comapny = (TextView)view.findViewById(R.id.companyTextView);
+        TextView descriptionTextView = (TextView)view.findViewById(R.id.descriptionTextView);
+        TextView durationTextView = (TextView)view.findViewById(R.id.durationTextView);
+
+
+
+        Dialog dialog  =new Dialog(getContext());
+        dialog.setContentView(R.layout.internshipdialog);
+
+
+        TextView Dinternship = (TextView)dialog.findViewById(R.id.DinternshipTextView);
+        TextView Dcomapny = (TextView)dialog.findViewById(R.id.DcompanyTextView);
+        TextView DdescriptionTextView = (TextView)dialog.findViewById(R.id.DdescriptionTextView);
+        TextView DdurationTextView = (TextView)dialog.findViewById(R.id.DdurationTextView);
+
+
+        Dinternship.setText(internship.getText().toString().trim());
+        Dcomapny.setText(comapny.getText().toString().trim());
+        DdurationTextView.setText(durationTextView.getText().toString().trim());
+        DdescriptionTextView.setText(descriptionTextView.getText().toString().toString());
+
+        dialog.setTitle("Project");
+        dialog.setCancelable(true);
+        dialog.show();
+      }
+    });
+
+
     return view;
   }
+
+
 
   public class InternBackgroundTask extends AsyncTask<String, Void, String> {
 

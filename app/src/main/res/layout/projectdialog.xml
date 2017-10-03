@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical"
+    >
+
+    <android.support.v7.widget.CardView
+        android:layout_width="300dp"
+        android:minHeight="300dp"
+        android:layout_height="wrap_content"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp"
+            >
+            <TextView
+                android:id="@+id/Dproject"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="DUMMY PROJECT "
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textSize="16sp"/>
+            <TextView
+                android:id="@+id/DdurationView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:text="June 2017-July 2017"
+                android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+                android:textSize="14sp"/>
+            <TextView
+                android:id="@+id/DdescriptionView"
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Built an Android Application compatable with mobiles as well as tablets(Multi-Pane Layout),as a part of the Google's Udacity Android Developer Nanodegree ,that will allow a user to select a recipe and see video-guided steps for how to complete it.This app utilizes core Android user interface components,fetches recipe information using a web API,handles media loading, verifies the user interfaces with UI tests."
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textSize="16sp"/>
+            <Button
+                android:id="@+id/DviewProject"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="View Project"
+                android:background="@color/colorPrimary"/>
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+</LinearLayout>

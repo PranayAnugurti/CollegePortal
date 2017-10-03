@@ -7,9 +7,10 @@
     android:background="@color/background">
 
     <android.support.v7.widget.CardView
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
+        android:minHeight="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp">
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -18,7 +19,7 @@
             android:padding="8dp">
 
             <TextView
-              android:id="@+id/internshipTextView"
+                android:id="@+id/DinternshipTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:elevation="10dp"
@@ -29,7 +30,7 @@
                 android:textSize="16dp" />
 
             <TextView
-                android:id="@+id/companyTextView"
+                android:id="@+id/DcompanyTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
@@ -38,23 +39,21 @@
                 android:textSize="20dp"
                 android:textStyle="bold" />
             <TextView
-                android:id="@+id/durationTextView"
+                android:id="@+id/DdurationTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
-                tools:text="24 June 2016 - 24 July 2016"
+                android:text="24 June 2016 - 24 July 2016"
                 android:textSize="14dp"
                 />
-          <TextView
-            android:id="@+id/descriptionTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ellipsize="end"
-            tools:text="oiuhoiewajroiwjerpoqwjoepwqpoeqpowepojlksadlkwoidjqwedjopwjopiejwqoiejqwoirjoiqwrejiowqejioqwejoiqwjdoiqwjedoiqwjeiowqjdeiasjdoi;aserlkwqjdfopasdoiqwejiqwrjijd"
-            android:textSize="14sp"
-              android:maxLines="3"
-              android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"
-            />
+            <TextView
+                android:id="@+id/DdescriptionTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="oiuhoiewajroiwjerpoqwjoepwqpoeqpowepojlksadlkwoidjqwedjopwjopiejwqoiejqwoirjoiqwrejiowqejioqwejoiqwjdoiqwjedoiqwjeiowqjdeiasjdoi;aserlkwqjdfopasdoiqwejiqwrjijd"
+                android:textSize="18dp"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"
+                />
 
         </LinearLayout>
     </android.support.v7.widget.CardView>
