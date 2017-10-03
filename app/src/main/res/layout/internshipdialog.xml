@@ -10,7 +10,6 @@
         android:layout_width="300dp"
         android:minHeight="300dp"
         android:layout_height="wrap_content"
-
         >
 
 
