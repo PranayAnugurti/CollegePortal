@@ -2,17 +2,22 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
-  android:background="@color/colorAccent"
-  android:orientation="vertical">
+  android:background="@color/background"
+  android:orientation="vertical"
+    >
 
   <android.support.v7.widget.CardView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:elevation="10dp">
+      android:layout_marginBottom="16dp"
+
+     >
     <LinearLayout
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:orientation="vertical">
+      android:orientation="vertical"
+    android:padding="8dp"
+        >
       <TextView
         android:id="@+id/project"
         android:layout_width="match_parent"
@@ -34,10 +39,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ellipsize="end"
+          android:maxLines="3"
         android:text="Built an Android Application compatable with mobiles as well as tablets(Multi-Pane Layout),as a part of the Google's Udacity Android Developer Nanodegree ,that will allow a user to select a recipe and see video-guided steps for how to complete it.This app utilizes core Android user interface components,fetches recipe information using a web API,handles media loading, verifies the user interfaces with UI tests."
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textSize="14sp"/>
       <Button
+          android:visibility="gone"
         android:id="@+id/viewProject"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
