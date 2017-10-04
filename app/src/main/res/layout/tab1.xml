@@ -41,7 +41,7 @@
               android:layout_marginRight="20dp"
               android:layout_alignParentRight="true"
               android:padding="5dp"
-              android:background="@color/colorPrimaryDark"
+              android:background="@color/button_color"
               android:drawableLeft="@drawable/edit"
               android:text="EDIT"
               android:textColor="@color/white"
