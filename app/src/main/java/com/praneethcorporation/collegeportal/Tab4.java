@@ -2,6 +2,7 @@ package com.praneethcorporation.collegeportal;
 
 import android.Manifest;
 import android.app.ProgressDialog;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -9,48 +10,35 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Build.VERSION_CODES;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
-import android.provider.SyncStateContract.Constants;
-import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
-import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import android.widget.Toast;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.ByteArrayOutputStream;
+import com.squareup.picasso.Picasso;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.io.UnsupportedEncodingException;
-import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLEncoder;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.UUID;
-import javax.net.ssl.HttpsURLConnection;
 import net.gotev.uploadservice.MultipartUploadRequest;
 import net.gotev.uploadservice.UploadNotificationConfig;
-
 import static android.app.Activity.RESULT_OK;
 import static com.praneethcorporation.collegeportal.R.id.imageView;
-import static com.praneethcorporation.collegeportal.R.id.uploadBn;
 
 /**
  * Created by user on 8/29/2017.
@@ -60,25 +48,32 @@ public class Tab4 extends Fragment implements SingleUploadBroadcastReceiver.Dele
     private final SingleUploadBroadcastReceiver uploadReceiver =
             new SingleUploadBroadcastReceiver();
 
-    Button UploadBn, ChooseImg;
+    Button UploadBn, ChooseImg,BrowseBtn,UploadPdfBtn,DownloadPdfBtn;
     ImageView imgView;
+  TextView pdfPathTextView;
+  EditText pdfPathEditTxt;
     String ImagePath = "image_path" ;
     private int PICK_IMAGE_REQUEST = 1;
+    private int PICK_PDF_REQUEST = 2;
 
     //storage permission code
     private static final int STORAGE_PERMISSION_CODE = 123;
 
-    String reg_no,name;
+    String reg_no,name,imageServerLink;
     //Uri to store the image uri
     private Uri filePath;
-    String path;
+    private Uri pdfPath ;
+    String path,pathForPdf,pdfServerLink;
     boolean check = true;
-    String ServerUploadPath ="http://139.59.5.186/php/photo_upload.php" ;
+    String ImageUploadServerPath ="http://139.59.5.186/php/photo_upload.php" ;
+    String PdfUploadServerPath ="http://139.59.5.186/php/pdf_upload.php" ;
     ProgressDialog dialog;
     private final int IMG_REQUEST = 1;
     private Bitmap bitmap;
+  private String tag="O_MY";
 
-    @Override
+
+  @Override
     public void onResume() {
         super.onResume();
         uploadReceiver.register(getContext());
@@ -95,11 +90,19 @@ public class Tab4 extends Fragment implements SingleUploadBroadcastReceiver.Dele
         View view = inflater.inflate(R.layout.tab4, container, false);
         Context c = getActivity().getApplicationContext();
         reg_no=getActivity().getIntent().getStringExtra("reg_no");
+        imageServerLink=getActivity().getIntent().getStringExtra("image");
+        pdfServerLink=getActivity().getIntent().getStringExtra("pdf");
         name=UserInfo.name;
         requestStoragePermission();
         ChooseImg = (Button)view.findViewById(R.id.chooseImage);
         UploadBn = (Button) view.findViewById(R.id.uploadBn);
+        BrowseBtn = (Button) view.findViewById(R.id.browseBtn);
+        UploadPdfBtn = (Button) view.findViewById(R.id.uploadPdfBtn);
+        DownloadPdfBtn = (Button) view.findViewById(R.id.downloadBtn);
+        pdfPathEditTxt=(EditText)view.findViewById(R.id.pdfNameFeild);
+        pdfPathTextView=(TextView)view.findViewById(R.id.pdfName);
         imgView = (ImageView)view.findViewById(imageView);
+      Picasso.with(getContext()).load(imageServerLink).into(imgView);
         ChooseImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -116,11 +119,45 @@ public class Tab4 extends Fragment implements SingleUploadBroadcastReceiver.Dele
                 dialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
                 dialog.setMessage("Uploading photo, please wait.");
                 dialog.setMax(100);
-
                 dialog.setCancelable(true);
                 dialog.show();
             }
         });
+      pdfPathTextView.setOnClickListener(new OnClickListener() {
+        @Override
+        public void onClick(View v) {
+          viewPDF();
+        }
+      });
+
+      BrowseBtn.setOnClickListener(new OnClickListener() {
+        @Override
+        public void onClick(View v) {
+          showFileChooser();
+        }
+      });
+      UploadPdfBtn.setOnClickListener(new View.OnClickListener() {
+        @RequiresApi(api = VERSION_CODES.KITKAT)
+        @Override
+        public void onClick(View v) {
+          //dialog = ProgressDialog.show(getContext(), "", "Uploading file...", true);
+          uploadPdfToServer();
+
+          dialog = new ProgressDialog(getContext());
+          dialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+          dialog.setMessage("Uploading pdf, please wait.");
+          dialog.setMax(100);
+          dialog.setCancelable(true);
+          dialog.show();
+        }
+      });
+      DownloadPdfBtn.setOnClickListener(new OnClickListener() {
+        @Override
+        public void onClick(View v) {
+          downloadPDF();
+        }
+      });
+
         return view;
     }
     private void requestStoragePermission() {
@@ -158,6 +195,14 @@ public class Tab4 extends Fragment implements SingleUploadBroadcastReceiver.Dele
                 e.printStackTrace();
             }
         }
+        if (requestCode == PICK_PDF_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
+            pdfPath = data.getData();
+            pdfPathEditTxt.setText(pdfPath.toString());
+            UploadPdfBtn.setVisibility(View.VISIBLE);
+            pdfPathTextView.setClickable(true);
+
+
+      }
     }
 
     public String getPath(Uri uri) {
@@ -176,6 +221,7 @@ public class Tab4 extends Fragment implements SingleUploadBroadcastReceiver.Dele
 
         return path;
     }
+
     public void uploadImageToServer() {
         //getting the actual path of the image
         //String path = getPath(filePath);
@@ -186,7 +232,7 @@ public class Tab4 extends Fragment implements SingleUploadBroadcastReceiver.Dele
             uploadReceiver.setDelegate(this);
             uploadReceiver.setUploadID(uploadId);
             //Creating a multi part request
-            new MultipartUploadRequest(getContext(), uploadId,ServerUploadPath)
+            new MultipartUploadRequest(getContext(), uploadId,ImageUploadServerPath)
                     .addFileToUpload(getPath(filePath),"image") //Adding file
                     .addParameter("name",name)
                     .addParameter("reg_no",reg_no)//Adding text parameter to the request
@@ -199,6 +245,44 @@ public class Tab4 extends Fragment implements SingleUploadBroadcastReceiver.Dele
             e.printStackTrace();
         }
     }
+  @RequiresApi(api = VERSION_CODES.KITKAT)
+  public void uploadPdfToServer() {
+    //getting name for the image
+    //String name = editText.getText().toString().trim();
+    pathForPdf=FilePath.getPath(getContext(),pdfPath);
+
+    if (pathForPdf == null) {
+
+      Toast.makeText(getContext(), "Please move your .pdf file to internal storage and retry", Toast.LENGTH_LONG).show();
+    } else {
+      //Uploading code
+      try {
+        String uploadId = UUID.randomUUID().toString();
+        uploadReceiver.setDelegate(this);
+        uploadReceiver.setUploadID(uploadId);
+        //Creating a multi part request
+        new MultipartUploadRequest(getContext(), uploadId, PdfUploadServerPath)
+            .addFileToUpload(pathForPdf, "pdf") //Adding file
+            .addParameter("name", name) //Adding text parameter to the request
+            .addParameter("reg_no", reg_no) //Adding text parameter to the request
+            .setNotificationConfig(new UploadNotificationConfig())
+            .setMaxRetries(2)
+            .startUpload(); //Starting the upload
+
+      } catch (Exception exc) {
+        Toast.makeText(getContext(), exc.getMessage(), Toast.LENGTH_SHORT).show();
+      }
+    }
+  }
+
+
+  //method to show file chooser
+  private void showFileChooser() {
+    Intent intent = new Intent();
+    intent.setType("application/pdf");
+    intent.setAction(Intent.ACTION_GET_CONTENT);
+    startActivityForResult(Intent.createChooser(intent, "Select Pdf"), PICK_PDF_REQUEST);
+  }
 
     @Override
     public void onProgress(int progress) {
@@ -220,7 +304,8 @@ public class Tab4 extends Fragment implements SingleUploadBroadcastReceiver.Dele
     @Override
     public void onCompleted(int serverResponseCode, byte[] serverResponseBody) {
         dialog.dismiss();
-        Snackbar.make(getActivity().findViewById(R.id.linearLayout),"Whoila!!! Image Uploaded Successfully!",Snackbar.LENGTH_LONG).show();
+      Log.d("O_MY",serverResponseBody+"ResponseCode"+serverResponseBody);
+        Snackbar.make(getActivity().findViewById(R.id.linearLayout),"Whoila!!! File Uploaded Successfully!",Snackbar.LENGTH_LONG).show();
     }
 
 
@@ -228,4 +313,77 @@ public class Tab4 extends Fragment implements SingleUploadBroadcastReceiver.Dele
     public void onCancelled() {
 
     }
+  public void downloadPDF()
+  {
+    new DownloadFile().execute(pdfServerLink,pdfServerLink.substring(pdfServerLink.lastIndexOf("/")+1));
+  }
+
+  public void viewPDF()
+  {
+    File pdfFile = new File(Environment.getExternalStorageDirectory() + "/PDF DOWNLOAD/" +pdfServerLink.substring(pdfServerLink.lastIndexOf("/")+1));  // -> filename = maven.pdf
+    Uri path = Uri.fromFile(pdfFile);
+    Intent pdfIntent = new Intent(Intent.ACTION_VIEW);
+    pdfIntent.setDataAndType(path, "application/pdf");
+    pdfIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+    try{
+      startActivity(pdfIntent);
+    }catch(ActivityNotFoundException e){
+      Toast.makeText(getContext(), "No Application available to view PDF", Toast.LENGTH_SHORT).show();
+    }
+  }
+
+  private class DownloadFile extends AsyncTask<String, Void, Void> {
+
+    @Override
+    protected void onPreExecute() {
+      super.onPreExecute();
+      showpDialog();
+    }
+
+    @Override
+    protected Void doInBackground(String... strings) {
+
+      String fileUrl = strings[0];
+      String fileName = strings[1];
+
+      String extStorageDirectory = Environment.getExternalStorageDirectory().toString();
+      File folder = new File(extStorageDirectory, "PDF DOWNLOAD");
+      folder.mkdir();
+      File pdfFile = new File(folder, fileName);
+      try{
+        pdfFile.createNewFile();
+      }catch (IOException e){
+        e.printStackTrace();
+      }
+      FileDownloader.downloadFile(fileUrl, pdfFile);
+      return null;
+
+    }
+
+    @Override
+    protected void onPostExecute(Void aVoid) {
+      super.onPostExecute(aVoid);
+      hidepDialog();
+      Toast.makeText(getContext(), "Download PDf successfully", Toast.LENGTH_SHORT).show();
+      DownloadPdfBtn.setText("Pdf Downloaded!!");
+      Log.d("Download complete", "----------");
+    }
+  }
+
+
+  private void showpDialog() {
+    dialog = new ProgressDialog(getContext());
+    dialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+    dialog.setMessage("Downloading pdf, please wait.");
+    dialog.setMax(100);
+    dialog.setCancelable(true);
+    dialog.show();
+  }
+
+  private void hidepDialog() {
+    if (dialog.isShowing())
+      dialog.dismiss();
+  }
+
 }
+

@@ -41,5 +41,6 @@ dependencies {
     compile 'com.github.paolorotolo:expandableheightlistview:1.0.0'
     compile 'com.github.PhilJay:MPAndroidChart:v2.2.4'
     compile 'net.gotev:uploadservice:2.1'
+    compile 'in.gauriinfotech:commons:1.0.8'
 
 }

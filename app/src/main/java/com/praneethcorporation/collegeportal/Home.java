@@ -82,6 +82,8 @@ public class Home extends AppCompatActivity
       public void onClick(View v) {
         Intent intent = new Intent(getApplicationContext(), Profile.class);
         intent.putExtra("reg_no", reg_no);
+        intent.putExtra("image",info.image_server_link);
+        intent.putExtra("pdf",info.pdf_server_link);
         startActivity(intent);
       }
     });
@@ -238,7 +240,7 @@ Intent intent = new Intent(Home.this,PlaceMentStatistics.class);
         JSONObject a = base_json.getJSONObject("response");
 
         info = new UserInfo(a.getString("reg_no"), a.getString("name"), a.getString("user_pass"),
-                a.getString("image"),a.getString("imageServerLink"), a.getString("course"), a.getString("branch"), a.getString("dob"),
+                a.getString("image"),a.getString("imageServerLink"),a.getString("pdfServerLink"), a.getString("course"), a.getString("branch"), a.getString("dob"),
                 a.getString("email"), a.getString("skype"), a.getString("linkedin"),
                 a.getString("gender"),
                 a.getString("category"), a.getString("phd"), a.getString("residential_status"),

@@ -246,6 +246,7 @@ public class Tab1Form extends AppCompatActivity {
             info.pass,name.getText().toString(),
             info.image_url,
                 info.image_server_link,
+            info.pdf_server_link,
             courseSpinner.getSelectedItem().toString(),
             branchSpinner.getSelectedItem().toString(),
             dateofbirth.getText().toString(),
