@@ -50,7 +50,7 @@ public class FinishedActivty extends AppCompatActivity {
                 .setTextSize(8)//set textSize
                 .setStepsViewIndicatorCompletedLineColor(Color.parseColor("#00796B"))//StepsViewIndicator
                 .setStepsViewIndicatorUnCompletedLineColor(Color.parseColor("#4DB6AC"))//StepsViewIndicator
-                .setStepViewComplectedTextColor(Color.parseColor("#009688"))//StepsView text
+                .setStepViewComplectedTextColor(Color.parseColor("#00796B"))//StepsView text
                 .setStepViewUnComplectedTextColor(Color.parseColor("#4DB6AC"))//StepsView text
                 .setStepsViewIndicatorCompleteIcon(ContextCompat.getDrawable(getApplicationContext(), R.drawable.success))//StepsViewIndicator CompleteIcon
                 .setStepsViewIndicatorDefaultIcon(ContextCompat.getDrawable(getApplicationContext(), R.drawable.unvisited))//StepsViewIndicator DefaultIcon
