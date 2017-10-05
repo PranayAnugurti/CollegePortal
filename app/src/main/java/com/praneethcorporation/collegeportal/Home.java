@@ -146,7 +146,12 @@ public class Home extends AppCompatActivity
 
     } else if (id == R.id.nav_send) {
 
+    } else if (id == R.id.nav_place_stats) {
+Intent intent = new Intent(Home.this,PlaceMentStatistics.class);
+      startActivity(intent);
+
     }
+
 
     DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
     drawer.closeDrawer(GravityCompat.START);
