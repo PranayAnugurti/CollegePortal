@@ -49,7 +49,7 @@ public class Personal_Info extends AppCompatActivity {
 
         stepView
                 .setStepViewTexts(stepBeanList)//
-                .setTextSize(12)//set textSize
+                .setTextSize(8)//set textSize
                 .setStepsViewIndicatorCompletedLineColor(Color.parseColor("#00796B"))//StepsViewIndicator
                 .setStepsViewIndicatorUnCompletedLineColor(Color.parseColor("#4DB6AC"))//StepsViewIndicator
                 .setStepViewComplectedTextColor(Color.parseColor("#009688"))//StepsView text
