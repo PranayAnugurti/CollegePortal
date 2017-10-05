@@ -152,6 +152,7 @@ public class Tab1 extends Fragment {
 
         info = new UserInfo(a.getString("reg_no"), a.getString("name"), a.getString("user_pass"),
             a.getString("image"),
+                a.getString("imageServerLink"),
             a.getString("course"), a.getString("branch"), a.getString("dob"),
             a.getString("email"), a.getString("skype"), a.getString("linkedin"),
             a.getString("gender"),

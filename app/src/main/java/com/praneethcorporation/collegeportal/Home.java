@@ -46,7 +46,7 @@ import org.json.JSONObject;
 import org.w3c.dom.Text;
 
 public class Home extends AppCompatActivity
-    implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener {
 
   String reg_no;
   UserInfo info;
@@ -88,7 +88,7 @@ public class Home extends AppCompatActivity
 
     DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
     ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-        this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+            this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
     drawer.setDrawerListener(toggle);
     toggle.syncState();
 
@@ -146,9 +146,6 @@ public class Home extends AppCompatActivity
 
     } else if (id == R.id.nav_send) {
 
-    }else if (id==R.id.nav_place_stats){
-      Intent intent = new Intent(Home.this,PlaceMentStatistics.class);
-      startActivity(intent);
     }
 
     DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -186,9 +183,9 @@ public class Home extends AppCompatActivity
         httpURLConnection.setDoInput(true);
         OutputStream outputStream = httpURLConnection.getOutputStream();
         BufferedWriter bufferedWriter = new BufferedWriter(
-            new OutputStreamWriter(outputStream, "UTF-8"));
+                new OutputStreamWriter(outputStream, "UTF-8"));
         String data =
-            URLEncoder.encode("reg_no", "UTF-8") + "=" + URLEncoder.encode(reg_no, "UTF-8");
+                URLEncoder.encode("reg_no", "UTF-8") + "=" + URLEncoder.encode(reg_no, "UTF-8");
 
         bufferedWriter.write(data);
         bufferedWriter.flush();
@@ -196,7 +193,7 @@ public class Home extends AppCompatActivity
         outputStream.close();
         InputStream inputStream = httpURLConnection.getInputStream();
         BufferedReader bufferedReader = new BufferedReader(
-            new InputStreamReader(inputStream, "iso-8859-1"));
+                new InputStreamReader(inputStream, "iso-8859-1"));
         StringBuilder stringBuilder = new StringBuilder();
 
         String response = "";
@@ -236,20 +233,22 @@ public class Home extends AppCompatActivity
         JSONObject a = base_json.getJSONObject("response");
 
         info = new UserInfo(a.getString("reg_no"), a.getString("name"), a.getString("user_pass"),
-            a.getString("image"), a.getString("course"), a.getString("branch"), a.getString("dob"),
-            a.getString("email"), a.getString("skype"), a.getString("linkedin"),
-            a.getString("gender"),
-            a.getString("category"), a.getString("phd"), a.getString("residential_status"),
-            a.getString("guardian"),
-            a.getString("present_address"), a.getString("permanent_address"),
-            a.getString("marital_status"), a.getString("state"), a.getString("country"));
+                a.getString("image"),a.getString("imageServerLink"), a.getString("course"), a.getString("branch"), a.getString("dob"),
+                a.getString("email"), a.getString("skype"), a.getString("linkedin"),
+                a.getString("gender"),
+                a.getString("category"), a.getString("phd"), a.getString("residential_status"),
+                a.getString("guardian"),
+                a.getString("present_address"), a.getString("permanent_address"),
+                a.getString("marital_status"), a.getString("state"), a.getString("country"));
         Log.d("O_MY_PAPPI", a.getString("reg_no") + a.getString("email"));
         String s = info.image_url;
 
         //you have to get the part of the link 0B9nFwumYtUw9Q05WNlhlM2lqNzQ
         String[] p = s.split("/");
         //Create the new image link
-        String imageLink = "https://drive.google.com/uc?export=download&id=" + p[5];
+        //String imageLink = "https://drive.google.com/uc?export=download&id=" + p[5];
+        String imageLink=info.image_server_link;
+        Log.d("O_MY",imageLink);
 
         Picasso.with(Home.this).load(imageLink).into(imageView,new com.squareup.picasso.Callback(){
 

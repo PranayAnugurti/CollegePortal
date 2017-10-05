@@ -245,6 +245,7 @@ public class Tab1Form extends AppCompatActivity {
         UserInfo userInfoItem=new UserInfo(reg_no.getText().toString(),
             info.pass,name.getText().toString(),
             info.image_url,
+                info.image_server_link,
             courseSpinner.getSelectedItem().toString(),
             branchSpinner.getSelectedItem().toString(),
             dateofbirth.getText().toString(),
