@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
     android:background="@color/background"
-    android:orientation="vertical">
+    android:layout_height="match_parent"
+    tools:context="com.praneethcorporation.collegeportal.Personal_Info">
+
+    <com.baoyachi.stepview.HorizontalStepView
+        android:id="@+id/step_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        />
+
 
     <android.support.v7.widget.CardView xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
@@ -16,6 +25,12 @@
         android:layout_marginTop="15dp"
         app:cardCornerRadius="8dp">
 
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -73,9 +88,7 @@
                     android:id="@+id/clas10yearPicker"
                     android:layout_width="0dp"
                     android:layout_height="75dp"
-                    android:layout_weight="1">
-
-                </NumberPicker>
+                    android:layout_weight="1"></NumberPicker>
             </LinearLayout>
 
             <LinearLayout
@@ -98,8 +111,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
                     android:inputType="numberDecimal"
-                    android:layout_marginBottom="10dp">
-                </EditText>
+                    android:layout_marginBottom="10dp"></EditText>
 
             </LinearLayout>
             <View
@@ -157,9 +169,7 @@
                     android:id="@+id/clas12yearPicker"
                     android:layout_width="0dp"
                     android:layout_height="75dp"
-                    android:layout_weight="1">
-
-                </NumberPicker>
+                    android:layout_weight="1"></NumberPicker>
             </LinearLayout>
 
             <LinearLayout
@@ -180,24 +190,24 @@
                     android:id="@+id/et_datapicker"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="2">
-
-                </EditText>
+                    android:layout_weight="2"></EditText>
 
             </LinearLayout>
-          <Button
-            android:id="@+id/saveform2"
-            android:layout_marginTop="8dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/colorPrimaryDark"
-            android:text="SAVE"
-            android:layout_marginBottom="8dp"
-            android:textColor="@color/white"/>
+            <Button
+                android:id="@+id/saveform2"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimaryDark"
+                android:text="SAVE"
+                android:layout_marginBottom="8dp"
+                android:textColor="@color/white"/>
 
         </LinearLayout>
-
+</LinearLayout>
+        </ScrollView>
 
     </android.support.v7.widget.CardView>
 
-</ScrollView>
+
+</LinearLayout>

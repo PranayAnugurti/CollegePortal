@@ -21,6 +21,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.praneethcorporation.collegeportal.databinding.ActivityMainBinding;
 import java.io.BufferedReader;
@@ -40,12 +41,13 @@ public class
 MainActivity extends AppCompatActivity {
 ActivityMainBinding binding;
     private Context context;
-
+TextView registerNow;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
       super.onCreate(savedInstanceState);
 
       setContentView(R.layout.activity_main);
+
 
 
       binding=DataBindingUtil.setContentView(this, R.layout.activity_main);
@@ -83,6 +85,12 @@ ActivityMainBinding binding;
           }
         });
       }
+
+   public void OpenRegistrationPage(View v){
+Intent intent = new Intent(getApplicationContext(),Registration.class);
+       startActivity(intent);
+
+   }
 
     public class BackgroundTask extends AsyncTask<String, Void, String> {
 
