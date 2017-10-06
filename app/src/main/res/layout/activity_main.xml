@@ -21,19 +21,22 @@
         android:layout_height="200dp"
         android:src="@drawable/image"/>
     <LinearLayout
-        android:padding="32dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:orientation="vertical">
 
         <TextView
+            android:layout_marginRight="32dp"
+            android:layout_marginLeft="32dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Registration"
+            android:text="Registration No"
             android:textSize="15dp" />
 
         <EditText
+            android:layout_marginRight="32dp"
+            android:layout_marginLeft="32dp"
             android:numeric="integer"
             android:id="@+id/registration"
             android:layout_width="match_parent"
@@ -46,6 +49,8 @@
         </EditText>
 
         <TextView
+            android:layout_marginRight="32dp"
+            android:layout_marginLeft="32dp"
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -53,6 +58,8 @@
             android:textSize="15dp" />
 
         <EditText
+            android:layout_marginRight="32dp"
+            android:layout_marginLeft="32dp"
             android:id="@+id/pass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -61,6 +68,8 @@
             android:textSize="20dp"
             />
         <Button
+            android:layout_marginRight="32dp"
+            android:layout_marginLeft="32dp"
             android:id="@+id/loginBtn"
             android:layout_marginTop="20dp"
             android:layout_width="match_parent"
@@ -71,7 +80,19 @@
             android:background="@color/colorPrimary"
             android:text="Login"
             />
-
+        <TextView
+           android:layout_marginTop="16dp"
+            android:layout_marginRight="32dp"
+            android:layout_marginLeft="32dp"
+            android:id="@+id/registerNow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16dp"
+            android:textAlignment="center"
+            android:text="Click here to Register"
+            android:textColor="@color/white"
+            android:onClick="OpenRegistrationPage"
+            />
     </LinearLayout>
 
 
