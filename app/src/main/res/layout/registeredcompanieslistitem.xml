@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+  xmlns:tools="http://schemas.android.com/tools"
+  android:orientation="vertical"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent">
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,19 +17,29 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Company Name"
+                tools:text="Company Name"
+                android:id="@+id/companyTextView"
                 android:textAppearance="@style/headertextstyle"/>
             <TextView
+                android:id="@+id/jobProfileTxtView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Profile"
+                tools:text="Profile"
                 android:textAppearance="@style/normaltextstyle"/>
+          <TextView
+            android:id="@+id/jobLocationTxtView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="Profile"
+            android:textAppearance="@style/normaltextstyle"/>
             <TextView
+                android:id="@+id/ctcTxtView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Stipend"
                 android:textAppearance="@style/normaltextstyle"/>
             <TextView
+                android:id="@+id/dateRegTxtView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Registered On"
