@@ -89,12 +89,10 @@ projectListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
     Dialog dialog  =new Dialog(getContext());
     dialog.setContentView(R.layout.projectdialog);
-
     TextView Dtitle = (TextView)dialog.findViewById(R.id.Dproject);
     TextView Dduration = (TextView)dialog.findViewById(R.id.DdurationView);
     TextView DdescriptionView = (TextView)dialog.findViewById(R.id.DdescriptionView);
-
-Dtitle.setText(title.getText().toString().trim());
+    Dtitle.setText(title.getText().toString().trim());
     Dduration.setText(duration.getText().toString().trim());
     DdescriptionView.setText(descriptionView.getText().toString().toString());
     dialog.setTitle("Project");

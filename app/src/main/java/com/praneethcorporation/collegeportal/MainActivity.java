@@ -196,14 +196,10 @@ Intent intent = new Intent(getApplicationContext(),Registration.class);
         @Override
         protected void onPostExecute(String result) {
             loadingDialog.dismiss();
-
             String s="failure";
             if (result.trim().equals(s)) {
                 Snackbar.make(findViewById(R.id.main),"Login Failed...Please! Try Again", Snackbar.LENGTH_SHORT)
                         .show();
-
-
-
             } else {
                 //alertDialog.setMessage(result);
                 //alertDialog.show();
@@ -212,7 +208,7 @@ Intent intent = new Intent(getApplicationContext(),Registration.class);
                         .show();
                 Intent intent = new Intent(getApplicationContext(),Home.class);
                 intent.putExtra("reg_no",result.substring(24,32));
-                Log.d("O_MY",result.substring(24,32));
+
               startActivity(intent);
             }
 
