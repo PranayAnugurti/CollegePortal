@@ -148,16 +148,17 @@ public class Home extends AppCompatActivity
             Intent intent = new Intent(Home.this, RegisterCompanies.class);
             startActivity(intent);
         } else if (id == R.id.nav_addInterviewExperience) {
-
+            Intent intent = new Intent(Home.this, AddInterviewExperience.class);
+            startActivity(intent);
         } else if (id == R.id.nav_currentOpening) {
             Intent intent = new Intent(Home.this, CurrentOpenings.class);
             startActivity(intent);
         } else if (id == R.id.nav_registeredCompanies) {
             Intent intent = new Intent(Home.this, RegisterCompanies.class);
             startActivity(intent);
-        } else if (id == R.id.nav_addInterviewExperience) {
-
         } else if (id == R.id.nav_interviewExperinces) {
+            Intent intent = new Intent(Home.this, InterviewExperinces.class);
+            startActivity(intent);
 
         } else if (id == R.id.nav_place_stats) {
             Intent intent = new Intent(getApplicationContext(), PlaceMentStatistics.class);

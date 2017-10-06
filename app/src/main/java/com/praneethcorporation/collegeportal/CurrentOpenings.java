@@ -25,11 +25,13 @@ public class CurrentOpenings extends AppCompatActivity {
         listView = (ListView) findViewById(R.id.currentOpeningList);
 
         ArrayList<CurrentOpeningCompanies> arrayList = new ArrayList<>();
-        arrayList.add(new CurrentOpeningCompanies("Veritas", "Tech analyst", "CSE,IT,ECE", "Rs 25000", "14th October"));
+        arrayList.add(new CurrentOpeningCompanies("Praneeth Corporation", "Data analyst", "Branches Allowed:-All", "CTC:- Rs 10000000", "11th October"));
 
-        arrayList.add(new CurrentOpeningCompanies("Goldman Sachs", "Tech analyst", "CSE,IT,ECE", "Rs 25000", "14th October"));
+        arrayList.add(new CurrentOpeningCompanies("Goldman Sachs", "Tech analyst", "Branches Allowed:-CSE,IT,ECE", "CTC:- Rs 500000", "12th October"));
 
-        arrayList.add(new CurrentOpeningCompanies("Morgan Stanley", "Tech analyst", "CSE,IT,ECE", "Rs 25000", "14th October"));
+        arrayList.add(new CurrentOpeningCompanies("Morgan Stanley", "Networks Engineer", "Branches Allowed:-CSE,IT,ECE", "CTC:- Rs 750000", "13th October"));
+
+        arrayList.add(new CurrentOpeningCompanies("Arsita", "SoftWare Developer", "Branches Allowed:-CSE,IT,ECE", "CTC:- Rs 450000", "14th October"));
 
         CurrentOpeningsAdapter currentOpeningsAdapter = new CurrentOpeningsAdapter(this, arrayList);
 
