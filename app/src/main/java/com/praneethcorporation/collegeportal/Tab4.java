@@ -110,6 +110,7 @@ public class Tab4 extends Fragment implements SingleUploadBroadcastReceiver.Dele
             }
         });
         UploadBn.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = VERSION_CODES.KITKAT)
             @Override
             public void onClick(View v) {
                 //dialog = ProgressDialog.show(getContext(), "", "Uploading file...", true);
@@ -222,6 +223,7 @@ public class Tab4 extends Fragment implements SingleUploadBroadcastReceiver.Dele
         return path;
     }
 
+    @RequiresApi(api = VERSION_CODES.KITKAT)
     public void uploadImageToServer() {
         //getting the actual path of the image
         //String path = getPath(filePath);
@@ -233,7 +235,7 @@ public class Tab4 extends Fragment implements SingleUploadBroadcastReceiver.Dele
             uploadReceiver.setUploadID(uploadId);
             //Creating a multi part request
             new MultipartUploadRequest(getContext(), uploadId,ImageUploadServerPath)
-                    .addFileToUpload(getPath(filePath),"image") //Adding file
+                    .addFileToUpload(FilePath.getPath(getContext(),filePath),"image") //Adding file
                     .addParameter("name",name)
                     .addParameter("reg_no",reg_no)//Adding text parameter to the request
                     .setNotificationConfig(new UploadNotificationConfig())
@@ -261,10 +263,12 @@ public class Tab4 extends Fragment implements SingleUploadBroadcastReceiver.Dele
         uploadReceiver.setDelegate(this);
         uploadReceiver.setUploadID(uploadId);
         //Creating a multi part request
+        Log.d("O_MY","Reg.no="+reg_no);
         new MultipartUploadRequest(getContext(), uploadId, PdfUploadServerPath)
             .addFileToUpload(pathForPdf, "pdf") //Adding file
-            .addParameter("name", name) //Adding text parameter to the request
-            .addParameter("reg_no", reg_no) //Adding text parameter to the request
+            .addParameter("name",name)
+            .addParameter("reg_no",reg_no)
+            //Adding text parameter to the request
             .setNotificationConfig(new UploadNotificationConfig())
             .setMaxRetries(2)
             .startUpload(); //Starting the upload
