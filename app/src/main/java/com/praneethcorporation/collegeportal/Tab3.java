@@ -16,11 +16,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ExpandableListView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.github.paolorotolo.expandableheightlistview.ExpandableHeightListView;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -33,6 +35,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.ArrayList;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -43,295 +46,348 @@ import org.json.JSONObject;
 
 public class Tab3 extends Fragment {
 
-  InternshipAdapter adapter;
-  ProjectAdapter projectAdapter;
+    InternshipAdapter adapter;
+    ProjectAdapter projectAdapter;
 
-  String reg_no;
+    String reg_no;
 
-  @Override
-  public View onCreateView(LayoutInflater inflater, ViewGroup container,
-      Bundle savedInstanceState) {
-    View view = inflater.inflate(R.layout.tab3, container, false);
-    Context c = getActivity().getApplicationContext();
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.tab3, container, false);
+        Context c = getActivity().getApplicationContext();
 
-    // Construct the data source
-    ArrayList<Internship> arrayOfInternships = new ArrayList<Internship>();
-    ArrayList<Project> arrayOfProjects = new ArrayList<Project>();
-    Intent i = getActivity().getIntent();
-    reg_no = i.getStringExtra("reg_no");
+        // Construct the data source
+        ArrayList<Internship> arrayOfInternships = new ArrayList<Internship>();
+        ArrayList<Project> arrayOfProjects = new ArrayList<Project>();
+        Intent i = getActivity().getIntent();
+        reg_no = i.getStringExtra("reg_no");
 
-    adapter = new InternshipAdapter(view.getContext(), arrayOfInternships);
-    projectAdapter=new ProjectAdapter(view.getContext(),arrayOfProjects);
-    new InternBackgroundTask(c).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
-    new ProjectBackgroundTask(c).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+        adapter = new InternshipAdapter(view.getContext(), arrayOfInternships);
+        projectAdapter = new ProjectAdapter(view.getContext(), arrayOfProjects);
+        new InternBackgroundTask(c).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+        new ProjectBackgroundTask(c).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
 
-    ExpandableHeightListView listView = (ExpandableHeightListView) view
-        .findViewById(R.id.intenshipsList);
-    listView.setAdapter(adapter);
-    listView.setExpanded(true);
+        ExpandableHeightListView listView = (ExpandableHeightListView) view
+                .findViewById(R.id.intenshipsList);
+        listView.setAdapter(adapter);
+        listView.setExpanded(true);
 
-    ExpandableHeightListView projectListView = (ExpandableHeightListView) view
-        .findViewById(R.id.projectsList);
-    projectListView.setAdapter(projectAdapter);
-    projectListView.setExpanded(true);
+        ExpandableHeightListView projectListView = (ExpandableHeightListView) view
+                .findViewById(R.id.projectsList);
+        projectListView.setAdapter(projectAdapter);
+        projectListView.setExpanded(true);
 
-projectListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-  @Override
-  public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-
-
-    TextView title = (TextView)view.findViewById(R.id.project);
-    TextView duration = (TextView)view.findViewById(R.id.durationView);
-    TextView descriptionView = (TextView)view.findViewById(R.id.descriptionView);
+        projectListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
 
-
-    Dialog dialog  =new Dialog(getContext());
-    dialog.setContentView(R.layout.projectdialog);
-
-    TextView Dtitle = (TextView)dialog.findViewById(R.id.Dproject);
-    TextView Dduration = (TextView)dialog.findViewById(R.id.DdurationView);
-    TextView DdescriptionView = (TextView)dialog.findViewById(R.id.DdescriptionView);
-
-Dtitle.setText(title.getText().toString().trim());
-    Dduration.setText(duration.getText().toString().trim());
-    DdescriptionView.setText(descriptionView.getText().toString().toString());
-    dialog.setTitle("Project");
-    dialog.setCancelable(true);
-dialog.show();
-  }
-});
-
-    listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
-      @Override
-      public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-        TextView internship = (TextView)view.findViewById(R.id.internshipTextView);
-        TextView comapny = (TextView)view.findViewById(R.id.companyTextView);
-        TextView descriptionTextView = (TextView)view.findViewById(R.id.descriptionTextView);
-        TextView durationTextView = (TextView)view.findViewById(R.id.durationTextView);
+                TextView title = (TextView) view.findViewById(R.id.project);
+                TextView duration = (TextView) view.findViewById(R.id.durationView);
+                TextView descriptionView = (TextView) view.findViewById(R.id.descriptionView);
 
 
+                Dialog dialog = new Dialog(getContext());
+                dialog.setContentView(R.layout.projectdialog);
 
-        Dialog dialog  =new Dialog(getContext());
-        dialog.setContentView(R.layout.internshipdialog);
+                TextView Dtitle = (TextView) dialog.findViewById(R.id.Dproject);
+                TextView Dduration = (TextView) dialog.findViewById(R.id.DdurationView);
+                TextView DdescriptionView = (TextView) dialog.findViewById(R.id.DdescriptionView);
+
+                Dtitle.setText(title.getText().toString().trim());
+                Dduration.setText(duration.getText().toString().trim());
+                DdescriptionView.setText(descriptionView.getText().toString().trim());
+                dialog.setTitle("Project");
+                dialog.setCancelable(true);
+                dialog.show();
+            }
+        });
+
+        projectListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+
+                TextView title = (TextView) view.findViewById(R.id.project);
+                TextView duration = (TextView) view.findViewById(R.id.durationView);
+                TextView descriptionView = (TextView) view.findViewById(R.id.descriptionView);
+
+                Dialog dialog = new Dialog(getContext());
+                dialog.setContentView(R.layout.projectdialogueedit);
+
+                EditText Etitle = (EditText) dialog.findViewById(R.id.et_Dproject);
+                EditText Eduration = (EditText) dialog.findViewById(R.id.et_DdurationView);
+                EditText Edescription = (EditText) dialog.findViewById(R.id.et_DdescriptionView);
+
+                Etitle.setText(title.getText().toString().trim());
+                Edescription.setText(descriptionView.getText().toString().trim());
+                Eduration.setText(duration.getText().toString().trim());
+
+                dialog.setTitle("Edit Project");
+                dialog.show();
+                dialog.setCancelable(true);
+                return true;
+            }
+        });
 
 
-        TextView Dinternship = (TextView)dialog.findViewById(R.id.DinternshipTextView);
-        TextView Dcomapny = (TextView)dialog.findViewById(R.id.DcompanyTextView);
-        TextView DdescriptionTextView = (TextView)dialog.findViewById(R.id.DdescriptionTextView);
-        TextView DdurationTextView = (TextView)dialog.findViewById(R.id.DdurationTextView);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                TextView internship = (TextView) view.findViewById(R.id.internshipTextView);
+                TextView comapny = (TextView) view.findViewById(R.id.companyTextView);
+                TextView descriptionTextView = (TextView) view.findViewById(R.id.descriptionTextView);
+                TextView durationTextView = (TextView) view.findViewById(R.id.durationTextView);
 
 
-        Dinternship.setText(internship.getText().toString().trim());
-        Dcomapny.setText(comapny.getText().toString().trim());
-        DdurationTextView.setText(durationTextView.getText().toString().trim());
-        DdescriptionTextView.setText(descriptionTextView.getText().toString().toString());
+                Dialog dialog = new Dialog(getContext());
+                dialog.setContentView(R.layout.internshipdialog);
 
-        dialog.setTitle("Project");
+
+                TextView Dinternship = (TextView) dialog.findViewById(R.id.DinternshipTextView);
+                TextView Dcomapny = (TextView) dialog.findViewById(R.id.DcompanyTextView);
+                TextView DdescriptionTextView = (TextView) dialog.findViewById(R.id.DdescriptionTextView);
+                TextView DdurationTextView = (TextView) dialog.findViewById(R.id.DdurationTextView);
+
+
+                Dinternship.setText(internship.getText().toString().trim());
+                Dcomapny.setText(comapny.getText().toString().trim());
+                DdurationTextView.setText(durationTextView.getText().toString().trim());
+                DdescriptionTextView.setText(descriptionTextView.getText().toString().toString());
+
+                dialog.setTitle("Intern");
+                dialog.setCancelable(true);
+                dialog.show();
+            }
+        });
+listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+    @Override
+    public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+
+        TextView internship = (TextView) view.findViewById(R.id.internshipTextView);
+        TextView comapny = (TextView) view.findViewById(R.id.companyTextView);
+        TextView descriptionTextView = (TextView) view.findViewById(R.id.descriptionTextView);
+        TextView durationTextView = (TextView) view.findViewById(R.id.durationTextView);
+
+
+        Dialog dialog = new Dialog(getContext());
+        dialog.setContentView(R.layout.internshipdialogedit);
+
+        EditText Einternship = (EditText) dialog.findViewById(R.id.DinternshipeditView);
+        EditText Eduration = (EditText) dialog.findViewById(R.id.DdurationeditView);
+        EditText Edescription = (EditText) dialog.findViewById(R.id.DdescriptioneditView);
+        EditText ECompany = (EditText) dialog.findViewById(R.id.DcompanyeditView);
+
+        Einternship.setText(internship.getText().toString().trim());
+        Eduration.setText(durationTextView.getText().toString().trim());
+        ECompany.setText(comapny.getText().toString().trim());
+        Edescription.setText(descriptionTextView.getText().toString().trim());
+
+
+        dialog.setTitle("Edit Intern");
         dialog.setCancelable(true);
         dialog.show();
-      }
-    });
+        return true;
+    }
+});
 
-
-    return view;
-  }
-
-
-
-  public class InternBackgroundTask extends AsyncTask<String, Void, String> {
-
-    String json_url;
-    Context ctx;
-
-    InternBackgroundTask(Context ctx) {
-      this.ctx = ctx;
+        return view;
     }
 
-    @Override
-    protected void onPreExecute() {
-      json_url = "http://139.59.5.186/php/internship_info.php";
-      Log.d("O_MY", reg_no);
-    }
 
-    @Override
-    protected String doInBackground(String... params) {
+    public class InternBackgroundTask extends AsyncTask<String, Void, String> {
 
-      try {
-        URL url = new URL(json_url);
-        HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
-        httpURLConnection.setRequestMethod("POST");
-        //Log.d("O_MY", String.valueOf(httpURLConnection.getResponseCode()));
-        httpURLConnection.setDoOutput(true);
-        httpURLConnection.setDoInput(true);
-        OutputStream outputStream = httpURLConnection.getOutputStream();
-        BufferedWriter bufferedWriter = new BufferedWriter(
-            new OutputStreamWriter(outputStream, "UTF-8"));
-        String data =
-            URLEncoder.encode("reg_no", "UTF-8") + "=" + URLEncoder.encode(reg_no, "UTF-8");
+        String json_url;
+        Context ctx;
 
-        bufferedWriter.write(data);
-        bufferedWriter.flush();
-        bufferedWriter.close();
-        outputStream.close();
-        InputStream inputStream = httpURLConnection.getInputStream();
-        BufferedReader bufferedReader = new BufferedReader(
-            new InputStreamReader(inputStream, "iso-8859-1"));
-        StringBuilder stringBuilder = new StringBuilder();
-
-        String JSON_STRING;
-        while ((JSON_STRING = bufferedReader.readLine()) != null) {
-          stringBuilder.append(JSON_STRING + "\n");
+        InternBackgroundTask(Context ctx) {
+            this.ctx = ctx;
         }
-        bufferedReader.close();
-        inputStream.close();
-        httpURLConnection.disconnect();
-        return stringBuilder.toString();
-      } catch (MalformedURLException e) {
-        e.printStackTrace();
-      } catch (IOException e) {
-        e.printStackTrace();
-      }
 
-      return null;
-    }
-
-    @Override
-    protected void onPostExecute(String result) {
-      ArrayList<Internship> internships = new ArrayList<>();
-      try {
-
-        Log.d("O_MY", "Result="+result);
-
-        JSONObject base_json = new JSONObject(result);
-        Log.d("O_MY", base_json.toString());
-
-        JSONArray jsonArray = base_json.getJSONArray("response");
-        int i = 0;
-        Log.d("O_MY","length="+jsonArray.length());
-        while (i<jsonArray.length()) {
-          Log.d("O_MY","pos="+i);
-          JSONObject intern = jsonArray.getJSONObject(i);
-          Log.d("O_MY","intern="+intern.getString("internship"));
-
-          Internship internship = new Internship(
-              intern.getString("reg_no"),
-              intern.getString("internship"),
-              intern.getString("company"),
-              intern.getString("duration"),
-              intern.getString("description")
-          );
-          Log.d("O_MY",intern.getString("internship")+intern.getString("company"));
-          internships.add(i,internship);
-
-          i++;
+        @Override
+        protected void onPreExecute() {
+            json_url = "http://139.59.5.186/php/internship_info.php";
+            Log.d("O_MY", reg_no);
         }
-        adapter.addAll(internships);
 
+        @Override
+        protected String doInBackground(String... params) {
 
-      } catch (JSONException e) {
-        e.printStackTrace();
-      }
+            try {
+                URL url = new URL(json_url);
+                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+                httpURLConnection.setRequestMethod("POST");
+                //Log.d("O_MY", String.valueOf(httpURLConnection.getResponseCode()));
+                httpURLConnection.setDoOutput(true);
+                httpURLConnection.setDoInput(true);
+                OutputStream outputStream = httpURLConnection.getOutputStream();
+                BufferedWriter bufferedWriter = new BufferedWriter(
+                        new OutputStreamWriter(outputStream, "UTF-8"));
+                String data =
+                        URLEncoder.encode("reg_no", "UTF-8") + "=" + URLEncoder.encode(reg_no, "UTF-8");
 
+                bufferedWriter.write(data);
+                bufferedWriter.flush();
+                bufferedWriter.close();
+                outputStream.close();
+                InputStream inputStream = httpURLConnection.getInputStream();
+                BufferedReader bufferedReader = new BufferedReader(
+                        new InputStreamReader(inputStream, "iso-8859-1"));
+                StringBuilder stringBuilder = new StringBuilder();
 
-    }
-  }
-  public class ProjectBackgroundTask extends AsyncTask<String,Void,String> {
+                String JSON_STRING;
+                while ((JSON_STRING = bufferedReader.readLine()) != null) {
+                    stringBuilder.append(JSON_STRING + "\n");
+                }
+                bufferedReader.close();
+                inputStream.close();
+                httpURLConnection.disconnect();
+                return stringBuilder.toString();
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
 
-    String json_url;
-    Context ctx;
-
-    ProjectBackgroundTask(Context ctx) {
-      this.ctx = ctx;
-    }
-
-    @Override
-    protected void onPreExecute() {
-      json_url = "http://139.59.5.186/php/project_info.php";
-      Log.d("O_MY", reg_no);
-    }
-
-    @Override
-    protected String doInBackground(String... params) {
-
-      try {
-        URL url = new URL(json_url);
-        HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
-        httpURLConnection.setRequestMethod("POST");
-        //Log.d("O_MY", "Projects httpResponseCode="+String.valueOf(httpURLConnection.getResponseCode()));
-        httpURLConnection.setDoOutput(true);
-        httpURLConnection.setDoInput(true);
-        OutputStream outputStream = httpURLConnection.getOutputStream();
-        BufferedWriter bufferedWriter = new BufferedWriter(
-            new OutputStreamWriter(outputStream, "UTF-8"));
-        String data =
-            URLEncoder.encode("reg_no", "UTF-8") + "=" + URLEncoder.encode(reg_no, "UTF-8");
-
-        bufferedWriter.write(data);
-        bufferedWriter.flush();
-        bufferedWriter.close();
-        outputStream.close();
-        InputStream inputStream = httpURLConnection.getInputStream();
-        BufferedReader bufferedReader = new BufferedReader(
-            new InputStreamReader(inputStream, "iso-8859-1"));
-        StringBuilder stringBuilder = new StringBuilder();
-
-        String JSON_STRING;
-        while ((JSON_STRING = bufferedReader.readLine()) != null) {
-          stringBuilder.append(JSON_STRING + "\n");
+            return null;
         }
-        bufferedReader.close();
-        inputStream.close();
-        httpURLConnection.disconnect();
-        return stringBuilder.toString();
-      } catch (MalformedURLException e) {
-        e.printStackTrace();
-      } catch (IOException e) {
-        e.printStackTrace();
-      }
 
-      return null;
-    }
+        @Override
+        protected void onPostExecute(String result) {
+            ArrayList<Internship> internships = new ArrayList<>();
+            try {
 
-    @Override
-    protected void onPostExecute(String result) {
-      ArrayList<Project> projects = new ArrayList<>();
-      try {
+                Log.d("O_MY", "Result=" + result);
 
-        Log.d("O_MY", "Result="+result);
+                JSONObject base_json = new JSONObject(result);
+                Log.d("O_MY", base_json.toString());
 
-        JSONObject base_json = new JSONObject(result);
-        Log.d("O_MY", "projects="+base_json.toString());
+                JSONArray jsonArray = base_json.getJSONArray("response");
+                int i = 0;
+                Log.d("O_MY", "length=" + jsonArray.length());
+                while (i < jsonArray.length()) {
+                    Log.d("O_MY", "pos=" + i);
+                    JSONObject intern = jsonArray.getJSONObject(i);
+                    Log.d("O_MY", "intern=" + intern.getString("internship"));
 
-        JSONArray jsonArray = base_json.getJSONArray("response");
-        int i = 0;
-        Log.d("O_MY","length="+jsonArray.length());
-        while (i<jsonArray.length()) {
-          
-          JSONObject projectItem = jsonArray.getJSONObject(i);
-         
+                    Internship internship = new Internship(
+                            intern.getString("reg_no"),
+                            intern.getString("internship"),
+                            intern.getString("company"),
+                            intern.getString("duration"),
+                            intern.getString("description")
+                    );
+                    Log.d("O_MY", intern.getString("internship") + intern.getString("company"));
+                    internships.add(i, internship);
 
-          Project Project = new Project(
-              projectItem.getString("reg_no"),
-              projectItem.getString("project"),
-              projectItem.getString("duration"),
-              projectItem.getString("description"),
-              projectItem.getString("project_link")
-          );
-          projects.add(i,Project);
+                    i++;
+                }
+                adapter.addAll(internships);
 
-          i++;
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+
         }
-        projectAdapter.addAll(projects);
-
-
-      } catch (JSONException e) {
-        e.printStackTrace();
-      }
-
-
     }
-  }
+
+    public class ProjectBackgroundTask extends AsyncTask<String, Void, String> {
+
+        String json_url;
+        Context ctx;
+
+        ProjectBackgroundTask(Context ctx) {
+            this.ctx = ctx;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            json_url = "http://139.59.5.186/php/project_info.php";
+            Log.d("O_MY", reg_no);
+        }
+
+        @Override
+        protected String doInBackground(String... params) {
+
+            try {
+                URL url = new URL(json_url);
+                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+                httpURLConnection.setRequestMethod("POST");
+                //Log.d("O_MY", "Projects httpResponseCode="+String.valueOf(httpURLConnection.getResponseCode()));
+                httpURLConnection.setDoOutput(true);
+                httpURLConnection.setDoInput(true);
+                OutputStream outputStream = httpURLConnection.getOutputStream();
+                BufferedWriter bufferedWriter = new BufferedWriter(
+                        new OutputStreamWriter(outputStream, "UTF-8"));
+                String data =
+                        URLEncoder.encode("reg_no", "UTF-8") + "=" + URLEncoder.encode(reg_no, "UTF-8");
+
+                bufferedWriter.write(data);
+                bufferedWriter.flush();
+                bufferedWriter.close();
+                outputStream.close();
+                InputStream inputStream = httpURLConnection.getInputStream();
+                BufferedReader bufferedReader = new BufferedReader(
+                        new InputStreamReader(inputStream, "iso-8859-1"));
+                StringBuilder stringBuilder = new StringBuilder();
+
+                String JSON_STRING;
+                while ((JSON_STRING = bufferedReader.readLine()) != null) {
+                    stringBuilder.append(JSON_STRING + "\n");
+                }
+                bufferedReader.close();
+                inputStream.close();
+                httpURLConnection.disconnect();
+                return stringBuilder.toString();
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            ArrayList<Project> projects = new ArrayList<>();
+            try {
+
+                Log.d("O_MY", "Result=" + result);
+
+                JSONObject base_json = new JSONObject(result);
+                Log.d("O_MY", "projects=" + base_json.toString());
+
+                JSONArray jsonArray = base_json.getJSONArray("response");
+                int i = 0;
+                Log.d("O_MY", "length=" + jsonArray.length());
+                while (i < jsonArray.length()) {
+
+                    JSONObject projectItem = jsonArray.getJSONObject(i);
+
+
+                    Project Project = new Project(
+                            projectItem.getString("reg_no"),
+                            projectItem.getString("project"),
+                            projectItem.getString("duration"),
+                            projectItem.getString("description"),
+                            projectItem.getString("project_link")
+                    );
+                    projects.add(i, Project);
+
+                    i++;
+                }
+                projectAdapter.addAll(projects);
+
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+
+        }
+    }
 }
