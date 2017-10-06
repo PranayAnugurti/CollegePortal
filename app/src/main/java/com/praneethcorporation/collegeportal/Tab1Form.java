@@ -112,18 +112,6 @@ public class Tab1Form extends AppCompatActivity {
     genderAdapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
     genderSpinner.setAdapter(genderAdapter);
     genderSpinner.setSelection(genderAdapter.getPosition(info.gender), false);
-    genderSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-      @Override
-      public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        Toast.makeText(getApplicationContext(), parent.getItemIdAtPosition(position) + " selected",
-            Toast.LENGTH_SHORT).show();
-      }
-
-      @Override
-      public void onNothingSelected(AdapterView<?> parent) {
-
-      }
-    });
     branchSpinner = (Spinner) findViewById(R.id.branchspinner);
 
     branchAdapter = ArrayAdapter
@@ -132,37 +120,12 @@ public class Tab1Form extends AppCompatActivity {
     branchSpinner.setAdapter(branchAdapter);
     branchSpinner.setSelection(branchAdapter.getPosition(info.branch), false);
     Log.d("O_MY", "pos of selected branch=" + branchAdapter.getPosition(info.branch));
-    branchSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-      @Override
-      public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        Toast.makeText(getApplicationContext(), parent.getItemIdAtPosition(position) + " selected",
-            Toast.LENGTH_SHORT).show();
-      }
-
-      @Override
-      public void onNothingSelected(AdapterView<?> parent) {
-
-      }
-    });
     courseSpinner = (Spinner) findViewById(R.id.coursespinner);
     courseAdapter = ArrayAdapter
         .createFromResource(this, R.array.course, R.layout.support_simple_spinner_dropdown_item);
     courseAdapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
     courseSpinner.setAdapter(courseAdapter);
     courseSpinner.setSelection(courseAdapter.getPosition(info.course), false);
-    courseSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-      @Override
-      public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        Toast.makeText(getApplicationContext(), parent.getItemIdAtPosition(position) + " selected",
-            Toast.LENGTH_SHORT).show();
-
-      }
-
-      @Override
-      public void onNothingSelected(AdapterView<?> parent) {
-
-      }
-    });
 
     countrySpinner = (Spinner) findViewById(R.id.countryspinner);
     countryAdapter = ArrayAdapter
@@ -170,19 +133,6 @@ public class Tab1Form extends AppCompatActivity {
     countryAdapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
     countrySpinner.setAdapter(countryAdapter);
     countrySpinner.setSelection(countryAdapter.getPosition(info.country));
-    countrySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-      @Override
-      public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        Toast.makeText(getApplicationContext(), parent.getItemIdAtPosition(position) + " selected",
-            Toast.LENGTH_SHORT).show();
-
-      }
-
-      @Override
-      public void onNothingSelected(AdapterView<?> parent) {
-
-      }
-    });
     categorySpinner = (Spinner) findViewById(R.id.categoryspinner);
     categoryAdapter = ArrayAdapter
         .createFromResource(this, R.array.category, R.layout.support_simple_spinner_dropdown_item);
@@ -192,19 +142,7 @@ public class Tab1Form extends AppCompatActivity {
     Log.d("O_MY",
         "Category=" + info.category + "pos=" + categoryAdapter.getPosition(info.category) + "item="
             + categoryAdapter.getItem(categoryAdapter.getPosition(info.category)));
-    categorySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-      @Override
-      public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        Toast.makeText(getApplicationContext(), parent.getItemIdAtPosition(position) + " selected",
-            Toast.LENGTH_SHORT).show();
 
-      }
-
-      @Override
-      public void onNothingSelected(AdapterView<?> parent) {
-
-      }
-    });
 
     stateSpinner = (Spinner) findViewById(R.id.statespinner);
     stateAdapter = ArrayAdapter
@@ -214,19 +152,6 @@ public class Tab1Form extends AppCompatActivity {
     stateSpinner.setSelection(stateAdapter.getPosition(info.state), false);
     Log.d("O_MY", "State=" + info.state + "pos=" + stateAdapter.getPosition(info.state) + "item="
         + stateAdapter.getItem(stateAdapter.getPosition(info.state)));
-    stateSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-      @Override
-      public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        Toast.makeText(getApplicationContext(), parent.getItemIdAtPosition(position) + " selected",
-            Toast.LENGTH_SHORT).show();
-
-      }
-
-      @Override
-      public void onNothingSelected(AdapterView<?> parent) {
-
-      }
-    });
 
     save.setOnClickListener(new View.OnClickListener() {
       @Override
@@ -292,18 +217,6 @@ public class Tab1Form extends AppCompatActivity {
     month = calendar.get(Calendar.MONTH);
     day = calendar.get(Calendar.DAY_OF_MONTH);
     showDate(year, month + 1, day);
-    dateofbirth.setOnTouchListener(new View.OnTouchListener() {
-      @Override
-      public boolean onTouch(View v, MotionEvent event) {
-        if (event.getAction() == MotionEvent.ACTION_UP) {
-          showDialog(999);
-          Toast.makeText(getApplicationContext(), "ca",
-              Toast.LENGTH_SHORT)
-              .show();
-        }
-        return false;
-      }
-    });
     //binding.etName.setText(info.name);
     name.setText(info.name);
     reg_no.setText(info.reg_no);

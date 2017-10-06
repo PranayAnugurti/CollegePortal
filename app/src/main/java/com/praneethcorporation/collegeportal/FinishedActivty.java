@@ -32,8 +32,8 @@ public class FinishedActivty extends AppCompatActivity {
         });
         HorizontalStepView stepView = (HorizontalStepView)findViewById(R.id.step_view);
         List<StepBean> stepBeanList = new ArrayList<>();
-        StepBean stepBean = new StepBean("Academic",1);
-        StepBean stepBean1 = new StepBean("Personal",1);
+        StepBean stepBean = new StepBean("Personal",1);
+        StepBean stepBean1 = new StepBean("Academic",1);
         StepBean stepBean2 = new StepBean("Done",0);
         stepBeanList.add(stepBean);
 

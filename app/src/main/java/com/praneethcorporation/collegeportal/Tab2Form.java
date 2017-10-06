@@ -120,7 +120,7 @@ NumberPicker class10,class12;
         }
       });
     }
-  public class BackgroundTask extends AsyncTask<acad_info, Void, String> {
+  public static class BackgroundTask extends AsyncTask<acad_info, Void, String> {
 
     Context ctx;
 
