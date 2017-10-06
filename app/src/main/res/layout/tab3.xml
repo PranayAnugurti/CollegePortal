@@ -21,7 +21,7 @@
     android:textSize="20dp"
     android:textAlignment="center"/>
 <Button
-    android:id="@+id/addProject"
+    android:id="@+id/addProjectbutton"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_alignParentRight="true"
@@ -59,7 +59,7 @@
             android:textSize="20dp"
             android:textAlignment="center"/>
         <Button
-            android:id="@+id/addIntern"
+            android:id="@+id/addInternbutton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"

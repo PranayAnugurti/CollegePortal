@@ -5,9 +5,11 @@ import android.app.Dialog;
 import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build.VERSION_CODES;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
@@ -16,6 +18,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ExpandableListView;
 import android.widget.ListView;
@@ -48,7 +51,9 @@ public class Tab3 extends Fragment {
 
     InternshipAdapter adapter;
     ProjectAdapter projectAdapter;
-
+    Button addIntern;
+    Button addproject;
+    ArrayList<Project> projects;
     String reg_no;
 
     @Override
@@ -56,6 +61,33 @@ public class Tab3 extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.tab3, container, false);
         Context c = getActivity().getApplicationContext();
+
+        addproject  = (Button)view.findViewById(R.id.addProjectbutton);
+        addIntern = (Button)view.findViewById(R.id.addInternbutton);
+
+        addproject.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Dialog dialog = new Dialog(getContext());
+                dialog.setContentView(R.layout.projectdialogueedit);
+                dialog.setCancelable(true);
+                dialog.setTitle("Add Project");
+                dialog.show();
+
+            }
+        });
+
+        addIntern.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Dialog dialog = new Dialog(getContext());
+                dialog.setContentView(R.layout.internshipdialogedit);
+                dialog.setCancelable(true);
+                dialog.setTitle("Add Internship");
+                dialog.show();
+
+            }
+        });
 
         // Construct the data source
         ArrayList<Internship> arrayOfInternships = new ArrayList<Internship>();
@@ -98,6 +130,24 @@ public class Tab3 extends Fragment {
                 Dtitle.setText(title.getText().toString().trim());
                 Dduration.setText(duration.getText().toString().trim());
                 DdescriptionView.setText(descriptionView.getText().toString().trim());
+
+                Button OpenProject = (Button) dialog.findViewById(R.id.DviewProject);
+
+
+                final Project projectItem = projects.get(position);
+
+
+                OpenProject.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String url = projectItem.getProject_link();
+                        Intent i = new Intent(Intent.ACTION_VIEW);
+                        i.setData(Uri.parse(url));
+                        startActivity(i);
+                    }
+                });
+
+
                 dialog.setTitle("Project");
                 dialog.setCancelable(true);
                 dialog.show();
@@ -107,6 +157,10 @@ public class Tab3 extends Fragment {
         projectListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+
+                final Project projectItem = projects.get(position);
+                String url = projectItem.getProject_link();
+
 
                 TextView title = (TextView) view.findViewById(R.id.project);
                 TextView duration = (TextView) view.findViewById(R.id.durationView);
@@ -118,11 +172,13 @@ public class Tab3 extends Fragment {
                 EditText Etitle = (EditText) dialog.findViewById(R.id.et_Dproject);
                 EditText Eduration = (EditText) dialog.findViewById(R.id.et_DdurationView);
                 EditText Edescription = (EditText) dialog.findViewById(R.id.et_DdescriptionView);
+                EditText EviewProject = (EditText)dialog.findViewById(R.id.et_DviewProject);
 
                 Etitle.setText(title.getText().toString().trim());
                 Edescription.setText(descriptionView.getText().toString().trim());
                 Eduration.setText(duration.getText().toString().trim());
 
+                EviewProject.setText(url);
                 dialog.setTitle("Edit Project");
                 dialog.show();
                 dialog.setCancelable(true);
@@ -133,7 +189,7 @@ public class Tab3 extends Fragment {
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemClick(final AdapterView<?> parent, View view, int position, long id) {
 
                 TextView internship = (TextView) view.findViewById(R.id.internshipTextView);
                 TextView comapny = (TextView) view.findViewById(R.id.companyTextView);
@@ -156,41 +212,42 @@ public class Tab3 extends Fragment {
                 DdurationTextView.setText(durationTextView.getText().toString().trim());
                 DdescriptionTextView.setText(descriptionTextView.getText().toString().toString());
 
+
                 dialog.setTitle("Intern");
                 dialog.setCancelable(true);
                 dialog.show();
             }
         });
-listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-    @Override
-    public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
 
-        TextView internship = (TextView) view.findViewById(R.id.internshipTextView);
-        TextView comapny = (TextView) view.findViewById(R.id.companyTextView);
-        TextView descriptionTextView = (TextView) view.findViewById(R.id.descriptionTextView);
-        TextView durationTextView = (TextView) view.findViewById(R.id.durationTextView);
-
-
-        Dialog dialog = new Dialog(getContext());
-        dialog.setContentView(R.layout.internshipdialogedit);
-
-        EditText Einternship = (EditText) dialog.findViewById(R.id.DinternshipeditView);
-        EditText Eduration = (EditText) dialog.findViewById(R.id.DdurationeditView);
-        EditText Edescription = (EditText) dialog.findViewById(R.id.DdescriptioneditView);
-        EditText ECompany = (EditText) dialog.findViewById(R.id.DcompanyeditView);
-
-        Einternship.setText(internship.getText().toString().trim());
-        Eduration.setText(durationTextView.getText().toString().trim());
-        ECompany.setText(comapny.getText().toString().trim());
-        Edescription.setText(descriptionTextView.getText().toString().trim());
+                TextView internship = (TextView) view.findViewById(R.id.internshipTextView);
+                TextView comapny = (TextView) view.findViewById(R.id.companyTextView);
+                TextView descriptionTextView = (TextView) view.findViewById(R.id.descriptionTextView);
+                TextView durationTextView = (TextView) view.findViewById(R.id.durationTextView);
 
 
-        dialog.setTitle("Edit Intern");
-        dialog.setCancelable(true);
-        dialog.show();
-        return true;
-    }
-});
+                Dialog dialog = new Dialog(getContext());
+                dialog.setContentView(R.layout.internshipdialogedit);
+
+                EditText Einternship = (EditText) dialog.findViewById(R.id.DinternshipeditView);
+                EditText Eduration = (EditText) dialog.findViewById(R.id.DdurationeditView);
+                EditText Edescription = (EditText) dialog.findViewById(R.id.DdescriptioneditView);
+                EditText ECompany = (EditText) dialog.findViewById(R.id.DcompanyeditView);
+
+                Einternship.setText(internship.getText().toString().trim());
+                Eduration.setText(durationTextView.getText().toString().trim());
+                ECompany.setText(comapny.getText().toString().trim());
+                Edescription.setText(descriptionTextView.getText().toString().trim());
+
+
+                dialog.setTitle("Edit Intern");
+                dialog.setCancelable(true);
+                dialog.show();
+                return true;
+            }
+        });
 
         return view;
     }
@@ -353,7 +410,7 @@ listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
 
         @Override
         protected void onPostExecute(String result) {
-            ArrayList<Project> projects = new ArrayList<>();
+            projects = new ArrayList<>();
             try {
 
                 Log.d("O_MY", "Result=" + result);

@@ -35,7 +35,7 @@
                 android:textSize="14sp"/>
             <TextView
                 android:id="@+id/DdescriptionView"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Built an Android Application compatable with mobiles as well as tablets(Multi-Pane Layout),as a part of the Google's Udacity Android Developer Nanodegree ,that will allow a user to select a recipe and see video-guided steps for how to complete it.This app utilizes core Android user interface components,fetches recipe information using a web API,handles media loading, verifies the user interfaces with UI tests."
