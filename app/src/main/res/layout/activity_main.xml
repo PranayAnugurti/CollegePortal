@@ -7,6 +7,7 @@
       name="tab2"
       type="com.praneethcorporation.collegeportal.MainActivity"/>
   </data>
+
 <LinearLayout
     android:id="@+id/main"
     android:layout_width="match_parent"
@@ -91,7 +92,6 @@
             android:textAlignment="center"
             android:text="Click here to Register"
             android:textColor="@color/white"
-            android:onClick="OpenRegistrationPage"
             />
     </LinearLayout>
 

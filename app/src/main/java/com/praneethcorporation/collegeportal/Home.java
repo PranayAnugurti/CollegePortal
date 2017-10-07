@@ -4,6 +4,8 @@ import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Build.VERSION_CODES;
 import android.os.Bundle;
@@ -55,6 +57,7 @@ public class Home extends AppCompatActivity
     String reg_no;
     UserInfo info;
     CircleImageView imageView;
+  boolean isCon=false;
     TextView nameView;
     TextView streamView;
     TextView branchView;
@@ -71,7 +74,15 @@ public class Home extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         //Profile Activity access
+//Get a reference to the ConnectivityManager to check state of network connectivity
+      ConnectivityManager connMgr = (ConnectivityManager) getSystemService(
+          Context.CONNECTIVITY_SERVICE);
 
+      //Get details on the currently active default data network
+      NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+      //If there is a network connection,fetch data
+      if (networkInfo != null && networkInfo.isConnected()) {
+        isCon=true;
         BackgroundTask task = new BackgroundTask(this);
         task.execute();
         imageView = (CircleImageView) findViewById(R.id.profilePicImageView);
@@ -83,16 +94,18 @@ public class Home extends AppCompatActivity
         loadingIndicator = (ProgressBar) findViewById(R.id.loading_indicator);
 
         viewProfileButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Profile.class);
-                intent.putExtra("reg_no", reg_no);
-                intent.putExtra("image", info.image_server_link);
-                intent.putExtra("pdf", info.pdf_server_link);
-                startActivity(intent);
-            }
+          @Override
+          public void onClick(View v) {
+            Intent intent = new Intent(getApplicationContext(), Profile.class);
+            intent.putExtra("reg_no", reg_no);
+            intent.putExtra("image", info.image_server_link);
+            intent.putExtra("pdf", info.pdf_server_link);
+            startActivity(intent);
+          }
         });
-
+      }else{
+        Snackbar.make(findViewById(R.id.drawer_layout),"No Internet Connection!",Snackbar.LENGTH_LONG).show();
+      }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -140,28 +153,29 @@ public class Home extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-
-        if (id == R.id.nav_currentOpening) {
+        if(isCon) {
+          if (id == R.id.nav_currentOpening) {
             Intent intent = new Intent(Home.this, CurrentOpenings.class);
             startActivity(intent);
-        } else if (id == R.id.nav_registeredCompanies) {
+          } else if (id == R.id.nav_registeredCompanies) {
             Intent intent = new Intent(Home.this, RegisterCompanies.class);
             startActivity(intent);
-        } else if (id == R.id.nav_addInterviewExperience) {
+          } else if (id == R.id.nav_addInterviewExperience) {
 
-        } else if (id == R.id.nav_currentOpening) {
+          } else if (id == R.id.nav_currentOpening) {
             Intent intent = new Intent(Home.this, CurrentOpenings.class);
             startActivity(intent);
-        } else if (id == R.id.nav_registeredCompanies) {
+          } else if (id == R.id.nav_registeredCompanies) {
             Intent intent = new Intent(Home.this, RegisterCompanies.class);
             startActivity(intent);
-        } else if (id == R.id.nav_addInterviewExperience) {
+          } else if (id == R.id.nav_addInterviewExperience) {
 
-        } else if (id == R.id.nav_interviewExperinces) {
+          } else if (id == R.id.nav_interviewExperinces) {
 
-        } else if (id == R.id.nav_place_stats) {
+          } else if (id == R.id.nav_place_stats) {
             Intent intent = new Intent(getApplicationContext(), PlaceMentStatistics.class);
             startActivity(intent);
+          }
         }
 
 

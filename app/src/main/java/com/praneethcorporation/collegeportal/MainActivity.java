@@ -19,8 +19,10 @@ import android.text.InputType;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.praneethcorporation.collegeportal.databinding.ActivityMainBinding;
@@ -42,55 +44,70 @@ MainActivity extends AppCompatActivity {
 ActivityMainBinding binding;
     private Context context;
 TextView registerNow;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
       super.onCreate(savedInstanceState);
 
       setContentView(R.layout.activity_main);
 
+      binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+      context = this;
 
-
-      binding=DataBindingUtil.setContentView(this, R.layout.activity_main);
-        context = this;
-
-        binding.registration.addTextChangedListener(new TextWatcher() {
-          @Override
-          public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            if (binding.registration.length() == 7) {
-              binding.registration.clearFocus();
-              binding.pass.requestFocus();
-              binding.pass.setCursorVisible(true);
-            }
+      binding.registration.addTextChangedListener(new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+          if (binding.registration.length() == 7) {
+            binding.registration.clearFocus();
+            binding.pass.requestFocus();
+            binding.pass.setCursorVisible(true);
           }
+        }
 
-          @Override
-          public void onTextChanged(CharSequence s, int start, int before, int count) {
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
 
-          }
+        }
 
-          @Override
-          public void afterTextChanged(Editable s) {
+        @Override
+        public void afterTextChanged(Editable s) {
 
-          }
-        });
+        }
+      });
 
       binding.pass.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
 
-      binding.loginBtn.setOnClickListener(new View.OnClickListener() {
+        binding.loginBtn.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View v) {
+//Get a reference to the ConnectivityManager to check state of network connectivity
+            ConnectivityManager connMgr = (ConnectivityManager) getSystemService(
+                Context.CONNECTIVITY_SERVICE);
 
-            BackgroundTask task = new BackgroundTask(context);
-            task.execute("login", binding.registration.getText().toString(), binding.pass.getText().toString());
+            //Get details on the currently active default data network
+            NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+            //If there is a network connection,fetch data
+            if (networkInfo != null && networkInfo.isConnected()) {
+              BackgroundTask task = new BackgroundTask(context);
+              task.execute("login", binding.registration.getText().toString(),
+                  binding.pass.getText().toString());
+            }
+            else{
+              Snackbar.make(findViewById(R.id.main),"No Internet Connection!",Snackbar.LENGTH_LONG).show();
+            }
           }
         });
-      }
+        binding.registerNow.setOnClickListener(new OnClickListener() {
+          @Override public void onClick(View v) {
+            Intent intent = new Intent(getApplicationContext(),Registration.class);
+            startActivity(intent);
+          }
+        }
+        );
 
-   public void OpenRegistrationPage(View v){
-Intent intent = new Intent(getApplicationContext(),Registration.class);
-       startActivity(intent);
 
-   }
+    }
+
 
     public class BackgroundTask extends AsyncTask<String, Void, String> {
 
@@ -197,7 +214,7 @@ Intent intent = new Intent(getApplicationContext(),Registration.class);
         protected void onPostExecute(String result) {
             loadingDialog.dismiss();
             String s="failure";
-            if (result.trim().equals(s)) {
+            if (result.trim().contains(s)) {
                 Snackbar.make(findViewById(R.id.main),"Login Failed...Please! Try Again", Snackbar.LENGTH_SHORT)
                         .show();
             } else {
