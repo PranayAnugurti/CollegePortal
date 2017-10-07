@@ -36,8 +36,8 @@
           android:layout_alignParentRight="true"
           android:layout_gravity="end"
           android:padding="5dp"
-          android:background="@color/colorPrimaryDark"
-          android:drawableLeft="@drawable/edit"
+          android:background="@color/button_color"
+          android:drawableLeft="@drawable/editpencil"
           android:text="EDIT"
           android:textColor="@color/white"/>
 
