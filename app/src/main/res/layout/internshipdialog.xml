@@ -1,63 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    android:background="@color/background">
-<ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    <android.support.v7.widget.CardView
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        >
+    android:background="@color/background"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.CardView
+            android:layout_width="300dp"
+            android:layout_height="wrap_content">
 
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:padding="8dp">
-
-            <TextView
-                android:id="@+id/DinternshipTextView"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:elevation="10dp"
-                android:ellipsize="end"
-                android:textColor="@color/black"
-                android:text="Summer Analyst"
-                android:textStyle="italic"
-                android:textSize="16dp" />
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="8dp">
 
-            <TextView
-                android:id="@+id/DcompanyTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ellipsize="end"
-                android:text="Goldman Sachs"
-                android:textColor="@color/black"
-                android:textSize="20dp"
-                android:textStyle="bold" />
-            <TextView
-                android:id="@+id/DdurationTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ellipsize="end"
-                android:text="24 June 2016 - 24 July 2016"
-                android:textSize="14dp"
-                />
-            <TextView
-                android:id="@+id/DdescriptionTextView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="oiuhoiewajroiwjerpoqwjoepwqpoeqpowepojlksadlkwoidjqwedjopwjopiejwqoiejqwoirjoiqwrejiowqejioqwejoiqwjdoiqwjedoiqwjeiowqjdeiasjdoi;aserlkwqjdfopasdoiqwejiqwrjijd"
-                android:textSize="18dp"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"
-                />
 
-        </LinearLayout>
-    </android.support.v7.widget.CardView>
+                        <TextView
+                            android:id="@+id/DinternshipTextView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:elevation="10dp"
+                            android:ellipsize="end"
+                            android:text="Summer Analyst"
+                            android:textColor="@color/black"
+                            android:textSize="16dp"
+                            android:textStyle="italic" />
+
+                        <TextView
+                            android:id="@+id/DcompanyTextView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:text="Goldman Sachs"
+                            android:textColor="@color/black"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/DdurationTextView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:text="24 June 2016 - 24 July 2016"
+                            android:textSize="14dp" />
+
+                <TextView
+                    android:id="@+id/DdescriptionTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="oiuhoiewajroiwjerpoqwjoepwqpoeqpowepojlksadlkwoidjqwedjopwjopiejwqoiejqwoirjoiqwrejiowqejioqwejoiqwjdoiqwjedoiqwjeiowqjdeiasjdoi;aserlkwqjdfopasdoiqwejiqwrjijd"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"
+                    android:textSize="18dp" />
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
     </ScrollView>
 </LinearLayout>

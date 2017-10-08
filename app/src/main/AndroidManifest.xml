@@ -2,11 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.praneethcorporation.collegeportal">
 
-
-  <uses-permission android:name="android.permission.INTERNET"/>
-  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-  <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <application
         android:allowBackup="true"
@@ -30,12 +29,13 @@
         <activity android:name=".Tab1Form" />
         <activity android:name=".Tab2Form" />
         <activity android:name=".PlaceMentStatistics" />
-        <activity android:name=".Registration"/>
-        <activity android:name=".Personal_Info"/>
-        <activity android:name=".FinishedActivty"/>
-        <activity android:name=".RegisterCompanies"/>
-        <activity android:name=".CurrentOpenings"/>
-
+        <activity android:name=".Registration" />
+        <activity android:name=".Personal_Info" />
+        <activity android:name=".FinishedActivty" />
+        <activity android:name=".RegisterCompanies" />
+        <activity android:name=".CurrentOpenings" />
+        <activity android:name=".AddInterviewExperience" />
+        <activity android:name=".InterviewExperinces"></activity>
     </application>
 
 </manifest>
