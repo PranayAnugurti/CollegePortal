@@ -29,7 +29,6 @@
                     android:id="@+id/et_Dproject"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text=""
                     android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                     android:textSize="16sp"/>
                 <TextView
@@ -44,7 +43,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ellipsize="end"
-                    android:text=""
                     android:textAppearance="@style/TextAppearance.AppCompat.Caption"
                     android:textSize="14sp"/>
                 <TextView
@@ -59,7 +57,7 @@
                     android:layout_marginTop="20dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                   android:text=""
+
                     android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                     android:textSize="16sp"/>
                 <TextView
@@ -74,14 +72,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                   android:text=""
+
                     />
                 <Button
+                  android:id="@+id/DupdateProjectBtn"
                     android:layout_marginTop="8dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/button_color"
                     android:textColor="@color/white"
+                    android:clickable="true"
                     android:text="UPDATE"/>
 
             </LinearLayout>

@@ -151,38 +151,38 @@ public class Home extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
-        if(isCon) {
-          if (id == R.id.nav_currentOpening) {
-            Intent intent = new Intent(Home.this, CurrentOpenings.class);
-            startActivity(intent);
-          } else if (id == R.id.nav_registeredCompanies) {
-            Intent intent = new Intent(Home.this, RegisterCompanies.class);
-            startActivity(intent);
-          } else if (id == R.id.nav_addInterviewExperience) {
-            Intent intent = new Intent(Home.this, AddInterviewExperience.class);
-            startActivity(intent);
-          } else if (id == R.id.nav_currentOpening) {
-            Intent intent = new Intent(Home.this, CurrentOpenings.class);
-            startActivity(intent);
-          } else if (id == R.id.nav_registeredCompanies) {
-            Intent intent = new Intent(Home.this, RegisterCompanies.class);
-            startActivity(intent);
-          } else if (id == R.id.nav_interviewExperinces) {
-            Intent intent = new Intent(Home.this, InterviewExperinces.class);
-            startActivity(intent);
+      // Handle navigation view item clicks here.
+      int id = item.getItemId();
+      if (isCon) {
+        if (id == R.id.nav_currentOpening) {
+          Intent intent = new Intent(Home.this, CurrentOpenings.class);
+          startActivity(intent);
+        } else if (id == R.id.nav_registeredCompanies) {
+          Intent intent = new Intent(Home.this, RegisterCompanies.class);
+          startActivity(intent);
+        } else if (id == R.id.nav_addInterviewExperience) {
+          Intent intent = new Intent(Home.this, AddInterviewExperience.class);
+          startActivity(intent);
+        } else if (id == R.id.nav_currentOpening) {
+          Intent intent = new Intent(Home.this, CurrentOpenings.class);
+          startActivity(intent);
+        } else if (id == R.id.nav_registeredCompanies) {
+          Intent intent = new Intent(Home.this, RegisterCompanies.class);
+          startActivity(intent);
+        } else if (id == R.id.nav_interviewExperinces) {
+          Intent intent = new Intent(Home.this, InterviewExperinces.class);
+          startActivity(intent);
 
-          } else if (id == R.id.nav_place_stats) {
-            Intent intent = new Intent(getApplicationContext(), PlaceMentStatistics.class);
-            startActivity(intent);
-          }
-
-          DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        } else if (id == R.id.nav_place_stats) {
+          Intent intent = new Intent(getApplicationContext(), PlaceMentStatistics.class);
+          startActivity(intent);
+        }
+      }
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
-    }
 
+    }
     public class BackgroundTask extends AsyncTask<Void, Void, String> {
 
         String json_url;

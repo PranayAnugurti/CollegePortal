@@ -35,7 +35,6 @@
                     android:layout_height="wrap_content"
                     android:elevation="10dp"
                     android:ellipsize="end"
-                   android:text=""
                     android:textColor="@color/black"
                     android:textSize="16dp"
                     android:textStyle="italic" />
@@ -53,7 +52,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ellipsize="end"
-                   android:text=""
                     android:textColor="@color/black"
                     android:textSize="20dp"
                     android:textStyle="bold" />
@@ -63,7 +61,7 @@
                     android:layout_height="wrap_content"
                     android:text="Duration :-"
                     android:textColor="@color/black"
-                    android:textSize="18dp"
+           android:textSize="18dp"
                     android:textStyle="bold" />
 
                 <EditText
@@ -71,7 +69,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ellipsize="end"
-                 android:text=""
                     android:textSize="14dp" />
 
                 <TextView
@@ -86,11 +83,11 @@
                     android:id="@+id/DdescriptioneditView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                   android:text=""
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"
                     android:textSize="18dp" />
 
                 <Button
+                    android:id="@+id/DupdateInternBtn"
                     android:layout_marginTop="8dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
