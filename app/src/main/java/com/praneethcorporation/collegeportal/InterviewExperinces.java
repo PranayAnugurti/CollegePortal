@@ -27,7 +27,7 @@ import org.json.JSONObject;
 public class InterviewExperinces extends AppCompatActivity {
 
     ListView listView;
-  InterviewExperiencesAdapter interviewExperiencesAdapter;
+    InterviewExperiencesAdapter interviewExperiencesAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
