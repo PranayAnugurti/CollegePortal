@@ -555,6 +555,7 @@ public class Tab3 extends Fragment {
 
       httpURLConnection.setDoOutput(true);
       httpURLConnection.setDoInput(true);
+
       OutputStream outputStream = httpURLConnection.getOutputStream();
       BufferedWriter bufferedWriter = new BufferedWriter(
           new OutputStreamWriter(outputStream, "UTF-8"));

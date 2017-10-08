@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-   >
+  xmlns:tools="http://schemas.android.com/tools"
+  android:orientation="vertical"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  >
 <android.support.v7.widget.CardView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -17,27 +19,37 @@
             android:id="@+id/companyName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Company Name"
+            tools:text="Company Name"
+          android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
             android:textSize="20dp"
-            android:textColor="@color/black"
-            />
-        <TextView
-            android:id="@+id/studentName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="DummyName"
-            android:textSize="20dp"
-            android:textColor="@color/black"
             />
         <TextView
             android:id="@+id/Date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="DummyName"
-            android:textSize="16dp"
+            android:textSize="12dp"
             android:maxLines="2"
             android:ellipsize="end"
+          tools:text="dd/mm/yyyy"
             />
+      <TextView
+        android:layout_marginTop="8dp"
+        android:id="@+id/Description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16dp"
+        android:maxLines="3"
+        android:ellipsize="end"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"
+        tools:text="description description"
+        />
+      <TextView
+        android:id="@+id/studentName"
+        android:layout_width="match_parent"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"
+        android:layout_height="wrap_content"
+        tools:text="- Student Name"
+        />
     </LinearLayout>
 </android.support.v7.widget.CardView>
 </LinearLayout>
