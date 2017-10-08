@@ -1,140 +1,152 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-  android:layout_width="match_parent"
-  android:layout_height="match_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-<LinearLayout
-  android:id="@+id/linearLayout"
-  android:layout_width="match_parent"
-  android:layout_height="match_parent"
-  android:background="@color/background"
-  android:orientation="vertical">
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Photograph"
-        android:textAlignment="center"
-        android:textAllCaps="true"
-        android:textColor="@color/black"
-        android:textSize="20dp"
-        android:textStyle="bold" />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/Name"
-        android:text="abc"
-        android:visibility="gone"
-        />
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:id="@+id/imageView"
-        />
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Choose Image"
-        android:id="@+id/chooseImage"
-        android:layout_below="@id/imageView"
-        android:layout_marginTop="15dp"/>
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Upload Image"
-        android:id="@+id/uploadBn"
-        android:layout_below="@id/chooseImage"
-        android:visibility="gone"
-        android:layout_marginTop="15dp"/>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:layout_margin="8dp"
-        android:background="@color/black" />
-
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Resume"
-        android:textAlignment="center"
-        android:textAllCaps="true"
-        android:textColor="@color/black"
-        android:textSize="20dp"
-        android:textStyle="bold" />
-  <LinearLayout
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-      android:layout_marginTop="16dp">
-    <TextView
-      android:id="@+id/pdfName"
-      android:layout_width="0dp"
-        android:layout_weight="3"
-      android:layout_gravity="center"
-      android:textIsSelectable="true"
-      android:text="resume.pdf"
-      android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
-      android:textAlignment="center"
-      android:gravity="center"
-      android:textColor="@android:color/holo_red_dark"
-      android:layout_height="40dp"/>
-    <Button
-      android:layout_marginRight="16dp"
-        android:background="@color/button_color"
-        android:layout_width="wrap_content"
-      android:layout_height="40dp"
-      android:text="Download"
-      android:id="@+id/downloadBtn"
-      />
-
-  </LinearLayout>
+    android:layout_height="match_parent">
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="32dp">
-        <EditText
-            android:id="@+id/pdfNameFeild"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:textIsSelectable="true"
-            android:hint="Select pdf to upload!"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Photograph"
             android:textAlignment="center"
-          android:gravity="center"
-          android:textColor="@android:color/holo_red_dark"
-            android:layout_height="40dp"/>
+            android:textAllCaps="true"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/Name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="abc"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp" />
+
         <Button
+            android:id="@+id/chooseImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/imageView"
+            android:layout_margin="16dp"
+            android:layout_marginTop="15dp"
             android:background="@color/button_color"
-            android:layout_marginRight="16dp"
+            android:text="Choose Image"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/uploadBn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/chooseImage"
+            android:layout_marginTop="15dp"
+            android:text="Upload Image"
+            android:visibility="gone" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_margin="8dp"
+            android:background="@color/black" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Resume"
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/pdfName"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_weight="3"
+                android:gravity="center"
+                android:text="resume.pdf"
+                android:textAlignment="center"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
+                android:textColor="@android:color/holo_red_dark"
+                android:textIsSelectable="true" />
+
+            <Button
+                android:id="@+id/downloadBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginRight="16dp"
+                android:background="@color/button_color"
+                android:text="Download"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/pdfNameFeild"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:hint="Select pdf to upload!"
+                android:textAlignment="center"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
+                android:textColor="@android:color/holo_red_dark"
+                android:textIsSelectable="true" />
+
+            <Button
+                android:id="@+id/browseBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginRight="16dp"
+                android:background="@color/button_color"
+                android:text="Browse"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/uploadPdfBtn"
+
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:text="Browse"
-            android:id="@+id/browseBtn"
-            />
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@color/button_color"
+            android:padding="16dp"
+            android:text="Upload Now!"
+            android:textColor="@color/white" />
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_margin="8dp"
+            android:background="@color/black" />
     </LinearLayout>
-  <Button
-    android:layout_gravity="center"
-
-    android:id="@+id/uploadPdfBtn"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Upload Now!"
-      android:background="@color/button_color"/>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:layout_margin="8dp"
-        android:background="@color/black" />
-</LinearLayout>
 </ScrollView>

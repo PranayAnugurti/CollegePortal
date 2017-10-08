@@ -22,101 +22,129 @@ import java.util.ArrayList;
 
 public class LastYearStatistics extends Fragment implements OnChartValueSelectedListener {
 
-  @Nullable
-  @Override
-  public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-    View view = inflater.inflate(R.layout.activity_last_year_statistics, container, false);
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.activity_last_year_statistics, container, false);
 
-    PieChart pieChart = (PieChart) view.findViewById(R.id.piechart);
-    PieChart pieChart1 = (PieChart) view.findViewById(R.id.piechart2);
-    pieChart.setUsePercentValues(true);
-    pieChart1.setUsePercentValues(true);
+        PieChart pieChart = (PieChart) view.findViewById(R.id.piechart);
+        PieChart pieChart1 = (PieChart) view.findViewById(R.id.piechart2);
+        pieChart.setUsePercentValues(true);
+        pieChart1.setUsePercentValues(true);
 
-    // IMPORTANT: In a PieChart, no values (Entry) should have the same
-    // xIndex (even if from different DataSets), since no values can be
-    // drawn above each other.
-    ArrayList<Entry> yvalues = new ArrayList<Entry>();
-    yvalues.add(new Entry(23f, 0));
-    yvalues.add(new Entry(163f, 1));
-    yvalues.add(new Entry(36f, 2));
-    yvalues.add(new Entry(68f, 3));
-    yvalues.add(new Entry(92f, 4));
-    yvalues.add(new Entry(36f, 5));
-    yvalues.add(new Entry(88f, 6));
-    yvalues.add(new Entry(109f, 7));
-    yvalues.add(new Entry(35f, 8));
-    yvalues.add(new Entry(302f, 9));
-    yvalues.add(new Entry(7f, 10));
-    yvalues.add(new Entry(137f,11));
-    yvalues.add(new Entry(14f, 12));
-    yvalues.add(new Entry(66f, 13));
-
-    PieDataSet dataSet = new PieDataSet(yvalues, "Elgible Candidates");
-
-    ArrayList<String> xVals = new ArrayList<String>();
-
-    xVals.add("BIO");
-    xVals.add("CSE");
-    xVals.add("CHE");
-    xVals.add("CIV");
-    xVals.add("IT");
-    xVals.add("PIE");
-    xVals.add("MCA");
-    xVals.add("ME");
-    xVals.add("MBA");
-    xVals.add("M.Tech All");
-    xVals.add("MSW");
-    xVals.add("ECE");
-    xVals.add("M.Sc");
-    xVals.add("EE");
-
-    PieData data = new PieData(xVals, dataSet);
-    // In Percentage term
-    data.setValueFormatter(new PercentFormatter());
-    // Default value
-    //data.setValueFormatter(new DefaultValueFormatter(0));
-    pieChart.setData(data);
-    pieChart1.setData(data);
-    pieChart.setDescription("This is Elgigble Candiadates Pie Chart ");
+        // IMPORTANT: In a PieChart, no values (Entry) should have the same
+        // xIndex (even if from different DataSets), since no values can be
+        // drawn above each other.
+        ArrayList<Entry> EligibileCandidates = new ArrayList<Entry>();
+        EligibileCandidates.add(new Entry(23f, 0));//BIO
+        EligibileCandidates.add(new Entry(163f, 1));//CSE
+        EligibileCandidates.add(new Entry(36f, 2));//CHE
+        EligibileCandidates.add(new Entry(68f, 3));//CIV
+        EligibileCandidates.add(new Entry(92f, 4));//IT
+        EligibileCandidates.add(new Entry(36f, 5));//PIE
+        EligibileCandidates.add(new Entry(88f, 6));//MCA
+        EligibileCandidates.add(new Entry(109f, 7));//ME
+        EligibileCandidates.add(new Entry(35f, 8));//MBA
+        EligibileCandidates.add(new Entry(302f, 9));//Mtech
+        EligibileCandidates.add(new Entry(7f, 10));//MSW
+        EligibileCandidates.add(new Entry(137f, 11));//ECE
+        EligibileCandidates.add(new Entry(14f, 12));//M.Sc
+        EligibileCandidates.add(new Entry(66f, 13));//EE
 
 
-    pieChart1.setDescription("This is Elgigble Candiadates Pie Chart ");
-
-    pieChart.setDrawHoleEnabled(true);
-    pieChart.setTransparentCircleRadius(25f);
-    pieChart.setHoleRadius(25f);
-
-    pieChart1.setDrawHoleEnabled(true);
-    pieChart1.setTransparentCircleRadius(25f);
-    pieChart1.setHoleRadius(25f);
-
-    dataSet.setColors(ColorTemplate.VORDIPLOM_COLORS);
-    data.setValueTextSize(13f);
-    data.setValueTextColor(Color.DKGRAY);
-    pieChart.setOnChartValueSelectedListener(this);
-    pieChart1.setOnChartValueSelectedListener(this);
-
-    pieChart.animateXY(1400, 1400);
-
-    pieChart1.animateXY(1400, 1400);
+        ArrayList<Entry> Placed_Candidates = new ArrayList<Entry>();
+        Placed_Candidates.add(new Entry(20f, 0));//BIO
+        Placed_Candidates.add(new Entry(174f, 1));//CSE
+        Placed_Candidates.add(new Entry(28f, 2));//CHE
+        Placed_Candidates.add(new Entry(50f, 3));//CIV
+        Placed_Candidates.add(new Entry(81f, 4));//IT
+        Placed_Candidates.add(new Entry(25f, 5));//PIE
+        Placed_Candidates.add(new Entry(55f, 6));//MCA
+        Placed_Candidates.add(new Entry(93f, 7));//ME
+        Placed_Candidates.add(new Entry(26f, 8));//MBA
+        Placed_Candidates.add(new Entry(128f, 9));//Mtech
+        Placed_Candidates.add(new Entry(0f, 10));//MSW
+        Placed_Candidates.add(new Entry(113f, 11));//ECE
+        Placed_Candidates.add(new Entry(4f, 12));//M.sc
+        Placed_Candidates.add(new Entry(54f, 13));//EE
 
 
-    return view;
-  }
+        PieDataSet EligibledataSet = new PieDataSet(EligibileCandidates, "Elgible Candidates");
+
+        PieDataSet PlaceddataSet = new PieDataSet(Placed_Candidates, "Placed Candidates");
+
+        ArrayList<String> xVals = new ArrayList<String>();
+
+        xVals.add("BIO");
+        xVals.add("CSE");
+        xVals.add("CHE");
+        xVals.add("CIV");
+        xVals.add("IT");
+        xVals.add("PIE");
+        xVals.add("MCA");
+        xVals.add("ME");
+        xVals.add("MBA");
+        xVals.add("M.Tech All");
+        xVals.add("MSW");
+        xVals.add("ECE");
+        xVals.add("M.Sc");
+        xVals.add("EE");
+
+        PieData Eligibledata = new PieData(xVals, EligibledataSet);
 
 
-  @Override
-  public void onValueSelected(Entry e, int dataSetIndex, Highlight h) {
+        PieData Placeddata = new PieData(xVals, PlaceddataSet);
 
-    if (e == null)
-      return;
-    Log.i("VAL SELECTED",
-        "Value: " + e.getVal() + ", xIndex: " + e.getXIndex()
-            + ", DataSet index: " + dataSetIndex);
-  }
+        // In Percentage term
+        Eligibledata.setValueFormatter(new PercentFormatter());
+        Placeddata.setValueFormatter(new PercentFormatter());
+        // Default value
+        //data.setValueFormatter(new DefaultValueFormatter(0));
+        pieChart.setData(Eligibledata);
+        pieChart1.setData(Placeddata);
+        pieChart.setDescription("This is Elgigble Candiadates Pie Chart ");
 
-  @Override
-  public void onNothingSelected() {
-    Log.i("PieChart", "nothing selected");
-  }
+
+        pieChart1.setDescription("This is Placed Candiadates Pie Chart ");
+
+        pieChart.setDrawHoleEnabled(true);
+        pieChart.setTransparentCircleRadius(25f);
+        pieChart.setHoleRadius(25f);
+
+        pieChart1.setDrawHoleEnabled(true);
+        pieChart1.setTransparentCircleRadius(25f);
+        pieChart1.setHoleRadius(25f);
+
+        PlaceddataSet.setColors(ColorTemplate.VORDIPLOM_COLORS);
+        EligibledataSet.setColors(ColorTemplate.VORDIPLOM_COLORS);
+        Eligibledata.setValueTextSize(13f);
+        Placeddata.setValueTextSize(13f);
+        Eligibledata.setValueTextColor(Color.DKGRAY);
+        Placeddata.setValueTextColor(Color.DKGRAY);
+        pieChart.setOnChartValueSelectedListener(this);
+        pieChart1.setOnChartValueSelectedListener(this);
+
+        pieChart.animateXY(1400, 1400);
+
+        pieChart1.animateXY(1400, 1400);
+
+
+        return view;
+    }
+
+
+    @Override
+    public void onValueSelected(Entry e, int dataSetIndex, Highlight h) {
+
+        if (e == null)
+            return;
+        Log.i("VAL SELECTED",
+                "Value: " + e.getVal() + ", xIndex: " + e.getXIndex()
+                        + ", DataSet index: " + dataSetIndex);
+    }
+
+    @Override
+    public void onNothingSelected() {
+        Log.i("PieChart", "nothing selected");
+    }
 }

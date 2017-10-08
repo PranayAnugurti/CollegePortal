@@ -19,6 +19,7 @@
     android:text="Well that was one heck of a ride\n now click on this button to jump to the login Page"
    android:gravity="center" />
     <Button
+        android:background="@color/button_color"
         android:id="@+id/backtoLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

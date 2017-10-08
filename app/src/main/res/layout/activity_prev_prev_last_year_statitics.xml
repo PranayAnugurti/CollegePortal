@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,883 +9,906 @@
     android:background="@color/background"
     tools:context="com.praneethcorporation.collegeportal.PlaceMentStatistics">
 
-    <TableLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-       >
-        <TableRow
-            android:layout_gravity="center"
-            android:layout_marginBottom="5dp"
-            android:layout_marginTop="10dp"
-            android:gravity="center_horizontal">
+        android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/BranchName"
-                android:text=" Branch "
-                android:textAlignment="center"
-                android:textAppearance="@style/HeaderTableRowTheme" />
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:elevation="10dp">
 
-            <TextView
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-                android:id="@+id/EligibleCandidates"
-                android:text=" ECandt "
-                android:textAlignment="center"
+                <TableRow
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_horizontal">
 
-                android:textAppearance="@style/HeaderTableRowTheme" />
+                    <TextView
+                        android:id="@+id/BranchName"
+                        android:text=" Branch "
+                        android:textAlignment="center"
+                        android:textAppearance="@style/HeaderTableRowTheme" />
 
-            <TextView
+                    <TextView
 
-                android:id="@+id/Placed"
-                android:text=" Placed "
-                android:textAlignment="center"
+                        android:id="@+id/EligibleCandidates"
+                        android:text=" ECandt "
+                        android:textAlignment="center"
 
-                android:textAppearance="@style/HeaderTableRowTheme" />
+                        android:textAppearance="@style/HeaderTableRowTheme" />
 
-            <TextView
+                    <TextView
 
-                android:id="@+id/JobOffers"
-                android:text=" JOffers "
-                android:textAlignment="center"
+                        android:id="@+id/Placed"
+                        android:text=" Placed "
+                        android:textAlignment="center"
 
-                android:textAppearance="@style/HeaderTableRowTheme" />
+                        android:textAppearance="@style/HeaderTableRowTheme" />
 
-            <TextView
+                    <TextView
 
-                android:id="@+id/Placementpercentage"
-                android:text="  %Placed  "
-                android:textAlignment="center"
+                        android:id="@+id/JobOffers"
+                        android:text=" JOffers "
+                        android:textAlignment="center"
 
-                android:textAppearance="@style/HeaderTableRowTheme" />
+                        android:textAppearance="@style/HeaderTableRowTheme" />
 
-            <TextView
+                    <TextView
 
-                android:id="@+id/AverageCTC"
-                android:text=" AvCTC "
-                android:textAlignment="center"
+                        android:id="@+id/Placementpercentage"
+                        android:text="  %Placed  "
+                        android:textAlignment="center"
 
-                android:textAppearance="@style/HeaderTableRowTheme" />
+                        android:textAppearance="@style/HeaderTableRowTheme" />
 
-            <TextView
+                    <TextView
 
-                android:id="@+id/MAXCTC"
-                android:text=" MaxCTC "
-                android:textAlignment="center"
+                        android:id="@+id/AverageCTC"
+                        android:text=" AvCTC "
+                        android:textAlignment="center"
 
-                android:textAppearance="@style/HeaderTableRowTheme" />
+                        android:textAppearance="@style/HeaderTableRowTheme" />
 
-        </TableRow>
+                    <TextView
 
-        <TableRow
-            android:layout_gravity="center"
-            android:layout_marginBottom="5dp"
-            android:gravity="center_horizontal">
+                        android:id="@+id/MAXCTC"
+                        android:text=" MaxCTC "
+                        android:textAlignment="center"
 
-            <TextView
+                        android:textAppearance="@style/HeaderTableRowTheme" />
 
-                android:id="@+id/biobranchName"
-                android:text=" BIO "
-                android:textAlignment="center"
-                android:textAppearance="@style/NormalTableRowTheme" />
+                </TableRow>
 
-            <TextView
+                <TableRow
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="center_horizontal">
 
-                android:id="@+id/BIOEligibleCandidates"
-                android:text=" 23 "
-                android:textAlignment="center"
+                    <TextView
 
-                android:textAppearance="@style/NormalTableRowTheme" />
+                        android:id="@+id/biobranchName"
+                        android:text=" BIO "
+                        android:textAlignment="center"
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-            <TextView
+                    <TextView
 
-                android:id="@+id/BIOPlaced"
-                android:text=" 20 "
-                android:textAlignment="center"
+                        android:id="@+id/BIOEligibleCandidates"
+                        android:text=" 30 "
+                        android:textAlignment="center"
 
-                android:textAppearance="@style/NormalTableRowTheme" />
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-            <TextView
-                android:id="@+id/BIOJobOffers"
-                android:text=" 23 "
+                    <TextView
 
-                android:textAlignment="center"
-                android:textAppearance="@style/NormalTableRowTheme" />
+                        android:id="@+id/BIOPlaced"
+                        android:text=" 18 "
+                        android:textAlignment="center"
 
-            <TextView
-                android:id="@+id/BIOPlacementpercentage"
-                android:text="  86.96  "
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-                android:textAlignment="center"
-                android:textAppearance="@style/NormalTableRowTheme" />
+                    <TextView
+                        android:id="@+id/BIOJobOffers"
+                        android:text=" 21 "
 
-            <TextView
-                android:id="@+id/BIOAverageCTC"
-                android:text=" 4.14 "
+                        android:textAlignment="center"
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-                android:textAlignment="center"
-                android:textAppearance="@style/NormalTableRowTheme" />
+                    <TextView
+                        android:id="@+id/BIOPlacementpercentage"
+                        android:text="  60  "
 
-            <TextView
-                android:id="@+id/BIOMAXCTC"
-                android:text=" 6.50 "
+                        android:textAlignment="center"
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-                android:textAlignment="center"
-                android:textAppearance="@style/NormalTableRowTheme" />
+                    <TextView
+                        android:id="@+id/BIOAverageCTC"
+                        android:text=" 4.16 "
 
-        </TableRow>
+                        android:textAlignment="center"
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-        <TableRow
-            android:layout_gravity="center"
-            android:layout_marginBottom="5dp"
-            android:gravity="center_horizontal">
+                    <TextView
+                        android:id="@+id/BIOMAXCTC"
+                        android:text=" 6 "
 
-            <TextView
+                        android:textAlignment="center"
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-                android:id="@+id/CHEbranchName"
-                android:text=" CHE "
-                android:textAlignment="center"
-                android:textAppearance="@style/NormalTableRowTheme" />
+                </TableRow>
 
-            <TextView
+                <TableRow
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="center_horizontal">
 
-                android:id="@+id/CHEEligibleCandidates"
-                android:text=" 23 "
-                android:textAlignment="center"
+                    <TextView
 
-                android:textAppearance="@style/NormalTableRowTheme" />
+                        android:id="@+id/CHEbranchName"
+                        android:text=" CHE "
+                        android:textAlignment="center"
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-            <TextView
+                    <TextView
 
-                android:id="@+id/CHEPlaced"
-                android:text=" 20 "
-                android:textAlignment="center"
+                        android:id="@+id/CHEEligibleCandidates"
+                        android:text=" 36 "
+                        android:textAlignment="center"
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-                android:textAppearance="@style/NormalTableRowTheme" />
+                    <TextView
 
-            <TextView
-                android:id="@+id/CHEJobOffers"
-                android:text=" 23 "
+                        android:id="@+id/CHEPlaced"
+                        android:text=" 24 "
+                        android:textAlignment="center"
 
-                android:textAlignment="center"
-                android:textAppearance="@style/NormalTableRowTheme" />
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-            <TextView
-                android:id="@+id/CHEPlacementpercentage"
-                android:text="  86.96  "
+                    <TextView
+                        android:id="@+id/CHEJobOffers"
+                        android:text=" 28 "
 
-                android:textAlignment="center"
-                android:textAppearance="@style/NormalTableRowTheme" />
+                        android:textAlignment="center"
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-            <TextView
-                android:id="@+id/CHEAverageCTC"
-                android:text=" 4.14 "
+                    <TextView
+                        android:id="@+id/CHEPlacementpercentage"
+                        android:text="  66.67  "
 
-                android:textAlignment="center"
-                android:textAppearance="@style/NormalTableRowTheme" />
+                        android:textAlignment="center"
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-            <TextView
-                android:id="@+id/CEHMAXCTC"
-                android:text=" 6.50 "
+                    <TextView
+                        android:id="@+id/CHEAverageCTC"
+                        android:text=" 5.59 "
 
-                android:textAlignment="center"
-                android:textAppearance="@style/NormalTableRowTheme" />
+                        android:textAlignment="center"
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-        </TableRow>
+                    <TextView
+                        android:id="@+id/CEHMAXCTC"
+                        android:text=" 11 "
 
-        <TableRow
-            android:layout_gravity="center"
-            android:layout_marginBottom="5dp"
-            android:gravity="center_horizontal">
+                        android:textAlignment="center"
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-            <TextView
+                </TableRow>
 
-                android:id="@+id/CIVbranchName"
-                android:text=" CIV "
-                android:textAlignment="center"
-                android:textAppearance="@style/NormalTableRowTheme" />
+                <TableRow
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="center_horizontal">
 
-            <TextView
+                    <TextView
 
-                android:id="@+id/CIVEligibleCandidates"
-                android:text=" 23 "
-                android:textAlignment="center"
+                        android:id="@+id/CIVbranchName"
+                        android:text=" CIV "
+                        android:textAlignment="center"
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-                android:textAppearance="@style/NormalTableRowTheme" />
+                    <TextView
 
-            <TextView
+                        android:id="@+id/CIVEligibleCandidates"
+                        android:text=" 70 "
+                        android:textAlignment="center"
 
-                android:id="@+id/CIVPlaced"
-                android:text=" 20 "
-                android:textAlignment="center"
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-                android:textAppearance="@style/NormalTableRowTheme" />
+                    <TextView
 
-            <TextView
-                android:id="@+id/CIVJobOffers"
-                android:text=" 23 "
+                        android:id="@+id/CIVPlaced"
+                        android:text=" 40 "
+                        android:textAlignment="center"
 
-                android:textAlignment="center"
-                android:textAppearance="@style/NormalTableRowTheme" />
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-            <TextView
-                android:id="@+id/CIVPlacementpercentage"
-                android:text="  86.96  "
+                    <TextView
+                        android:id="@+id/CIVJobOffers"
+                        android:text=" 43 "
 
-                android:textAlignment="center"
-                android:textAppearance="@style/NormalTableRowTheme" />
+                        android:textAlignment="center"
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-            <TextView
-                android:id="@+id/CIVAverageCTC"
-                android:text=" 4.14 "
+                    <TextView
+                        android:id="@+id/CIVPlacementpercentage"
+                        android:text="  57.14  "
+                        android:textAlignment="center"
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-                android:textAlignment="center"
-                android:textAppearance="@style/NormalTableRowTheme" />
+                    <TextView
+                        android:id="@+id/CIVAverageCTC"
+                        android:text=" 4.34 "
 
-            <TextView
-                android:id="@+id/CIVMAXCTC"
-                android:text=" 6.50 "
+                        android:textAlignment="center"
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-                android:textAlignment="center"
-                android:textAppearance="@style/NormalTableRowTheme" />
+                    <TextView
+                        android:id="@+id/CIVMAXCTC"
+                        android:text=" 6 "
 
-        </TableRow>
+                        android:textAlignment="center"
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-        <TableRow
-            android:layout_gravity="center"
-            android:layout_marginBottom="5dp"
-            android:gravity="center_horizontal">
+                </TableRow>
 
-            <TextView
+                <TableRow
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="center_horizontal">
 
-                android:id="@+id/CSEbranchName"
-                android:text=" CHE "
-                android:textAlignment="center"
-                android:textAppearance="@style/NormalTableRowTheme" />
+                    <TextView
 
-            <TextView
+                        android:id="@+id/CSEbranchName"
+                        android:text=" CSE "
+                        android:textAlignment="center"
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-                android:id="@+id/CSEEligibleCandidates"
-                android:text=" 23 "
-                android:textAlignment="center"
+                    <TextView
 
-                android:textAppearance="@style/NormalTableRowTheme" />
+                        android:id="@+id/CSEEligibleCandidates"
+                        android:text=" 154 "
+                        android:textAlignment="center"
 
-            <TextView
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-                android:id="@+id/CSEPlaced"
-                android:text=" 20 "
-                android:textAlignment="center"
+                    <TextView
 
-                android:textAppearance="@style/NormalTableRowTheme" />
+                        android:id="@+id/CSEPlaced"
+                        android:text=" 132 "
+                        android:textAlignment="center"
 
-            <TextView
-                android:id="@+id/CSEJobOffers"
-                android:text=" 23 "
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-                android:textAlignment="center"
-                android:textAppearance="@style/NormalTableRowTheme" />
+                    <TextView
+                        android:id="@+id/CSEJobOffers"
+                        android:text=" 157 "
 
-            <TextView
-                android:id="@+id/CSEPlacementpercentage"
-                android:text="  86.96  "
+                        android:textAlignment="center"
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-                android:textAlignment="center"
-                android:textAppearance="@style/NormalTableRowTheme" />
+                    <TextView
+                        android:id="@+id/CSEPlacementpercentage"
+                        android:text="  85.71  "
 
-            <TextView
-                android:id="@+id/CSEAverageCTC"
-                android:text=" 4.14 "
+                        android:textAlignment="center"
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-                android:textAlignment="center"
-                android:textAppearance="@style/NormalTableRowTheme" />
+                    <TextView
+                        android:id="@+id/CSEAverageCTC"
+                        android:text=" 10.41 "
 
-            <TextView
-                android:id="@+id/CSEMAXCTC"
-                android:text=" 6.50 "
+                        android:textAlignment="center"
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-                android:textAlignment="center"
-                android:textAppearance="@style/NormalTableRowTheme" />
+                    <TextView
+                        android:id="@+id/CSEMAXCTC"
+                        android:text=" 25 "
 
-        </TableRow>
+                        android:textAlignment="center"
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-        <TableRow
-            android:layout_gravity="center"
-            android:layout_marginBottom="5dp"
-            android:gravity="center_horizontal">
+                </TableRow>
 
-            <TextView
+                <TableRow
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="center_horizontal">
 
-                android:id="@+id/EEbranchName"
-                android:text=" EE "
-                android:textAlignment="center"
-                android:textAppearance="@style/NormalTableRowTheme" />
+                    <TextView
 
-            <TextView
+                        android:id="@+id/EEbranchName"
+                        android:text=" EE "
+                        android:textAlignment="center"
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-                android:id="@+id/EEligibleCandidates"
-                android:text=" 23 "
-                android:textAlignment="center"
+                    <TextView
 
-                android:textAppearance="@style/NormalTableRowTheme" />
+                        android:id="@+id/EEligibleCandidates"
+                        android:text=" 65 "
+                        android:textAlignment="center"
 
-            <TextView
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-                android:id="@+id/EEPlaced"
-                android:text=" 20 "
-                android:textAlignment="center"
+                    <TextView
 
-                android:textAppearance="@style/NormalTableRowTheme" />
+                        android:id="@+id/EEPlaced"
+                        android:text=" 51 "
+                        android:textAlignment="center"
 
-            <TextView
-                android:id="@+id/EEJobOffers"
-                android:text=" 23 "
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-                android:textAlignment="center"
-                android:textAppearance="@style/NormalTableRowTheme" />
+                    <TextView
+                        android:id="@+id/EEJobOffers"
+                        android:text=" 63 "
 
-            <TextView
-                android:id="@+id/EEPlacementpercentage"
-                android:text="  86.96  "
+                        android:textAlignment="center"
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-                android:textAlignment="center"
-                android:textAppearance="@style/NormalTableRowTheme" />
+                    <TextView
+                        android:id="@+id/EEPlacementpercentage"
+                        android:text="  78.46  "
 
-            <TextView
-                android:id="@+id/EEAverageCTC"
-                android:text=" 4.14 "
+                        android:textAlignment="center"
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-                android:textAlignment="center"
-                android:textAppearance="@style/NormalTableRowTheme" />
+                    <TextView
+                        android:id="@+id/EEAverageCTC"
+                        android:text=" 5.19 "
 
-            <TextView
-                android:id="@+id/EEMAXCTC"
-                android:text=" 6.50 "
+                        android:textAlignment="center"
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-                android:textAlignment="center"
-                android:textAppearance="@style/NormalTableRowTheme" />
+                    <TextView
+                        android:id="@+id/EEMAXCTC"
+                        android:text=" 10.15 "
 
-        </TableRow>
+                        android:textAlignment="center"
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-        <TableRow
-            android:layout_gravity="center"
-            android:layout_marginBottom="5dp"
-            android:gravity="center_horizontal">
+                </TableRow>
 
-            <TextView
+                <TableRow
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="center_horizontal">
 
-                android:id="@+id/ECEbranchName"
-                android:text=" ECE "
-                android:textAlignment="center"
-                android:textAppearance="@style/NormalTableRowTheme" />
+                    <TextView
 
-            <TextView
+                        android:id="@+id/ECEbranchName"
+                        android:text=" ECE "
+                        android:textAlignment="center"
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-                android:id="@+id/ECEEligibleCandidates"
-                android:text=" 23 "
-                android:textAlignment="center"
+                    <TextView
 
-                android:textAppearance="@style/NormalTableRowTheme" />
+                        android:id="@+id/ECEEligibleCandidates"
+                        android:text=" 132 "
+                        android:textAlignment="center"
 
-            <TextView
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-                android:id="@+id/ECEPlaced"
-                android:text=" 20 "
-                android:textAlignment="center"
+                    <TextView
 
-                android:textAppearance="@style/NormalTableRowTheme" />
+                        android:id="@+id/ECEPlaced"
+                        android:text=" 106 "
+                        android:textAlignment="center"
 
-            <TextView
-                android:id="@+id/ECEJobOffers"
-                android:text=" 23 "
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-                android:textAlignment="center"
-                android:textAppearance="@style/NormalTableRowTheme" />
+                    <TextView
+                        android:id="@+id/ECEJobOffers"
+                        android:text=" 141 "
 
-            <TextView
-                android:id="@+id/ECEPlacementpercentage"
-                android:text="  86.96  "
+                        android:textAlignment="center"
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-                android:textAlignment="center"
-                android:textAppearance="@style/NormalTableRowTheme" />
+                    <TextView
+                        android:id="@+id/ECEPlacementpercentage"
+                        android:text="  80.30  "
 
-            <TextView
-                android:id="@+id/ECEAverageCTC"
-                android:text=" 4.14 "
+                        android:textAlignment="center"
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-                android:textAlignment="center"
-                android:textAppearance="@style/NormalTableRowTheme" />
+                    <TextView
+                        android:id="@+id/ECEAverageCTC"
+                        android:text=" 6.78 "
 
-            <TextView
-                android:id="@+id/ECEMAXCTC"
-                android:text=" 6.50 "
+                        android:textAlignment="center"
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-                android:textAlignment="center"
-                android:textAppearance="@style/NormalTableRowTheme" />
+                    <TextView
+                        android:id="@+id/ECEMAXCTC"
+                        android:text=" 16.23 "
 
-        </TableRow>
+                        android:textAlignment="center"
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-        <TableRow
-            android:layout_gravity="center"
-            android:layout_marginBottom="5dp"
-            android:gravity="center_horizontal">
+                </TableRow>
 
-            <TextView
+                <TableRow
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="center_horizontal">
 
-                android:id="@+id/ITbranchName"
-                android:text=" IT "
-                android:textAlignment="center"
-                android:textAppearance="@style/NormalTableRowTheme" />
+                    <TextView
 
-            <TextView
+                        android:id="@+id/ITbranchName"
+                        android:text=" IT "
+                        android:textAlignment="center"
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-                android:id="@+id/ITEligibleCandidates"
-                android:text=" 23 "
-                android:textAlignment="center"
+                    <TextView
 
-                android:textAppearance="@style/NormalTableRowTheme" />
+                        android:id="@+id/ITEligibleCandidates"
+                        android:text=" 74 "
+                        android:textAlignment="center"
 
-            <TextView
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-                android:id="@+id/ITPlaced"
-                android:text=" 20 "
-                android:textAlignment="center"
+                    <TextView
 
-                android:textAppearance="@style/NormalTableRowTheme" />
+                        android:id="@+id/ITPlaced"
+                        android:text=" 62 "
+                        android:textAlignment="center"
 
-            <TextView
-                android:id="@+id/ITJobOffers"
-                android:text=" 23 "
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-                android:textAlignment="center"
-                android:textAppearance="@style/NormalTableRowTheme" />
+                    <TextView
+                        android:id="@+id/ITJobOffers"
+                        android:text=" 78 "
 
-            <TextView
-                android:id="@+id/ITPlacementpercentage"
-                android:text="  86.96  "
+                        android:textAlignment="center"
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-                android:textAlignment="center"
-                android:textAppearance="@style/NormalTableRowTheme" />
+                    <TextView
+                        android:id="@+id/ITPlacementpercentage"
+                        android:text="  83.78  "
 
-            <TextView
-                android:id="@+id/ITAverageCTC"
-                android:text=" 4.14 "
+                        android:textAlignment="center"
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-                android:textAlignment="center"
-                android:textAppearance="@style/NormalTableRowTheme" />
+                    <TextView
+                        android:id="@+id/ITAverageCTC"
+                        android:text=" 8.36 "
 
-            <TextView
-                android:id="@+id/ITMAXCTC"
-                android:text=" 6.50 "
+                        android:textAlignment="center"
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-                android:textAlignment="center"
-                android:textAppearance="@style/NormalTableRowTheme" />
+                    <TextView
+                        android:id="@+id/ITMAXCTC"
+                        android:text=" 18.9 "
 
-        </TableRow>
+                        android:textAlignment="center"
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-        <TableRow
-            android:layout_gravity="center"
-            android:layout_marginBottom="5dp"
-            android:gravity="center_horizontal">
+                </TableRow>
 
-            <TextView
+                <TableRow
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="center_horizontal">
 
-                android:id="@+id/MECHbranchName"
-                android:text=" MECH "
-                android:textAlignment="center"
-                android:textAppearance="@style/NormalTableRowTheme" />
+                    <TextView
 
-            <TextView
+                        android:id="@+id/MECHbranchName"
+                        android:text=" MECH "
+                        android:textAlignment="center"
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-                android:id="@+id/MECHEligibleCandidates"
-                android:text=" 23 "
-                android:textAlignment="center"
+                    <TextView
 
-                android:textAppearance="@style/NormalTableRowTheme" />
+                        android:id="@+id/MECHEligibleCandidates"
+                        android:text=" 124 "
+                        android:textAlignment="center"
 
-            <TextView
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-                android:id="@+id/MECHPlaced"
-                android:text=" 20 "
-                android:textAlignment="center"
+                    <TextView
 
-                android:textAppearance="@style/NormalTableRowTheme" />
+                        android:id="@+id/MECHPlaced"
+                        android:text=" 94 "
+                        android:textAlignment="center"
 
-            <TextView
-                android:id="@+id/MECHJobOffers"
-                android:text=" 23 "
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-                android:textAlignment="center"
-                android:textAppearance="@style/NormalTableRowTheme" />
+                    <TextView
+                        android:id="@+id/MECHJobOffers"
+                        android:text=" 116 "
 
-            <TextView
-                android:id="@+id/MECHPlacementpercentage"
-                android:text="  86.96  "
+                        android:textAlignment="center"
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-                android:textAlignment="center"
-                android:textAppearance="@style/NormalTableRowTheme" />
+                    <TextView
+                        android:id="@+id/MECHPlacementpercentage"
+                        android:text="  75.80  "
 
-            <TextView
-                android:id="@+id/MECHAverageCTC"
-                android:text=" 4.14 "
+                        android:textAlignment="center"
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-                android:textAlignment="center"
-                android:textAppearance="@style/NormalTableRowTheme" />
+                    <TextView
+                        android:id="@+id/MECHAverageCTC"
+                        android:text=" 5.28 "
 
-            <TextView
-                android:id="@+id/MECHMAXCTC"
-                android:text=" 6.50 "
+                        android:textAlignment="center"
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-                android:textAlignment="center"
-                android:textAppearance="@style/NormalTableRowTheme" />
+                    <TextView
+                        android:id="@+id/MECHMAXCTC"
+                        android:text=" 11.00 "
 
-        </TableRow>
+                        android:textAlignment="center"
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-        <TableRow
-            android:layout_gravity="center"
-            android:layout_marginBottom="5dp"
-            android:gravity="center_horizontal">
+                </TableRow>
 
-            <TextView
+                <TableRow
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="center_horizontal">
 
-                android:id="@+id/PIEbranchName"
-                android:text=" PIE "
-                android:textAlignment="center"
-                android:textAppearance="@style/NormalTableRowTheme" />
+                    <TextView
 
-            <TextView
+                        android:id="@+id/PIEbranchName"
+                        android:text=" PIE "
+                        android:textAlignment="center"
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-                android:id="@+id/PIEEligibleCandidates"
-                android:text=" 23 "
-                android:textAlignment="center"
+                    <TextView
 
-                android:textAppearance="@style/NormalTableRowTheme" />
+                        android:id="@+id/PIEEligibleCandidates"
+                        android:text=" 31 "
+                        android:textAlignment="center"
 
-            <TextView
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-                android:id="@+id/PIEPlaced"
-                android:text=" 20 "
-                android:textAlignment="center"
+                    <TextView
 
-                android:textAppearance="@style/NormalTableRowTheme" />
+                        android:id="@+id/PIEPlaced"
+                        android:text=" 21 "
+                        android:textAlignment="center"
 
-            <TextView
-                android:id="@+id/PIEJobOffers"
-                android:text=" 23 "
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-                android:textAlignment="center"
-                android:textAppearance="@style/NormalTableRowTheme" />
+                    <TextView
+                        android:id="@+id/PIEJobOffers"
+                        android:text=" 22 "
 
-            <TextView
-                android:id="@+id/PIEPlacementpercentage"
-                android:text="  86.96  "
+                        android:textAlignment="center"
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-                android:textAlignment="center"
-                android:textAppearance="@style/NormalTableRowTheme" />
+                    <TextView
+                        android:id="@+id/PIEPlacementpercentage"
+                        android:text="  67.74  "
 
-            <TextView
-                android:id="@+id/PIEAverageCTC"
-                android:text=" 4.14 "
+                        android:textAlignment="center"
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-                android:textAlignment="center"
-                android:textAppearance="@style/NormalTableRowTheme" />
+                    <TextView
+                        android:id="@+id/PIEAverageCTC"
+                        android:text=" 4.93 "
 
-            <TextView
-                android:id="@+id/PIEMAXCTC"
-                android:text=" 6.50 "
+                        android:textAlignment="center"
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-                android:textAlignment="center"
-                android:textAppearance="@style/NormalTableRowTheme" />
+                    <TextView
+                        android:id="@+id/PIEMAXCTC"
+                        android:text=" 9.2 "
 
-        </TableRow>
+                        android:textAlignment="center"
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-        <TableRow
-            android:layout_gravity="center"
-            android:layout_marginBottom="5dp"
-            android:gravity="center_horizontal">
+                </TableRow>
 
-            <TextView
+                <TableRow
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="center_horizontal">
 
-                android:id="@+id/MTechbranchName"
-                android:text=" MTech "
-                android:textAlignment="center"
-                android:textAppearance="@style/NormalTableRowTheme" />
+                    <TextView
 
-            <TextView
+                        android:id="@+id/MTechbranchName"
+                        android:text=" MTech "
+                        android:textAlignment="center"
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-                android:id="@+id/MTechEligibleCandidates"
-                android:text=" 23 "
-                android:textAlignment="center"
+                    <TextView
 
-                android:textAppearance="@style/NormalTableRowTheme" />
+                        android:id="@+id/MTechEligibleCandidates"
+                        android:text=" 328 "
+                        android:textAlignment="center"
 
-            <TextView
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-                android:id="@+id/MTechPlaced"
-                android:text=" 20 "
-                android:textAlignment="center"
+                    <TextView
 
-                android:textAppearance="@style/NormalTableRowTheme" />
+                        android:id="@+id/MTechPlaced"
+                        android:text=" 109 "
+                        android:textAlignment="center"
 
-            <TextView
-                android:id="@+id/MTechJobOffers"
-                android:text=" 23 "
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-                android:textAlignment="center"
-                android:textAppearance="@style/NormalTableRowTheme" />
+                    <TextView
+                        android:id="@+id/MTechJobOffers"
+                        android:text=" 125 "
 
-            <TextView
-                android:id="@+id/MTechPlacementpercentage"
-                android:text="  86.96  "
+                        android:textAlignment="center"
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-                android:textAlignment="center"
-                android:textAppearance="@style/NormalTableRowTheme" />
+                    <TextView
+                        android:id="@+id/MTechPlacementpercentage"
+                        android:text="  33.23  "
 
-            <TextView
-                android:id="@+id/MTechAverageCTC"
-                android:text=" 4.14 "
+                        android:textAlignment="center"
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-                android:textAlignment="center"
-                android:textAppearance="@style/NormalTableRowTheme" />
+                    <TextView
+                        android:id="@+id/MTechAverageCTC"
+                        android:text=" 5 "
 
-            <TextView
-                android:id="@+id/MTechMAXCTC"
-                android:text=" 6.50 "
+                        android:textAlignment="center"
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-                android:textAlignment="center"
-                android:textAppearance="@style/NormalTableRowTheme" />
+                    <TextView
+                        android:id="@+id/MTechMAXCTC"
+                        android:text=" 8.8 "
 
-        </TableRow>
+                        android:textAlignment="center"
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-        <TableRow
-            android:layout_gravity="center"
-            android:layout_marginBottom="5dp"
-            android:gravity="center_horizontal">
+                </TableRow>
 
-            <TextView
+                <TableRow
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="center_horizontal">
 
-                android:id="@+id/MCAbranchName"
-                android:text=" MCA "
-                android:textAlignment="center"
-                android:textAppearance="@style/NormalTableRowTheme" />
+                    <TextView
 
-            <TextView
+                        android:id="@+id/MCAbranchName"
+                        android:text=" MCA "
+                        android:textAlignment="center"
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-                android:id="@+id/MCAEligibleCandidates"
-                android:text=" 23 "
-                android:textAlignment="center"
+                    <TextView
 
-                android:textAppearance="@style/NormalTableRowTheme" />
+                        android:id="@+id/MCAEligibleCandidates"
+                        android:text=" 83 "
+                        android:textAlignment="center"
 
-            <TextView
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-                android:id="@+id/MCAPlaced"
-                android:text=" 20 "
-                android:textAlignment="center"
+                    <TextView
 
-                android:textAppearance="@style/NormalTableRowTheme" />
+                        android:id="@+id/MCAPlaced"
+                        android:text=" 60 "
+                        android:textAlignment="center"
 
-            <TextView
-                android:id="@+id/MCAJobOffers"
-                android:text=" 23 "
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-                android:textAlignment="center"
-                android:textAppearance="@style/NormalTableRowTheme" />
+                    <TextView
+                        android:id="@+id/MCAJobOffers"
+                        android:text=" 73 "
 
-            <TextView
-                android:id="@+id/MCAPlacementpercentage"
-                android:text="  86.96  "
+                        android:textAlignment="center"
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-                android:textAlignment="center"
-                android:textAppearance="@style/NormalTableRowTheme" />
+                    <TextView
+                        android:id="@+id/MCAPlacementpercentage"
+                        android:text="  72.29  "
 
-            <TextView
-                android:id="@+id/MCAAverageCTC"
-                android:text=" 4.14 "
+                        android:textAlignment="center"
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-                android:textAlignment="center"
-                android:textAppearance="@style/NormalTableRowTheme" />
+                    <TextView
+                        android:id="@+id/MCAAverageCTC"
+                        android:text=" 4.41 "
 
-            <TextView
-                android:id="@+id/MCAMAXCTC"
-                android:text=" 6.50 "
+                        android:textAlignment="center"
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-                android:textAlignment="center"
-                android:textAppearance="@style/NormalTableRowTheme" />
+                    <TextView
+                        android:id="@+id/MCAMAXCTC"
+                        android:text=" 14.5 "
 
-        </TableRow>
+                        android:textAlignment="center"
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-        <TableRow
-            android:layout_gravity="center"
-            android:layout_marginBottom="5dp"
-            android:gravity="center_horizontal">
+                </TableRow>
 
-            <TextView
+                <TableRow
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="center_horizontal">
 
-                android:id="@+id/MBAbranchName"
-                android:text=" MBA "
-                android:textAlignment="center"
-                android:textAppearance="@style/NormalTableRowTheme" />
+                    <TextView
 
-            <TextView
+                        android:id="@+id/MBAbranchName"
+                        android:text=" MBA "
+                        android:textAlignment="center"
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-                android:id="@+id/MBAEligibleCandidates"
-                android:text=" 23 "
-                android:textAlignment="center"
+                    <TextView
 
-                android:textAppearance="@style/NormalTableRowTheme" />
+                        android:id="@+id/MBAEligibleCandidates"
+                        android:text=" 58 "
+                        android:textAlignment="center"
 
-            <TextView
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-                android:id="@+id/MBAPlaced"
-                android:text=" 20 "
-                android:textAlignment="center"
+                    <TextView
 
-                android:textAppearance="@style/NormalTableRowTheme" />
+                        android:id="@+id/MBAPlaced"
+                        android:text=" 30 "
+                        android:textAlignment="center"
 
-            <TextView
-                android:id="@+id/MBAJobOffers"
-                android:text=" 23 "
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-                android:textAlignment="center"
-                android:textAppearance="@style/NormalTableRowTheme" />
+                    <TextView
+                        android:id="@+id/MBAJobOffers"
+                        android:text=" 31 "
 
-            <TextView
-                android:id="@+id/MBAPlacementpercentage"
-                android:text="  86.96  "
+                        android:textAlignment="center"
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-                android:textAlignment="center"
-                android:textAppearance="@style/NormalTableRowTheme" />
+                    <TextView
+                        android:id="@+id/MBAPlacementpercentage"
+                        android:text="  51.72  "
 
-            <TextView
-                android:id="@+id/MBAAverageCTC"
-                android:text=" 4.14 "
+                        android:textAlignment="center"
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-                android:textAlignment="center"
-                android:textAppearance="@style/NormalTableRowTheme" />
+                    <TextView
+                        android:id="@+id/MBAAverageCTC"
+                        android:text=" 3.74 "
 
-            <TextView
-                android:id="@+id/MBAMAXCTC"
-                android:text=" 6.50 "
+                        android:textAlignment="center"
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-                android:textAlignment="center"
-                android:textAppearance="@style/NormalTableRowTheme" />
+                    <TextView
+                        android:id="@+id/MBAMAXCTC"
+                        android:text=" 5.5 "
 
-        </TableRow>
+                        android:textAlignment="center"
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-        <TableRow
-            android:layout_gravity="center"
-            android:layout_marginBottom="5dp"
-            android:gravity="center_horizontal">
+                </TableRow>
 
-            <TextView
+                <TableRow
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="center_horizontal">
 
-                android:id="@+id/MSWbranchName"
-                android:text=" MSW "
-                android:textAlignment="center"
-                android:textAppearance="@style/NormalTableRowTheme" />
+                    <TextView
 
-            <TextView
+                        android:id="@+id/MSWbranchName"
+                        android:text=" MSW "
+                        android:textAlignment="center"
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-                android:id="@+id/MSWEligibleCandidates"
-                android:text=" 23 "
-                android:textAlignment="center"
+                    <TextView
 
-                android:textAppearance="@style/NormalTableRowTheme" />
+                        android:id="@+id/MSWEligibleCandidates"
+                        android:text=" 8 "
+                        android:textAlignment="center"
 
-            <TextView
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-                android:id="@+id/MSWPlaced"
-                android:text=" 20 "
-                android:textAlignment="center"
+                    <TextView
 
-                android:textAppearance="@style/NormalTableRowTheme" />
+                        android:id="@+id/MSWPlaced"
+                        android:text=" 1 "
+                        android:textAlignment="center"
 
-            <TextView
-                android:id="@+id/MSWJobOffers"
-                android:text=" 23 "
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-                android:textAlignment="center"
-                android:textAppearance="@style/NormalTableRowTheme" />
+                    <TextView
+                        android:id="@+id/MSWJobOffers"
+                        android:text=" 1 "
 
-            <TextView
-                android:id="@+id/MSWPlacementpercentage"
-                android:text="  86.96  "
+                        android:textAlignment="center"
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-                android:textAlignment="center"
-                android:textAppearance="@style/NormalTableRowTheme" />
+                    <TextView
+                        android:id="@+id/MSWPlacementpercentage"
+                        android:text="  12.5  "
 
-            <TextView
-                android:id="@+id/MSWAverageCTC"
-                android:text=" 4.14 "
+                        android:textAlignment="center"
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-                android:textAlignment="center"
-                android:textAppearance="@style/NormalTableRowTheme" />
+                    <TextView
+                        android:id="@+id/MSWAverageCTC"
+                        android:text=" 3 "
 
-            <TextView
-                android:id="@+id/MSWMAXCTC"
-                android:text=" 6.50 "
+                        android:textAlignment="center"
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-                android:textAlignment="center"
-                android:textAppearance="@style/NormalTableRowTheme" />
+                    <TextView
+                        android:id="@+id/MSWMAXCTC"
+                        android:text=" 3 "
 
-        </TableRow>
+                        android:textAlignment="center"
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-        <TableRow
-            android:layout_gravity="center"
-            android:layout_marginBottom="5dp"
-            android:gravity="center_horizontal">
+                </TableRow>
 
-            <TextView
+                <TableRow
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="center_horizontal">
 
-                android:id="@+id/MSCbranchName"
-                android:text=" M.Sc "
-                android:textAlignment="center"
-                android:textAppearance="@style/NormalTableRowTheme" />
+                    <TextView
 
-            <TextView
+                        android:id="@+id/MSCbranchName"
+                        android:text=" M.Sc "
+                        android:textAlignment="center"
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-                android:id="@+id/MSCEligibleCandidates"
-                android:text=" 23 "
-                android:textAlignment="center"
+                    <TextView
 
-                android:textAppearance="@style/NormalTableRowTheme" />
+                        android:id="@+id/MSCEligibleCandidates"
+                        android:text=" 16 "
+                        android:textAlignment="center"
 
-            <TextView
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-                android:id="@+id/MSCPlaced"
-                android:text=" 20 "
-                android:textAlignment="center"
+                    <TextView
 
-                android:textAppearance="@style/NormalTableRowTheme" />
+                        android:id="@+id/MSCPlaced"
+                        android:text=" 1 "
+                        android:textAlignment="center"
 
-            <TextView
-                android:id="@+id/MSCJobOffers"
-                android:text=" 23 "
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-                android:textAlignment="center"
-                android:textAppearance="@style/NormalTableRowTheme" />
+                    <TextView
+                        android:id="@+id/MSCJobOffers"
+                        android:text=" 1 "
 
-            <TextView
-                android:id="@+id/MSCPlacementpercentage"
-                android:text="  86.96  "
+                        android:textAlignment="center"
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-                android:textAlignment="center"
-                android:textAppearance="@style/NormalTableRowTheme" />
+                    <TextView
+                        android:id="@+id/MSCPlacementpercentage"
+                        android:text="  6.25  "
 
-            <TextView
-                android:id="@+id/MSCAverageCTC"
-                android:text=" 4.14 "
+                        android:textAlignment="center"
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-                android:textAlignment="center"
-                android:textAppearance="@style/NormalTableRowTheme" />
+                    <TextView
+                        android:id="@+id/MSCAverageCTC"
+                        android:text=" 4.5 "
 
-            <TextView
-                android:id="@+id/MSCMAXCTC"
-                android:text=" 6.50 "
+                        android:textAlignment="center"
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-                android:textAlignment="center"
-                android:textAppearance="@style/NormalTableRowTheme" />
+                    <TextView
+                        android:id="@+id/MSCMAXCTC"
+                        android:text=" 4.5 "
 
-        </TableRow>
+                        android:textAlignment="center"
+                        android:textAppearance="@style/NormalTableRowTheme" />
 
-    </TableLayout>
+                </TableRow>
+
+            </TableLayout>
+        </android.support.v7.widget.CardView>
+
+        <com.github.mikephil.charting.charts.PieChart
+            android:id="@+id/piechart"
+            android:layout_width="match_parent"
+            android:layout_height="400dp" />
+
+        <com.github.mikephil.charting.charts.PieChart
+            android:id="@+id/piechart2"
+            android:layout_width="match_parent"
+            android:layout_height="400dp" />
+    </LinearLayout>
+
+
 </ScrollView>
