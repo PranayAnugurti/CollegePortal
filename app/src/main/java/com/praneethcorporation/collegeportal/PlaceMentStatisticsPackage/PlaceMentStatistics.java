@@ -1,9 +1,13 @@
-package com.praneethcorporation.collegeportal;
+package com.praneethcorporation.collegeportal.PlaceMentStatisticsPackage;
 
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.praneethcorporation.collegeportal.LastYearStatistics;
+import com.praneethcorporation.collegeportal.R;
+import com.praneethcorporation.collegeportal.ViewPagerAdapter;
 
 public class PlaceMentStatistics extends AppCompatActivity {
   TabLayout tabLayout;

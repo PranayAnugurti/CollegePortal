@@ -1,4 +1,4 @@
-package com.praneethcorporation.collegeportal;
+package com.praneethcorporation.collegeportal.InfoClasses;
 
 import android.widget.ProgressBar;
 

@@ -7,6 +7,10 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.ListView;
+
+import com.praneethcorporation.collegeportal.Adapters.CompaniesAdapter;
+import com.praneethcorporation.collegeportal.InfoClasses.Company;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;

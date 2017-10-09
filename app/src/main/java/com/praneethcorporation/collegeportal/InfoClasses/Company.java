@@ -1,4 +1,4 @@
-package com.praneethcorporation.collegeportal;
+package com.praneethcorporation.collegeportal.InfoClasses;
 
 /**
  * Created by PRANAYKUMAR on 06-10-2017.

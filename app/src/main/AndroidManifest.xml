@@ -14,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,15 +25,18 @@
         <activity
             android:name=".Home"
             android:label="@string/title_activity_home"
-            android:theme="@style/AppTheme.NoActionBar"
-            />
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Profile" />
         <activity android:name=".Tab1Form" />
         <activity android:name=".Tab2Form" />
-        <activity android:name=".PlaceMentStatistics" />
-        <activity android:name=".Registration" />
-        <activity android:name=".Personal_Info" />
-        <activity android:name=".FinishedActivty" />
+        <activity android:name=".PlaceMentStatisticsPackage.PlaceMentStatistics" />
+        <activity
+            android:name=".Registration"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Personal_Info"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".FinishedActivty"/>
         <activity android:name=".RegisterCompanies" />
         <activity android:name=".CurrentOpenings" />
         <activity android:name=".AddInterviewExperience" />
