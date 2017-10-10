@@ -1,14 +1,24 @@
 package com.praneethcorporation.collegeportal;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.MenuItem;
 import android.widget.ListView;
 
 import com.praneethcorporation.collegeportal.Adapters.InterviewExperiencesAdapter;
 import com.praneethcorporation.collegeportal.InfoClasses.InterviewExperiencesInfo;
+import com.praneethcorporation.collegeportal.PlaceMentStatisticsPackage.PlaceMentStatistics;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -24,7 +34,13 @@ import org.json.JSONObject;
 
 public class InterviewExperinces extends AppCompatActivity {
 
-    ListView listView;
+  Toolbar toolbar;
+  DrawerLayout drawerLayout;
+  ActionBarDrawerToggle actionBarDrawerToggle;
+  NavigationView navigationView;
+
+
+  ListView listView;
     InterviewExperiencesAdapter interviewExperiencesAdapter;
 
     @Override
@@ -34,7 +50,51 @@ public class InterviewExperinces extends AppCompatActivity {
 
 listView = (ListView)findViewById(R.id.interviewExperiencesList);
 
-        ArrayList<InterviewExperiencesInfo> arrayList = new ArrayList<>();
+      toolbar = (Toolbar) findViewById(R.id.toolbar);
+      setSupportActionBar(toolbar);
+      getSupportActionBar().setTitle("Add InterView Experience");
+      drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+      actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.drawerOpen, R.string.drawerClose);
+      drawerLayout.addDrawerListener(actionBarDrawerToggle);
+      navigationView = (NavigationView) findViewById(R.id.navigationView);
+      navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+          int id = item.getItemId();
+          if (id == R.id.nav_home) {
+            Intent intent = new Intent(getApplicationContext(), Home.class);
+            startActivity(intent);
+          } else if (id == R.id.nav_currentOpening) {
+            Intent intent = new Intent(getApplicationContext(), CurrentOpenings.class);
+            startActivity(intent);
+          } else if (id == R.id.nav_registeredCompanies) {
+            Intent intent = new Intent(getApplicationContext(), RegisterCompanies.class);
+            startActivity(intent);
+          } else if (id == R.id.nav_addInterviewExperience) {
+            Intent intent = new Intent(getApplicationContext(), AddInterviewExperience.class);
+            startActivity(intent);
+          } else if (id == R.id.nav_currentOpening) {
+            Intent intent = new Intent(getApplicationContext(), CurrentOpenings.class);
+            startActivity(intent);
+          } else if (id == R.id.nav_registeredCompanies) {
+            Intent intent = new Intent(getApplicationContext(), RegisterCompanies.class);
+            startActivity(intent);
+          } else if (id == R.id.nav_interviewExperinces) {
+            Intent intent = new Intent(getApplicationContext(), InterviewExperinces.class);
+            startActivity(intent);
+
+          } else if (id == R.id.nav_place_stats) {
+            Intent intent = new Intent(getApplicationContext(), PlaceMentStatistics.class);
+            startActivity(intent);
+          }
+          DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+          drawer.closeDrawer(GravityCompat.START);
+          return true;
+        }
+      });
+
+
+      ArrayList<InterviewExperiencesInfo> arrayList = new ArrayList<>();
         interviewExperiencesAdapter = new InterviewExperiencesAdapter(getApplicationContext(),arrayList);
 
         listView.setAdapter(interviewExperiencesAdapter);
@@ -42,6 +102,16 @@ listView = (ListView)findViewById(R.id.interviewExperiencesList);
       task.execute();
 
     }
+
+
+  @Override
+  public void onPostCreate(@Nullable Bundle savedInstanceState) {
+
+    super.onPostCreate(savedInstanceState);
+    actionBarDrawerToggle.syncState();
+  }
+
+
   public class InterviewBackgroundTask extends AsyncTask<String, Void, String> {
 
     String json_url;

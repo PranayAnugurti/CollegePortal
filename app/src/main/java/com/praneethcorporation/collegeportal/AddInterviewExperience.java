@@ -3,13 +3,24 @@ package com.praneethcorporation.collegeportal;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.design.widget.BaseTransientBottomBar;
+import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.view.ViewPager;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -20,6 +31,7 @@ import android.widget.ScrollView;
 import android.widget.Toast;
 
 import com.praneethcorporation.collegeportal.InfoClasses.InterviewExperiencesInfo;
+import com.praneethcorporation.collegeportal.PlaceMentStatisticsPackage.PlaceMentStatistics;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -36,6 +48,11 @@ import java.util.Calendar;
 
 public class AddInterviewExperience extends AppCompatActivity {
 
+
+    Toolbar toolbar;
+    DrawerLayout drawerLayout;
+    ActionBarDrawerToggle actionBarDrawerToggle;
+    NavigationView navigationView;
     EditText date, company, description, profile;
     Button btn;
     ScrollView scrollView;
@@ -67,13 +84,57 @@ public class AddInterviewExperience extends AppCompatActivity {
             }
         });
         btn = (Button) findViewById(R.id.saveBtn);
+
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Add InterView Experience");
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.drawerOpen, R.string.drawerClose);
+        drawerLayout.addDrawerListener(actionBarDrawerToggle);
+        navigationView = (NavigationView) findViewById(R.id.navigationView);
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                int id = item.getItemId();
+                if (id == R.id.nav_home) {
+                    Intent intent = new Intent(getApplicationContext(), Home.class);
+                    startActivity(intent);
+                } else if (id == R.id.nav_currentOpening) {
+                    Intent intent = new Intent(getApplicationContext(), CurrentOpenings.class);
+                    startActivity(intent);
+                } else if (id == R.id.nav_registeredCompanies) {
+                    Intent intent = new Intent(getApplicationContext(), RegisterCompanies.class);
+                    startActivity(intent);
+                } else if (id == R.id.nav_addInterviewExperience) {
+                    Intent intent = new Intent(getApplicationContext(), AddInterviewExperience.class);
+                    startActivity(intent);
+                } else if (id == R.id.nav_currentOpening) {
+                    Intent intent = new Intent(getApplicationContext(), CurrentOpenings.class);
+                    startActivity(intent);
+                } else if (id == R.id.nav_registeredCompanies) {
+                    Intent intent = new Intent(getApplicationContext(), RegisterCompanies.class);
+                    startActivity(intent);
+                } else if (id == R.id.nav_interviewExperinces) {
+                    Intent intent = new Intent(getApplicationContext(), InterviewExperinces.class);
+                    startActivity(intent);
+
+                } else if (id == R.id.nav_place_stats) {
+                    Intent intent = new Intent(getApplicationContext(), PlaceMentStatistics.class);
+                    startActivity(intent);
+                }
+                DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+                drawer.closeDrawer(GravityCompat.START);
+                return true;
+            }
+        });
+
+
         btn.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
 
 
-
-                if (!(companyString.isEmpty())&& !(descriptionString.isEmpty())&& !( profileString.isEmpty())) {
+                if (!(companyString.isEmpty()) && !(descriptionString.isEmpty()) && !(profileString.isEmpty())) {
 
                     InterviewExperiencesInfo info = new InterviewExperiencesInfo(
                             UserInfo.reg_no,
@@ -100,6 +161,12 @@ public class AddInterviewExperience extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onPostCreate(@Nullable Bundle savedInstanceState) {
+
+        super.onPostCreate(savedInstanceState);
+        actionBarDrawerToggle.syncState();
+    }
 
     private DatePickerDialog.OnDateSetListener myDateListener = new
             DatePickerDialog.OnDateSetListener() {

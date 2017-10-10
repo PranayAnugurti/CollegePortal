@@ -3,6 +3,12 @@
 
     <group android:checkableBehavior="single">
 
+
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/homepic"
+            android:title="Home" />
+
         <item
             android:id="@+id/nav_currentOpening"
             android:icon="@drawable/ic_menu_slideshow"
@@ -18,7 +24,7 @@
             <item
                 android:id="@+id/nav_place_stats"
                 android:icon="@drawable/ic_menu_share"
-                android:title="Placement Statistics"/>
+                android:title="Placement Statistics" />
 
             <item
                 android:id="@+id/nav_addInterviewExperience"

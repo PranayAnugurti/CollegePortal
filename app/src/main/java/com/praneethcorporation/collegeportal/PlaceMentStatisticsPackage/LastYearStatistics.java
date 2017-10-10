@@ -1,4 +1,4 @@
-package com.praneethcorporation.collegeportal;
+package com.praneethcorporation.collegeportal.PlaceMentStatisticsPackage;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -17,6 +17,7 @@ import com.github.mikephil.charting.formatter.PercentFormatter;
 import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.github.mikephil.charting.utils.ColorTemplate;
+import com.praneethcorporation.collegeportal.R;
 
 import java.util.ArrayList;
 
@@ -26,6 +27,8 @@ public class LastYearStatistics extends Fragment implements OnChartValueSelected
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.activity_last_year_statistics, container, false);
+
+
 
         PieChart pieChart = (PieChart) view.findViewById(R.id.piechart);
         PieChart pieChart1 = (PieChart) view.findViewById(R.id.piechart2);

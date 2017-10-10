@@ -1,37 +1,39 @@
 package com.praneethcorporation.collegeportal;
 
-import android.content.Context;
-import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.widget.ListView;
 
+import com.praneethcorporation.collegeportal.Adapters.CurrentOpeningsAdapter;
 import com.praneethcorporation.collegeportal.InfoClasses.CurrentOpeningCompanies;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
+
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
- *
  * Created by user on 8/31/2017.
  */
 
 public class CurrentOpenings extends AppCompatActivity {
 
-    ListView listView;
-  com.praneethcorporation.collegeportal.CurrentOpeningsAdapter currentOpeningsAdapter;
 
-  @Override
+    Toolbar toolbar;
+    DrawerLayout drawerLayout;
+    ActionBarDrawerToggle actionBarDrawerToggle;
+    NavigationView navigationView;
+
+    ListView listView;
+  CurrentOpeningsAdapter currentOpeningsAdapter;
+
+    @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
 
 
@@ -39,9 +41,54 @@ public class CurrentOpenings extends AppCompatActivity {
         setContentView(R.layout.currentopenings);
         listView = (ListView) findViewById(R.id.currentOpeningList);
 
-        ArrayList<CurrentOpeningCompanies> arrayList = new ArrayList<>();
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Add InterView Experience");
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.drawerOpen, R.string.drawerClose);
+        drawerLayout.addDrawerListener(actionBarDrawerToggle);
+        navigationView = (NavigationView) findViewById(R.id.navigationView);
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                int id = item.getItemId();
+                if (id == R.id.nav_home) {
+                    Intent intent = new Intent(getApplicationContext(), Home.class);
+                    startActivity(intent);
+                } else if (id == R.id.nav_currentOpening) {
+                    Intent intent = new Intent(getApplicationContext(), CurrentOpenings.class);
+                    startActivity(intent);
+                } else if (id == R.id.nav_registeredCompanies) {
+                    Intent intent = new Intent(getApplicationContext(), RegisterCompanies.class);
+                    startActivity(intent);
+                } else if (id == R.id.nav_addInterviewExperience) {
+                    Intent intent = new Intent(getApplicationContext(), AddInterviewExperience.class);
+                    startActivity(intent);
+                } else if (id == R.id.nav_currentOpening) {
+                    Intent intent = new Intent(getApplicationContext(), CurrentOpenings.class);
+                    startActivity(intent);
+                } else if (id == R.id.nav_registeredCompanies) {
+                    Intent intent = new Intent(getApplicationContext(), RegisterCompanies.class);
+                    startActivity(intent);
+                } else if (id == R.id.nav_interviewExperinces) {
+                    Intent intent = new Intent(getApplicationContext(), InterviewExperinces.class);
+                    startActivity(intent);
 
-        currentOpeningsAdapter = new com.praneethcorporation.collegeportal.CurrentOpeningsAdapter(this, arrayList);
+                } else if (id == R.id.nav_place_stats) {
+                    Intent intent = new Intent(getApplicationContext(), PlaceMentStatistics.class);
+                    startActivity(intent);
+                }
+                DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+                drawer.closeDrawer(GravityCompat.START);
+                return true;
+            }
+        });
+
+
+        ArrayList<CurrentOpeningCompanies> arrayList = new ArrayList<>();
+        arrayList.add(new CurrentOpeningCompanies("Praneeth Corporation", "Data analyst", "Branches Allowed:-All", "CTC:- Rs 10000000", "11th October"));
+
+        currentOpeningsAdapter = new CurrentOpeningsAdapter(this, arrayList);
 
         listView.setAdapter(currentOpeningsAdapter);
         BackgroundTask task=new BackgroundTask(this);
@@ -132,4 +179,15 @@ public class CurrentOpenings extends AppCompatActivity {
 
     }
   }
+
+    }
+
+
+    @Override
+    public void onPostCreate(@Nullable Bundle savedInstanceState) {
+
+        super.onPostCreate(savedInstanceState);
+        actionBarDrawerToggle.syncState();
+    }
+
 }
