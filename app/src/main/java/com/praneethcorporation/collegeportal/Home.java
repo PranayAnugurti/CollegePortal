@@ -101,7 +101,7 @@ public class Home extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
+        drawer.addDrawerListener(toggle);
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
@@ -190,7 +190,11 @@ public class Home extends AppCompatActivity
             json_url = "http://139.59.5.186/php/user_info.php";
             Intent intent = getIntent();
             reg_no = intent.getStringExtra("reg_no");
-            Log.d("O_MY", reg_no);
+
+            if (reg_no==null){
+                reg_no=UserInfo.reg_no;
+            }
+            //     Log.d("O_MY", reg_no);
         }
 
         @Override
