@@ -31,8 +31,12 @@
                     android:id="@+id/et_Dproject"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                    android:textSize="16sp" />
+                    android:textSize="16sp" >
+                    <requestFocus/>
+                </EditText>
 
                 <TextView
                     android:layout_width="match_parent"
@@ -46,6 +50,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ellipsize="end"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
                     android:textAppearance="@style/TextAppearance.AppCompat.Caption"
                     android:textSize="14sp" />
 
@@ -61,7 +67,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-
                     android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                     android:textSize="16sp" />
 
@@ -77,6 +82,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:imeOptions="actionDone"
+                    android:inputType="text"
 
                     />
 
@@ -88,6 +95,7 @@
                     android:background="@color/button_color"
                     android:clickable="true"
                     android:text="UPDATE"
+                    android:elevation="10dp"
                     android:textColor="@color/white" />
 
             </LinearLayout>

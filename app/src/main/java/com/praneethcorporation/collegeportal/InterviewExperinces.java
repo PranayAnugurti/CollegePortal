@@ -52,7 +52,7 @@ listView = (ListView)findViewById(R.id.interviewExperiencesList);
 
       toolbar = (Toolbar) findViewById(R.id.toolbar);
       setSupportActionBar(toolbar);
-      getSupportActionBar().setTitle("Add InterView Experience");
+      getSupportActionBar().setTitle("InterView Experiences");
       drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
       actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.drawerOpen, R.string.drawerClose);
       drawerLayout.addDrawerListener(actionBarDrawerToggle);

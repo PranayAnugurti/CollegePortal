@@ -38,7 +38,8 @@
         <EditText
             android:layout_marginRight="32dp"
             android:layout_marginLeft="32dp"
-            android:numeric="integer"
+            android:inputType="number"
+            android:imeOptions="actionNext"
             android:id="@+id/registration"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -77,6 +78,7 @@
             android:layout_height="50dp"
             android:textColor="@color/white"
             android:textStyle="bold"
+            android:elevation="10dp"
             android:textAllCaps="true"
             android:background="@color/colorPrimary"
             android:text="Login"

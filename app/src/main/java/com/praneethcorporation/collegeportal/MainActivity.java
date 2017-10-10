@@ -26,6 +26,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.praneethcorporation.collegeportal.databinding.ActivityMainBinding;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -41,20 +42,20 @@ import java.util.Objects;
 
 public class
 MainActivity extends AppCompatActivity {
-ActivityMainBinding binding;
+    ActivityMainBinding binding;
     private Context context;
-TextView registerNow;
+    TextView registerNow;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-      super.onCreate(savedInstanceState);
+        super.onCreate(savedInstanceState);
 
-      setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main);
 
-      binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
-      context = this;
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        context = this;
 
-      binding.registration.addTextChangedListener(new TextWatcher() {
+    /*  binding.registration.addTextChangedListener(new TextWatcher() {
         @Override
         public void beforeTextChanged(CharSequence s, int start, int count, int after) {
           if (binding.registration.length() == 7) {
@@ -74,35 +75,35 @@ TextView registerNow;
 
         }
       });
-
-      binding.pass.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+*/
+        binding.pass.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
 
         binding.loginBtn.setOnClickListener(new View.OnClickListener() {
-          @Override
-          public void onClick(View v) {
+            @Override
+            public void onClick(View v) {
 //Get a reference to the ConnectivityManager to check state of network connectivity
-            ConnectivityManager connMgr = (ConnectivityManager) getSystemService(
-                Context.CONNECTIVITY_SERVICE);
+                ConnectivityManager connMgr = (ConnectivityManager) getSystemService(
+                        Context.CONNECTIVITY_SERVICE);
 
-            //Get details on the currently active default data network
-            NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
-            //If there is a network connection,fetch data
-            if (networkInfo != null && networkInfo.isConnected()) {
-              BackgroundTask task = new BackgroundTask(context);
-              task.execute("login", binding.registration.getText().toString(),
-                  binding.pass.getText().toString());
+                //Get details on the currently active default data network
+                NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+                //If there is a network connection,fetch data
+                if (networkInfo != null && networkInfo.isConnected()) {
+                    BackgroundTask task = new BackgroundTask(context);
+                    task.execute("login", binding.registration.getText().toString(),
+                            binding.pass.getText().toString());
+                } else {
+                    Snackbar.make(findViewById(R.id.main), "No Internet Connection!", Snackbar.LENGTH_LONG).show();
+                }
             }
-            else{
-              Snackbar.make(findViewById(R.id.main),"No Internet Connection!",Snackbar.LENGTH_LONG).show();
-            }
-          }
         });
         binding.registerNow.setOnClickListener(new OnClickListener() {
-          @Override public void onClick(View v) {
-            Intent intent = new Intent(getApplicationContext(),Registration.class);
-            startActivity(intent);
-          }
-        }
+                                                   @Override
+                                                   public void onClick(View v) {
+                                                       Intent intent = new Intent(getApplicationContext(), Registration.class);
+                                                       startActivity(intent);
+                                                   }
+                                               }
         );
 
 
@@ -213,9 +214,9 @@ TextView registerNow;
         @Override
         protected void onPostExecute(String result) {
             loadingDialog.dismiss();
-            String s="failure";
+            String s = "failure";
             if (result.trim().contains(s)) {
-                Snackbar.make(findViewById(R.id.main),"Login Failed...Please! Try Again", Snackbar.LENGTH_SHORT)
+                Snackbar.make(findViewById(R.id.main), "Login Failed...Please! Try Again", Snackbar.LENGTH_SHORT)
                         .show();
             } else {
                 //alertDialog.setMessage(result);
@@ -223,10 +224,10 @@ TextView registerNow;
                 //Toast.makeText(ctx,result,Toast.LENGTH_LONG).show();
                 Snackbar.make(findViewById(R.id.main), result, Snackbar.LENGTH_SHORT)
                         .show();
-                Intent intent = new Intent(getApplicationContext(),Home.class);
-                intent.putExtra("reg_no",result.substring(24,32));
+                Intent intent = new Intent(getApplicationContext(), Home.class);
+                intent.putExtra("reg_no", result.substring(24, 32));
 
-              startActivity(intent);
+                startActivity(intent);
             }
 
 

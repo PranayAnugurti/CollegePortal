@@ -55,7 +55,7 @@ CurrentOpeningsAdapter currentOpeningsAdapter;
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Add InterView Experience");
+        getSupportActionBar().setTitle("Current Openings");
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.drawerOpen, R.string.drawerClose);
         drawerLayout.addDrawerListener(actionBarDrawerToggle);

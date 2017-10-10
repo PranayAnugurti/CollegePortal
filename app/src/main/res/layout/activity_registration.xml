@@ -53,7 +53,8 @@
                         android:id="@+id/et_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="none"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
                         android:textAppearance="@style/normaltextstyle" />
 
                     <TextView
@@ -67,6 +68,7 @@
                         android:id="@+id/et_password"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:imeOptions="actionNext"
                         android:inputType="textPassword"
                         android:textAppearance="@style/normaltextstyle" />
 
@@ -81,6 +83,7 @@
                         android:id="@+id/et_retypepassword"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:imeOptions="actionNext"
                         android:inputType="textPassword"
                         android:textAppearance="@style/normaltextstyle" />
 
@@ -95,7 +98,7 @@
                         android:id="@+id/et_registration"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="none"
+                        android:inputType="text"
                         android:textAppearance="@style/normaltextstyle" />
 
                     <LinearLayout
@@ -158,7 +161,9 @@
                             android:id="@+id/et_datapicker"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="2"></EditText>
+                            android:layout_weight="2"
+                            android:imeOptions="actionNext"
+                            android:inputType="text" />
 
                     </LinearLayout>
 
@@ -174,7 +179,8 @@
                         android:id="@+id/etemialId"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
                         android:textAppearance="@style/normaltextstyle" />
 
                     <TextView
@@ -189,7 +195,7 @@
                         android:id="@+id/etSkypeId"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-
+                        android:inputType="text"
                         android:textAppearance="@style/normaltextstyle" />
 
                     <LinearLayout
@@ -310,6 +316,8 @@
                         android:id="@+id/etguardian"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
                         android:textAppearance="@style/normaltextstyle" />
 
                     <TextView
@@ -324,6 +332,7 @@
                         android:id="@+id/presentAddress"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:imeOptions="actionNext"
                         android:inputType="textCapSentences|textMultiLine"
                         android:maxLength="2000"
                         android:maxLines="4"
@@ -432,6 +441,7 @@
                         android:layout_marginBottom="8dp"
                         android:layout_marginTop="8dp"
                         android:background="@color/colorPrimaryDark"
+                        android:elevation="10dp"
                         android:text="SAVE"
                         android:textColor="@color/white" />
                 </LinearLayout>
