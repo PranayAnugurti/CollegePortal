@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">CollegePortal</string>
     <string name="title_activity_home">Home</string>
+<string name="drawerOpen">Drawer Open</string>
+    <string name="drawerClose">Drawer Close</string>
+
 
     <string name="EnterNameCheck">Please Enter Your Name</string>
     <string name="RegistartionNoCheck">Please Enter Your Registration No</string>
