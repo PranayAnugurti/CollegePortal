@@ -43,5 +43,7 @@ dependencies {
     compile 'com.github.PhilJay:MPAndroidChart:v2.2.4'
     compile 'net.gotev:uploadservice:2.1'
     compile 'com.github.baoyachi:StepView:1.9'
+    compile 'com.google.firebase:firebase-messaging:11.4.2'
     testCompile 'junit:junit:4.12'
 }
+apply plugin: 'com.google.gms.google-services'
