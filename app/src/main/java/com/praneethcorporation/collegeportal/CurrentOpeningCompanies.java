@@ -11,15 +11,19 @@ public class CurrentOpeningCompanies {
     private String jobProfile;
     private String branchesAllowed;
     private String ctc;
-    private String dtReg;
+    private String examDate;
+    private String location;
+    private String isRegistered;
 
 
-    public CurrentOpeningCompanies(String companyName,String jobProfile,String branchesAllowed,String ctc,String dtReg){
+    public CurrentOpeningCompanies(String companyName,String jobProfile,String branchesAllowed,String ctc,String examDate,String isRegistered,String location){
         this.companyName=companyName;
         this.jobProfile=jobProfile;
         this.branchesAllowed=branchesAllowed;
         this.ctc=ctc;
-        this.dtReg=dtReg;
+        this.examDate=examDate;
+        this.location=location;
+        this.isRegistered=isRegistered;
     }
 
     public String getCompanyName() {
@@ -38,8 +42,15 @@ public class CurrentOpeningCompanies {
         return ctc;
     }
 
-    public String getDtReg() {
-        return dtReg;
+    public String getExamDate() {
+        return examDate;
     }
 
+  public String getLocation() {
+    return location;
+  }
+
+  public String getIsRegistered(){
+    return isRegistered;
+  }
 }

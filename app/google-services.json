@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "236697592921",
+    "firebase_url": "https://campus-portal-6388f.firebaseio.com",
+    "project_id": "campus-portal-6388f",
+    "storage_bucket": "campus-portal-6388f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:236697592921:android:3e5cc5eb8e3ccf5b",
+        "android_client_info": {
+          "package_name": "com.praneethcorporation.collegeportal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "236697592921-ln4mubm611selple0fs1a627uf2h6e3p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6PCGn1dOla9IdTQJa4GsnD_3KxodmLK8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

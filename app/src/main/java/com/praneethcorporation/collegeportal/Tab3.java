@@ -646,7 +646,7 @@ public class Tab3 extends Fragment {
                 + "&" +
                 URLEncoder.encode("duration", "UTF-8") + "=" + URLEncoder.encode(internshipItem.getDuration(), "UTF-8")
                 + "&" +
-                URLEncoder.encode("description", "UTF-8") + "=" + URLEncoder.encode(internshipItem.getDuration(), "UTF-8")
+                URLEncoder.encode("description", "UTF-8") + "=" + URLEncoder.encode(internshipItem.getDescription(), "UTF-8")
             ;
         bufferedWriter.write(data);
         bufferedWriter.flush();
@@ -724,7 +724,7 @@ public class Tab3 extends Fragment {
                 + "&" +
                 URLEncoder.encode("duration", "UTF-8") + "=" + URLEncoder.encode(internshipItem.getDuration(), "UTF-8")
                 + "&" +
-                URLEncoder.encode("description", "UTF-8") + "=" + URLEncoder.encode(internshipItem.getDuration(), "UTF-8")
+                URLEncoder.encode("description", "UTF-8") + "=" + URLEncoder.encode(internshipItem.getDescription(), "UTF-8")
             ;
         bufferedWriter.write(data);
         bufferedWriter.flush();

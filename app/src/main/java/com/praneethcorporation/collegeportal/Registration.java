@@ -43,7 +43,7 @@ import java.util.List;
 
 public class Registration extends AppCompatActivity {
 
-    private Button next; EditText dateofbirth, name, reg_no, email, skype, guardian, present_address, permanent_address;
+    private Button next; EditText dateofbirth, name,pass, reg_no, email, skype, guardian, present_address, permanent_address;
   private DatePicker datePicker;
   private Calendar calendar;
   private int year, month, day;
@@ -62,6 +62,7 @@ public class Registration extends AppCompatActivity {
         setContentView(R.layout.activity_registration);
         next = (Button)findViewById(R.id.saveform1);
       name = (EditText) findViewById(R.id.et_name);
+      pass = (EditText) findViewById(R.id.et_password);
       email = (EditText) findViewById(R.id.etemialId);
       skype = (EditText) findViewById(R.id.etSkypeId);
       guardian = (EditText) findViewById(R.id.etguardian);
@@ -124,7 +125,7 @@ public class Registration extends AppCompatActivity {
               // User clicked OK button
               UserInfo userInfoItem=new UserInfo(reg_no.getText().toString(),
                  name.getText().toString(),
-                  null,
+                  pass.getText().toString(),
                   null,
                   null,
                   null,

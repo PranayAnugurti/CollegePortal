@@ -167,8 +167,8 @@ public class Tab1Form extends AppCompatActivity {
         builder.setPositiveButton("Yes! Save", new DialogInterface.OnClickListener() {
           public void onClick(DialogInterface dialog, int id) {
             // User clicked OK button
-        UserInfo userInfoItem=new UserInfo(reg_no.getText().toString(),
-            info.pass,name.getText().toString(),
+        UserInfo userInfoItem=new UserInfo(reg_no.getText().toString(),name.getText().toString(),
+            info.pass,
             info.image_url,
                 info.image_server_link,
             info.pdf_server_link,
