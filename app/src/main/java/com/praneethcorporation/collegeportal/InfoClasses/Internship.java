@@ -6,33 +6,44 @@ package com.praneethcorporation.collegeportal.InfoClasses;
 
 public class Internship {
 
-private String reg_no;
-private String internship;
-private String duration;
-private String description;
-private String company;
+  private String id;
+  private String reg_no;
+  private String internship;
+  private String duration;
+  private String description;
+  private String company;
 
-  public Internship(String reg_no,String internship,String company,String duration,String description){
-    this.reg_no=reg_no;
-    this.internship=internship;
-    this.duration=duration;
-    this.description=description;
-    this.company=company;
+  public Internship(String id, String reg_no, String internship, String company, String duration,
+      String description) {
+    this.id = id;
+    this.reg_no = reg_no;
+    this.internship = internship;
+    this.duration = duration;
+    this.description = description;
+    this.company = company;
   }
 
-  public String getReg_no(){
+  public String getId() {
+    return id;
+  }
+
+  public String getReg_no() {
     return reg_no;
   }
-  public String getInternship(){
+
+  public String getInternship() {
     return internship;
   }
-  public String getDuration(){
+
+  public String getDuration() {
     return duration;
   }
-  public String getDescription(){
+
+  public String getDescription() {
     return description;
   }
-  public String getCompany(){
+
+  public String getCompany() {
     return company;
   }
 }

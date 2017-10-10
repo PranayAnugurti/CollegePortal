@@ -11,6 +11,7 @@ import android.os.Build.VERSION_CODES;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.annotation.RequiresApi;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
@@ -28,6 +29,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.github.paolorotolo.expandableheightlistview.ExpandableHeightListView;
 
+import com.praneethcorporation.collegeportal.Adapters.InternshipAdapter;
+import com.praneethcorporation.collegeportal.Adapters.ProjectAdapter;
+import com.praneethcorporation.collegeportal.InfoClasses.Internship;
+import com.praneethcorporation.collegeportal.InfoClasses.Project;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -53,9 +58,10 @@ public class Tab3 extends Fragment {
 
   InternshipAdapter adapter;
   ProjectAdapter projectAdapter;
-  Button addIntern;
-  Button addproject;
+  FloatingActionButton addIntern;
+  FloatingActionButton addproject;
   ArrayList<Project> projects;
+  ArrayList<Internship> internships;
   String reg_no;
 
   @Override
@@ -64,8 +70,9 @@ public class Tab3 extends Fragment {
     View view = inflater.inflate(R.layout.tab3, container, false);
     Context c = getActivity().getApplicationContext();
 
-    addproject  = (Button)view.findViewById(R.id.addProjectbutton);
-    addIntern = (Button)view.findViewById(R.id.addInternbutton);
+    addproject  = (FloatingActionButton) view.findViewById(R.id.addProjectbutton);
+    addIntern  = (FloatingActionButton) view.findViewById(R.id.addInternbutton);
+
 
     addproject.setOnClickListener(new View.OnClickListener() {
       @Override
@@ -87,6 +94,7 @@ public class Tab3 extends Fragment {
           @Override
           public void onClick(View v) {
             Project project = new Project(
+                null,
                 reg_no,
                 projectEditTxt.getText().toString(),
                 durationEditTxt.getText().toString(),
@@ -121,6 +129,7 @@ public class Tab3 extends Fragment {
           @Override
           public void onClick(View v) {
             Internship internship=new Internship(
+                null,
                 reg_no,
                 intern.getText().toString(),
                 company.getText().toString(),
@@ -233,6 +242,7 @@ public class Tab3 extends Fragment {
           @Override
           public void onClick(View v) {
             Project project1=new Project(
+                projectItem.getId(),
                 reg_no,
                 Etitle.getText().toString(),
                 Eduration.getText().toString(),
@@ -265,7 +275,7 @@ public class Tab3 extends Fragment {
         Dialog dialog = new Dialog(getContext());
         dialog.setContentView(R.layout.internshipdialog);
 
-
+        final Internship internItem = internships.get(position);
         TextView Dinternship = (TextView) dialog.findViewById(R.id.DinternshipTextView);
         TextView Dcomapny = (TextView) dialog.findViewById(R.id.DcompanyTextView);
         TextView DdescriptionTextView = (TextView) dialog.findViewById(R.id.DdescriptionTextView);
@@ -287,12 +297,12 @@ public class Tab3 extends Fragment {
       @Override
       public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
 
-        TextView internship = (TextView) view.findViewById(R.id.internshipTextView);
+        final TextView internship = (TextView) view.findViewById(R.id.internshipTextView);
         TextView comapny = (TextView) view.findViewById(R.id.companyTextView);
         TextView descriptionTextView = (TextView) view.findViewById(R.id.descriptionTextView);
         TextView durationTextView = (TextView) view.findViewById(R.id.durationTextView);
 
-
+        final Internship internItem = internships.get(position);
         final Dialog dialog = new Dialog(getContext());
         dialog.setContentView(R.layout.internshipdialogedit);
 
@@ -311,6 +321,7 @@ public class Tab3 extends Fragment {
           @Override
           public void onClick(View v) {
         Internship internship1=new Internship(
+            internItem.getId(),
             reg_no,
             Einternship.getText().toString(),
             Eduration.getText().toString(),
@@ -392,7 +403,7 @@ public class Tab3 extends Fragment {
 
     @Override
     protected void onPostExecute(String result) {
-      ArrayList<Internship> internships = new ArrayList<>();
+ internships = new ArrayList<>();
       try {
 
         Log.d("O_MY", "Result=" + result);
@@ -409,6 +420,7 @@ public class Tab3 extends Fragment {
           Log.d("O_MY", "intern=" + intern.getString("internship"));
 
           Internship internship = new Internship(
+              intern.getString("id"),
               intern.getString("reg_no"),
               intern.getString("internship"),
               intern.getString("company"),
@@ -507,6 +519,7 @@ public class Tab3 extends Fragment {
 
 
           Project Project = new Project(
+              projectItem.getString("id"),
               projectItem.getString("reg_no"),
               projectItem.getString("project"),
               projectItem.getString("duration"),
@@ -555,11 +568,14 @@ public class Tab3 extends Fragment {
 
       httpURLConnection.setDoOutput(true);
       httpURLConnection.setDoInput(true);
-
+        Log.d("O_MY",projectItem.getId()+"ID");
       OutputStream outputStream = httpURLConnection.getOutputStream();
       BufferedWriter bufferedWriter = new BufferedWriter(
           new OutputStreamWriter(outputStream, "UTF-8"));
+
       String data =
+          URLEncoder.encode("id", "UTF-8") + "=" + URLEncoder.encode(projectItem.getId(), "UTF-8")
+              + "&" +
           URLEncoder.encode("reg_no", "UTF-8") + "=" + URLEncoder.encode(projectItem.getReg_no(), "UTF-8")
               + "&" +
               URLEncoder.encode("project", "UTF-8") + "=" + URLEncoder.encode(projectItem.getProject(), "UTF-8")
@@ -637,7 +653,9 @@ public class Tab3 extends Fragment {
         OutputStream outputStream = httpURLConnection.getOutputStream();
         BufferedWriter bufferedWriter = new BufferedWriter(
             new OutputStreamWriter(outputStream, "UTF-8"));
-        String data =
+        String data =   URLEncoder.encode("id", "UTF-8") + "=" + URLEncoder.encode(internshipItem.getId()
+            , "UTF-8")
+            + "&" +
             URLEncoder.encode("reg_no", "UTF-8") + "=" + URLEncoder.encode(internshipItem.getReg_no(), "UTF-8")
                 + "&" +
                 URLEncoder.encode("internship", "UTF-8") + "=" + URLEncoder.encode(internshipItem.getInternship(), "UTF-8")
@@ -715,7 +733,8 @@ public class Tab3 extends Fragment {
         OutputStream outputStream = httpURLConnection.getOutputStream();
         BufferedWriter bufferedWriter = new BufferedWriter(
             new OutputStreamWriter(outputStream, "UTF-8"));
-        String data =
+        String data =   URLEncoder.encode("id", "UTF-8") + "=" + URLEncoder.encode(internshipItem.getId(), "UTF-8")
+            + "&" +
             URLEncoder.encode("reg_no", "UTF-8") + "=" + URLEncoder.encode(internshipItem.getReg_no(), "UTF-8")
                 + "&" +
                 URLEncoder.encode("internship", "UTF-8") + "=" + URLEncoder.encode(internshipItem.getInternship(), "UTF-8")
@@ -792,7 +811,8 @@ public class Tab3 extends Fragment {
         OutputStream outputStream = httpURLConnection.getOutputStream();
         BufferedWriter bufferedWriter = new BufferedWriter(
             new OutputStreamWriter(outputStream, "UTF-8"));
-        String data =
+        String data =   URLEncoder.encode("id", "UTF-8") + "=" + URLEncoder.encode(projectItem.getId(), "UTF-8")
+            + "&" +
             URLEncoder.encode("reg_no", "UTF-8") + "=" + URLEncoder.encode(projectItem.getReg_no(), "UTF-8")
                 + "&" +
                 URLEncoder.encode("project", "UTF-8") + "=" + URLEncoder.encode(projectItem.getProject(), "UTF-8")

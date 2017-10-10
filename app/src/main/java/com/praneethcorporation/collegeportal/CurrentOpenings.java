@@ -6,21 +6,16 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.praneethcorporation.collegeportal.Registration.BackgroundTask;
+import com.praneethcorporation.collegeportal.InfoClasses.CurrentOpeningCompanies;
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.net.URLEncoder;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -34,7 +29,7 @@ import org.json.JSONObject;
 public class CurrentOpenings extends AppCompatActivity {
 
     ListView listView;
-  CurrentOpeningsAdapter currentOpeningsAdapter;
+  com.praneethcorporation.collegeportal.CurrentOpeningsAdapter currentOpeningsAdapter;
 
   @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -46,7 +41,7 @@ public class CurrentOpenings extends AppCompatActivity {
 
         ArrayList<CurrentOpeningCompanies> arrayList = new ArrayList<>();
 
-        currentOpeningsAdapter = new CurrentOpeningsAdapter(this, arrayList);
+        currentOpeningsAdapter = new com.praneethcorporation.collegeportal.CurrentOpeningsAdapter(this, arrayList);
 
         listView.setAdapter(currentOpeningsAdapter);
         BackgroundTask task=new BackgroundTask(this);
