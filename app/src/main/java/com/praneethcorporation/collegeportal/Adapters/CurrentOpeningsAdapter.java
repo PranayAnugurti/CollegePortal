@@ -1,4 +1,4 @@
-package com.praneethcorporation.collegeportal;
+package com.praneethcorporation.collegeportal.Adapters;
 
 import android.content.Context;
 import android.support.annotation.LayoutRes;
@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import android.widget.Toast;
 import com.praneethcorporation.collegeportal.InfoClasses.CurrentOpeningCompanies;
+import com.praneethcorporation.collegeportal.R;
 import java.util.ArrayList;
 import java.util.List;
 

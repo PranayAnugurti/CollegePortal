@@ -1,5 +1,8 @@
 package com.praneethcorporation.collegeportal;
 
+import android.content.Context;
+import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -8,11 +11,20 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.MenuItem;
 import android.widget.ListView;
-
 import com.praneethcorporation.collegeportal.Adapters.CurrentOpeningsAdapter;
 import com.praneethcorporation.collegeportal.InfoClasses.CurrentOpeningCompanies;
-
+import com.praneethcorporation.collegeportal.PlaceMentStatisticsPackage.PlaceMentStatistics;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -31,7 +43,7 @@ public class CurrentOpenings extends AppCompatActivity {
     NavigationView navigationView;
 
     ListView listView;
-  CurrentOpeningsAdapter currentOpeningsAdapter;
+CurrentOpeningsAdapter currentOpeningsAdapter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -86,8 +98,6 @@ public class CurrentOpenings extends AppCompatActivity {
 
 
         ArrayList<CurrentOpeningCompanies> arrayList = new ArrayList<>();
-        arrayList.add(new CurrentOpeningCompanies("Praneeth Corporation", "Data analyst", "Branches Allowed:-All", "CTC:- Rs 10000000", "11th October"));
-
         currentOpeningsAdapter = new CurrentOpeningsAdapter(this, arrayList);
 
         listView.setAdapter(currentOpeningsAdapter);
@@ -180,7 +190,7 @@ public class CurrentOpenings extends AppCompatActivity {
     }
   }
 
-    }
+
 
 
     @Override
