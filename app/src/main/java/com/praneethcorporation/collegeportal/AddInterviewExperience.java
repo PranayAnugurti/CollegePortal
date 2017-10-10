@@ -5,16 +5,21 @@ import android.app.Dialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.design.widget.BaseTransientBottomBar;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.ButtonBarLayout;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ScrollView;
 import android.widget.Toast;
+
+import com.praneethcorporation.collegeportal.InfoClasses.InterviewExperiencesInfo;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -31,22 +36,24 @@ import java.util.Calendar;
 
 public class AddInterviewExperience extends AppCompatActivity {
 
-    EditText date,company,description;
+    EditText date, company, description, profile;
     Button btn;
+    ScrollView scrollView;
     private Calendar calendar;
     private int year, month, day;
-
+    String companyString, dateString, descriptionString, profileString;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_interview_experience);
-
+        profile = (EditText) findViewById(R.id.profileEdTxt);
         date = (EditText) findViewById(R.id.dateEdTxt);
+        scrollView = (ScrollView) findViewById(R.id.addInterviewExperinceScrollView);
         calendar = Calendar.getInstance();
         year = calendar.get(Calendar.YEAR);
-        company=(EditText)findViewById(R.id.companyEdTxt);
-        description=(EditText)findViewById(R.id.experienceEdTxt);
+        company = (EditText) findViewById(R.id.companyEdTxt);
+        description = (EditText) findViewById(R.id.experienceEdTxt);
         month = calendar.get(Calendar.MONTH);
         day = calendar.get(Calendar.DAY_OF_MONTH);
         showDate(year, month + 1, day);
@@ -59,24 +66,36 @@ public class AddInterviewExperience extends AppCompatActivity {
                 return false;
             }
         });
-      btn=(Button)findViewById(R.id.saveBtn);
-      btn.setOnClickListener(new OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            InterviewExperiencesInfo info=new InterviewExperiencesInfo(
-                UserInfo.reg_no,
-                company.getText().toString(),
-                UserInfo.name,
-                date.getText().toString(),
-                description.getText().toString()
-            );
-                //Log.d("O_MY",UserInfo.reg_no+company.getText().toString()+description.getText().toString()+date.getText().toString()+UserInfo.name);
+        btn = (Button) findViewById(R.id.saveBtn);
+        btn.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-          AddInterviewAsyncTask task=new AddInterviewAsyncTask(getApplicationContext());
-          task.execute(info);
 
-        }
-      });
+
+                if (!(companyString.isEmpty())&& !(descriptionString.isEmpty())&& !( profileString.isEmpty())) {
+
+                    InterviewExperiencesInfo info = new InterviewExperiencesInfo(
+                            UserInfo.reg_no,
+                            company.getText().toString(),
+                            UserInfo.name,
+                            date.getText().toString(),
+                            description.getText().toString()
+                    );
+                    //Log.d("O_MY",UserInfo.reg_no+company.getText().toString()+description.getText().toString()+date.getText().toString()+UserInfo.name);
+                    AddInterviewAsyncTask task = new AddInterviewAsyncTask(getApplicationContext());
+                    task.execute(info);
+
+                } else {
+                    onRestart();
+                    Snackbar snackbar = Snackbar.make(scrollView, "Dont Leave Any fields Empty", BaseTransientBottomBar.LENGTH_LONG);
+                    snackbar.show();
+                    profile.setText(profileString);
+                    description.setText(descriptionString);
+                    company.setText(companyString);
+                }
+            }
+        });
 
 
     }
@@ -96,7 +115,7 @@ public class AddInterviewExperience extends AppCompatActivity {
             };
 
     private void showDate(int year, int month, int day) {
-      Log.d("O_MY",""+day+"/"+month+"/"+year);
+        Log.d("O_MY", "" + day + "/" + month + "/" + year);
         date.setText(new StringBuilder().append(day).append("/")
                 .append(month).append("/").append(year));
     }
@@ -110,84 +129,85 @@ public class AddInterviewExperience extends AppCompatActivity {
         }
         return null;
     }
-  public class AddInterviewAsyncTask extends AsyncTask<InterviewExperiencesInfo,Void,String> {
-    String update_url;
-    Context ctx;
 
-    AddInterviewAsyncTask(Context ctx) {
-      this.ctx = ctx;
-    }
-    @Override
-    protected void onPreExecute() {
-      update_url = "http://139.59.5.186/php/add_interview.php";
-    }
-    @Override
-    protected String doInBackground(InterviewExperiencesInfo... params) {
+    public class AddInterviewAsyncTask extends AsyncTask<InterviewExperiencesInfo, Void, String> {
+        String update_url;
+        Context ctx;
 
-      InterviewExperiencesInfo interviewExperiencesInfo = params[0];
-    
-
-      URL url = null;
-      try {
-        url = new URL(update_url);
-
-        HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
-
-        httpURLConnection.setRequestMethod("POST");
-
-        httpURLConnection.setDoOutput(true);
-        httpURLConnection.setDoInput(true);
-
-        OutputStream outputStream = httpURLConnection.getOutputStream();
-        BufferedWriter bufferedWriter = new BufferedWriter(
-            new OutputStreamWriter(outputStream, "UTF-8"));
-        String data =
-            URLEncoder.encode("reg_no", "UTF-8") + "=" + URLEncoder.encode(interviewExperiencesInfo.getReg_no(), "UTF-8")
-                + "&" +
-                URLEncoder.encode("name", "UTF-8") + "=" + URLEncoder.encode(interviewExperiencesInfo.getStudentName(), "UTF-8")
-                + "&" +
-                URLEncoder.encode("company", "UTF-8") + "=" + URLEncoder.encode(interviewExperiencesInfo.getCompanyName(), "UTF-8")
-                + "&" +
-                URLEncoder.encode("date", "UTF-8") + "=" + URLEncoder.encode(interviewExperiencesInfo.getDate(), "UTF-8")
-                + "&" +
-                URLEncoder.encode("experience", "UTF-8") + "=" + URLEncoder.encode(interviewExperiencesInfo.getExperience(), "UTF-8")
-            ;
-        Log.d("O_MY",interviewExperiencesInfo.getReg_no()+interviewExperiencesInfo.getCompanyName()+interviewExperiencesInfo.getDate()+interviewExperiencesInfo.getExperience());
-        bufferedWriter.write(data);
-        bufferedWriter.flush();
-        bufferedWriter.close();
-        outputStream.close();
-        InputStream inputStream = httpURLConnection.getInputStream();
-        BufferedReader bufferedReader = new BufferedReader(
-            new InputStreamReader(inputStream, "iso-8859-1"));
-        String response = "";
-        String line = "";
-        while ((line = bufferedReader.readLine()) != null) {
-          response += line;
+        AddInterviewAsyncTask(Context ctx) {
+            this.ctx = ctx;
         }
-        bufferedReader.close();
-        inputStream.close();
-        httpURLConnection.disconnect();
-        return response;
-      } catch (MalformedURLException e) {
-        e.printStackTrace();
-      } catch (IOException e) {
-        e.printStackTrace();
 
-      }
-      return null;
-    }
+        @Override
+        protected void onPreExecute() {
+            update_url = "http://139.59.5.186/php/add_interview.php";
+        }
 
-   
-    @Override
-    protected void onPostExecute(String s) {
-      super.onPostExecute(s);
-      if(s.contains("Interview details saved successfully!!")){
-        Toast.makeText(ctx,s,Toast.LENGTH_LONG).show();
-      }
-      else{
-        Toast.makeText(ctx,s,Toast.LENGTH_SHORT).show();
-      }
+        @Override
+        protected String doInBackground(InterviewExperiencesInfo... params) {
+
+            InterviewExperiencesInfo interviewExperiencesInfo = params[0];
+
+
+            URL url = null;
+            try {
+                url = new URL(update_url);
+
+                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+
+                httpURLConnection.setRequestMethod("POST");
+
+                httpURLConnection.setDoOutput(true);
+                httpURLConnection.setDoInput(true);
+
+                OutputStream outputStream = httpURLConnection.getOutputStream();
+                BufferedWriter bufferedWriter = new BufferedWriter(
+                        new OutputStreamWriter(outputStream, "UTF-8"));
+                String data =
+                        URLEncoder.encode("reg_no", "UTF-8") + "=" + URLEncoder.encode(interviewExperiencesInfo.getReg_no(), "UTF-8")
+                                + "&" +
+                                URLEncoder.encode("name", "UTF-8") + "=" + URLEncoder.encode(interviewExperiencesInfo.getStudentName(), "UTF-8")
+                                + "&" +
+                                URLEncoder.encode("company", "UTF-8") + "=" + URLEncoder.encode(interviewExperiencesInfo.getCompanyName(), "UTF-8")
+                                + "&" +
+                                URLEncoder.encode("date", "UTF-8") + "=" + URLEncoder.encode(interviewExperiencesInfo.getDate(), "UTF-8")
+                                + "&" +
+                                URLEncoder.encode("experience", "UTF-8") + "=" + URLEncoder.encode(interviewExperiencesInfo.getExperience(), "UTF-8");
+                Log.d("O_MY", interviewExperiencesInfo.getReg_no() + interviewExperiencesInfo.getCompanyName() + interviewExperiencesInfo.getDate() + interviewExperiencesInfo.getExperience());
+                bufferedWriter.write(data);
+                bufferedWriter.flush();
+                bufferedWriter.close();
+                outputStream.close();
+                InputStream inputStream = httpURLConnection.getInputStream();
+                BufferedReader bufferedReader = new BufferedReader(
+                        new InputStreamReader(inputStream, "iso-8859-1"));
+                String response = "";
+                String line = "";
+                while ((line = bufferedReader.readLine()) != null) {
+                    response += line;
+                }
+                bufferedReader.close();
+                inputStream.close();
+                httpURLConnection.disconnect();
+                return response;
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+
+            }
+            return null;
+        }
+
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+            if (s.contains("Interview details saved successfully!!")) {
+                Toast.makeText(ctx, s, Toast.LENGTH_LONG).show();
+            } else {
+                Toast.makeText(ctx, s, Toast.LENGTH_SHORT).show();
+            }
+        }
     }
-  }
 }

@@ -1,6 +1,32 @@
 <resources>
     <string name="app_name">CollegePortal</string>
     <string name="title_activity_home">Home</string>
+<string name="drawerOpen">Drawer Open</string>
+    <string name="drawerClose">Drawer Close</string>
+
+
+    <string name="EnterNameCheck">Please Enter Your Name</string>
+    <string name="RegistartionNoCheck">Please Enter Your Registration No</string>
+    <string name="SkypeIdCheck">Please Enter Your Skype Id</string>
+    <string name="guardianCheck">Please Enter the Name of your Guardian</string>
+    <string name="PermanentAddressCheck">Please enter your Present Address</string>
+    <string name="PresentAddressCheck">Please enter your Present Address</string>
+    <string name="ProjectNameCheck">Please Enter the Name of Project</string>
+    <string name="DurationCheck">Please Enter the Duration of Project</string>
+    <string name="DescriptionCheck">Please Enter the Description of Project</string>
+    <string name="CompanyNameCheck">Please Enter Company Name</string>
+    <string name="InternProfileCheck">Please Enter Intern Profile</string>
+    <string name="SchoolNameCheck">Please Enter you 10th School Name</string>
+    <string name="IntermediateNameCheck">Please Enter you Intermediate College Name</string>
+    <string name="SchoolPercentageCheck">Please Enter you School Percentage</string>
+    <string name="PasswordCheck">Please Enter a Password you wanna Save</string>
+    <string name="ReEnterPasswordCheck">Please Re-Enter Your Password</string>
+    <string name="PasswordFieldsDidntMatchCheck">Password Fields didnt Match</string>
+    <string name="IntermediatePercentageCheck">Please Enter you Intermediate Percentage</string>
+    <string name="SchoolBoardNameCheck">Please Enter you School Board Name Name</string>
+    <string name="IntermediateBoardNameCheck">Please Enter you Intermediate Board Name</string>
+
+
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -19,6 +45,7 @@
         <item>SC</item>
         <item>ST</item>
     </string-array>
+
 
     <string-array name="course">
         <item>B.Tech</item>
