@@ -58,7 +58,7 @@ public class AddInterviewExperience extends AppCompatActivity {
     ScrollView scrollView;
     private Calendar calendar;
     private int year, month, day;
-    String companyString, dateString, descriptionString, profileString;
+    String companyString, descriptionString, profileString;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -132,6 +132,10 @@ public class AddInterviewExperience extends AppCompatActivity {
         btn.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                companyString = company.getText().toString().trim();
+                descriptionString = description.getText().toString().trim();
+                profileString = profile.getText().toString().trim();
 
 
                 if (!(companyString.isEmpty()) && !(descriptionString.isEmpty()) && !(profileString.isEmpty())) {

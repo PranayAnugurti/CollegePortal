@@ -32,6 +32,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Tab1Form" />
         <activity android:name=".Tab2Form" />
+
         <activity
             android:name=".PlaceMentStatisticsPackage.PlaceMentStatistics"
             android:theme="@style/AppTheme.NoActionBar" />

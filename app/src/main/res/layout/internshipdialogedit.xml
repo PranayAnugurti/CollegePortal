@@ -35,9 +35,13 @@
                     android:layout_height="wrap_content"
                     android:elevation="10dp"
                     android:ellipsize="end"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
                     android:textColor="@color/black"
                     android:textSize="16dp"
-                    android:textStyle="italic" />
+                    android:textStyle="italic" >
+                <requestFocus/>
+                </EditText>
 
                 <TextView
                     android:layout_width="match_parent"
@@ -51,6 +55,8 @@
                     android:id="@+id/DcompanyeditView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
                     android:ellipsize="end"
                     android:textColor="@color/black"
                     android:textSize="20dp"
@@ -61,13 +67,15 @@
                     android:layout_height="wrap_content"
                     android:text="Duration :-"
                     android:textColor="@color/black"
-           android:textSize="18dp"
+                    android:textSize="18dp"
                     android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/DdurationeditView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
                     android:ellipsize="end"
                     android:textSize="14dp" />
 
@@ -88,10 +96,11 @@
 
                 <Button
                     android:id="@+id/DupdateInternBtn"
-                    android:layout_marginTop="8dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
                     android:background="@color/button_color"
+                    android:elevation="10dp"
                     android:text="Update"
                     android:textColor="@color/white" />
 

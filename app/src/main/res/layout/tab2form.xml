@@ -96,21 +96,21 @@
                     android:id="@+id/et_10percentage"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
                     android:layout_weight="2"
-                    android:inputType="numberDecimal"
-                    android:layout_marginBottom="10dp">
-                </EditText>
+                    android:inputType="numberDecimal"></EditText>
 
             </LinearLayout>
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:background="@color/black"/>
+                android:background="@color/black" />
 
             <TextView
-                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:text="12th School Name:"
                 android:textAppearance="@style/headertextstyle"
                 android:textColor="@color/black" />
@@ -185,15 +185,17 @@
                 </EditText>
 
             </LinearLayout>
-          <Button
-            android:id="@+id/saveform2"
-            android:layout_marginTop="8dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/colorPrimaryDark"
-            android:text="SAVE"
-            android:layout_marginBottom="8dp"
-            android:textColor="@color/white"/>
+
+            <Button
+                android:id="@+id/saveform2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/colorPrimaryDark"
+                android:elevation="10dp"
+                android:text="SAVE"
+                android:textColor="@color/white" />
 
         </LinearLayout>
 

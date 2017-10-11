@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-  <ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
-    >
+    android:background="@color/background">
 
     <android.support.v7.widget.CardView xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
@@ -13,17 +11,16 @@
         android:layout_marginBottom="32dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:elevation="10dp"
         android:layout_marginTop="15dp"
-        app:cardCornerRadius="8dp"
-        >
+        android:elevation="10dp"
+        app:cardCornerRadius="8dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
             android:orientation="vertical"
-            android:padding="16dp"
-            android:layout_marginBottom="16dp">
+            android:padding="16dp">
 
 
             <TextView
@@ -200,26 +197,28 @@
                 android:textAppearance="@style/headertextstyle" />
 
 
-<RadioGroup
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:id="@+id/radiophGroup">
+            <RadioGroup
+                android:id="@+id/radiophGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
                 <RadioButton
                     android:id="@+id/yesradio"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:checked="true"
-                    android:textAppearance="@style/normaltextstyle"
-                    android:text="NO" />
+                    android:text="NO"
+                    android:textAppearance="@style/normaltextstyle" />
+
                 <RadioButton
                     android:id="@+id/noradio"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textAppearance="@style/normaltextstyle"
-                    android:text="YES" />
+                    android:text="YES"
+                    android:textAppearance="@style/normaltextstyle" />
             </RadioGroup>
 
             <TextView
@@ -230,26 +229,27 @@
                 android:textAppearance="@style/headertextstyle" />
 
             <RadioGroup
+                android:id="@+id/radioresedentialGroup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:id="@+id/radioresedentialGroup">
+                android:orientation="horizontal">
+
                 <RadioButton
                     android:id="@+id/hostellerradio"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:checked="true"
-                    android:textAppearance="@style/normaltextstyle"
-                    android:text="Hosteller" />
+                    android:text="Hosteller"
+                    android:textAppearance="@style/normaltextstyle" />
 
                 <RadioButton
                     android:id="@+id/dayscholarradio"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textAppearance="@style/normaltextstyle"
-                    android:text="Day-Scholar" />
+                    android:text="Day-Scholar"
+                    android:textAppearance="@style/normaltextstyle" />
             </RadioGroup>
 
 
@@ -284,7 +284,8 @@
                 android:maxLines="4"
                 android:overScrollMode="always"
                 android:scrollbarStyle="insideInset"
-                android:scrollbars="vertical"/>
+                android:scrollbars="vertical" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -302,7 +303,7 @@
                 android:maxLines="4"
                 android:overScrollMode="always"
                 android:scrollbarStyle="insideInset"
-                android:scrollbars="vertical"/>
+                android:scrollbars="vertical" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -312,27 +313,28 @@
                 android:textAppearance="@style/headertextstyle" />
 
             <RadioGroup
+                android:id="@+id/radiomartialGroup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:id="@+id/radiomartialGroup">
+                android:orientation="horizontal">
+
                 <RadioButton
                     android:id="@+id/singleradio"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:checked="true"
-                    android:textAppearance="@style/normaltextstyle"
-                    android:text="Single" />
+                    android:text="Single"
+                    android:textAppearance="@style/normaltextstyle" />
+
                 <RadioButton
                     android:id="@+id/marriedradio"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:textAppearance="@style/normaltextstyle"
-                    android:text="Married" />
+                    android:text="Married"
+                    android:textAppearance="@style/normaltextstyle" />
             </RadioGroup>
-
 
 
             <LinearLayout
@@ -377,15 +379,17 @@
                     android:layout_weight="2"></Spinner>
 
             </LinearLayout>
-<Button
-    android:id="@+id/saveform1"
-    android:layout_marginTop="8dp"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/colorPrimaryDark"
-    android:text="SAVE"
-    android:layout_marginBottom="8dp"
-    android:textColor="@color/white"/>
+
+            <Button
+                android:id="@+id/saveform1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/colorPrimaryDark"
+                android:text="SAVE"
+                android:elevation="10dp"
+                android:textColor="@color/white" />
         </LinearLayout>
 
 

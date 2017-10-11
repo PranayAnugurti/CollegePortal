@@ -8,125 +8,137 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-<LinearLayout
-    android:layout_width="match_parent"
-  android:orientation="vertical"
-    android:layout_height="wrap_content">
-    <include
-        android:id="@+id/toolbar"
-        layout="@layout/toolbar" />
 
-    <ScrollView
-        android:id="@+id/addInterviewExperinceScrollView"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar" />
 
-        <LinearLayout
+        <ScrollView
+            android:id="@+id/addInterviewExperinceScrollView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/background"
-            android:orientation="vertical">
+            android:layout_height="match_parent">
 
 
-            <android.support.v7.widget.CardView
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="16dp">
+                android:layout_height="match_parent"
+                android:background="@color/background"
+                android:orientation="vertical">
 
-                <LinearLayout
+
+                <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="16dp"
-                    android:orientation="vertical"
-                    tools:context="com.praneethcorporation.interviewexperiences.AddInterviewExperience">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="8dp"
-                        android:text="Interview Experience"
-                        android:textSize="20dp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="8dp"
-                        android:text="Comapny Name:-"
-                        android:textAppearance="@style/headertextstyle"
-                        android:textSize="20dp"
-                        android:textStyle="bold" />
-
-                    <EditText
-                        android:id="@+id/companyEdTxt"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="8dp"
-                        android:text="Company Profile:-"
-                        android:textAppearance="@style/headertextstyle"
-                        android:textSize="20dp"
-                        android:textStyle="bold" />
-
-                    <EditText
-                        android:id="@+id/profileEdTxt"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="8dp"
-                        android:orientation="horizontal">
+                        android:layout_height="match_parent"
+                        android:layout_margin="16dp"
+                        android:orientation="vertical"
+                        tools:context="com.praneethcorporation.interviewexperiences.AddInterviewExperience">
 
                         <TextView
-                            android:layout_width="0dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="2"
-                            android:text="Interview Date:-"
+                            android:layout_margin="8dp"
+                            android:text="Interview Experience"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:text="Comapny Name:-"
                             android:textAppearance="@style/headertextstyle"
-                            android:textColor="@color/black" />
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
 
                         <EditText
-                            android:id="@+id/dateEdTxt"
-                            android:layout_width="0dp"
+                            android:id="@+id/companyEdTxt"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="2" />
+                            android:imeOptions="actionNext"
+                            android:inputType="text"/>
 
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:text="Company Profile:-"
+                            android:textAppearance="@style/headertextstyle"
+                            android:textSize="20dp"
+                            android:textStyle="bold">
+
+                            <requestFocus />
+                        </TextView>
+
+                        <EditText
+                            android:id="@+id/profileEdTxt"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:imeOptions="actionNext"
+                            android:inputType="text"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="16dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="2"
+                                android:text="Interview Date:-"
+                                android:textAppearance="@style/headertextstyle"
+                                android:textSize="18dp"
+                                android:textColor="@color/black" />
+
+                            <EditText
+                                android:id="@+id/dateEdTxt"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="2" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:text="Experience"
+                            android:textAppearance="@style/headertextstyle"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/experienceEdTxt"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:imeOptions="actionDone"
+                            android:minHeight="150dp"
+                            android:scrollbarAlwaysDrawVerticalTrack="true" />
+
+                        <Button
+                            android:id="@+id/saveBtn"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:background="@color/button_color"
+                            android:text="DONE" />
                     </LinearLayout>
+                </android.support.v7.widget.CardView>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="8dp"
-                        android:text="Experience"
-                        android:textAppearance="@style/headertextstyle"
-                        android:textSize="20dp"
-                        android:textStyle="bold" />
-
-                    <EditText
-                        android:id="@+id/experienceEdTxt"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:minHeight="150dp"
-                        android:scrollbarAlwaysDrawVerticalTrack="true" />
-
-                    <Button
-                        android:id="@+id/saveBtn"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:background="@color/button_color"
-                        android:text="DONE" />
-                </LinearLayout>
-            </android.support.v7.widget.CardView>
-        </LinearLayout>
-    </ScrollView>
-</LinearLayout>
     <android.support.design.widget.NavigationView
         android:id="@+id/navigationView"
         android:layout_width="match_parent"
