@@ -14,7 +14,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ListView;
+import android.widget.ProgressBar;
+
 import com.praneethcorporation.collegeportal.Adapters.CurrentOpeningsAdapter;
 import com.praneethcorporation.collegeportal.InfoClasses.CurrentOpeningCompanies;
 import com.praneethcorporation.collegeportal.PlaceMentStatisticsPackage.PlaceMentStatistics;
@@ -36,7 +39,7 @@ import org.json.JSONObject;
 
 public class CurrentOpenings extends AppCompatActivity {
 
-
+    ProgressBar progressBar;
     Toolbar toolbar;
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle actionBarDrawerToggle;
@@ -52,7 +55,7 @@ CurrentOpeningsAdapter currentOpeningsAdapter;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.currentopenings);
         listView = (ListView) findViewById(R.id.currentOpeningList);
-
+        progressBar = (ProgressBar)findViewById(R.id.progressBar);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Current Openings");
@@ -186,7 +189,7 @@ CurrentOpeningsAdapter currentOpeningsAdapter;
         e.printStackTrace();
       }
 
-
+progressBar.setVisibility(View.INVISIBLE);
     }
   }
 

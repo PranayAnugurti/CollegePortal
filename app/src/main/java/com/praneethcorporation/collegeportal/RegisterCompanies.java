@@ -14,7 +14,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 
 import com.praneethcorporation.collegeportal.Adapters.CompaniesAdapter;
 import com.praneethcorporation.collegeportal.InfoClasses.Company;
@@ -53,11 +55,14 @@ public class RegisterCompanies extends AppCompatActivity {
     String json_url;
     String reg_no;
 
+    ProgressBar progressBar;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.registeredcompanies);
+
+        progressBar = (ProgressBar)findViewById(R.id.progressBar);
 
         ArrayList<Company> companyArrayList = new ArrayList<>();
 
@@ -211,7 +216,7 @@ public class RegisterCompanies extends AppCompatActivity {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-
+progressBar.setVisibility(View.INVISIBLE);
 
         }
     }

@@ -42,6 +42,7 @@ public class Tab2Form extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tab2form);
 
+
         //Getting data from intent
         final Intent intent = getIntent();
         Bundle b = intent.getExtras();
@@ -142,6 +143,8 @@ public class Tab2Form extends AppCompatActivity {
                             );
                             BackgroundTask task = new BackgroundTask(context);
                             task.execute(acad_infoItem);
+
+
                         }
                     });
                     builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -166,11 +169,14 @@ public class Tab2Form extends AppCompatActivity {
         Context ctx;
 
         BackgroundTask(Context ctx) {
-            this.ctx = ctx;
+            this.ctx = ctx.getApplicationContext();
         }
 
         @Override
         protected void onPreExecute() {
+
+
+
             super.onPreExecute();
         }
 
@@ -238,6 +244,10 @@ public class Tab2Form extends AppCompatActivity {
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
             Toast.makeText(ctx, s, Toast.LENGTH_SHORT).show();
+
+            Intent intent_name = new Intent();
+            intent_name.setClass(ctx,Tab2.class);
+            ctx.startActivity(intent_name);
         }
     }
 }

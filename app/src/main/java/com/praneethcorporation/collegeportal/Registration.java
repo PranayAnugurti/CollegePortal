@@ -202,7 +202,7 @@ public class Registration extends AppCompatActivity {
               // User clicked OK button
               UserInfo userInfoItem = new UserInfo(reg_no.getText().toString(),
                   name.getText().toString(),
-                  null,
+                  password.getText().toString(),
                   null,
                   null,
                   null,

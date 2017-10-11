@@ -15,7 +15,9 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 
 import com.praneethcorporation.collegeportal.Adapters.InterviewExperiencesAdapter;
 import com.praneethcorporation.collegeportal.InfoClasses.InterviewExperiencesInfo;
@@ -44,14 +46,14 @@ public class InterviewExperinces extends AppCompatActivity {
 
     ListView listView;
     InterviewExperiencesAdapter interviewExperiencesAdapter;
-
+ProgressBar progressBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_interview_experinces);
 
         listView = (ListView) findViewById(R.id.interviewExperiencesList);
-
+           progressBar = (ProgressBar)findViewById(R.id.progressBar);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("InterView Experiences");
@@ -126,6 +128,7 @@ public class InterviewExperinces extends AppCompatActivity {
 
         @Override
         protected void onPreExecute() {
+            listView.setVisibility(View.INVISIBLE);
             json_url = "http://139.59.5.186/php/interview.php";
             Log.d("O_MY", UserInfo.reg_no);
         }
@@ -197,7 +200,8 @@ public class InterviewExperinces extends AppCompatActivity {
                 e.printStackTrace();
             }
 
-
+progressBar.setVisibility(View.INVISIBLE);
+            listView.setVisibility(View.VISIBLE);
         }
     }
 
