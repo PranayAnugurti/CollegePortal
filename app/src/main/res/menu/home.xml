@@ -4,8 +4,14 @@
 
     <item
         android:id="@+id/logOut"
+        android:icon="@drawable/whitelogout"
         android:title="@string/Logout"
-        >
-    </item>
+        app:showAsAction="always"></item>
+    <item
+        android:id="@+id/aboutdevelopers"
+        android:title="About Developers" />
+    <item
+        android:id="@+id/help"
+        android:title="Help" />
 
 </menu>

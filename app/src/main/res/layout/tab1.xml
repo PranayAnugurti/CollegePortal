@@ -19,7 +19,6 @@
 
 
   <ScrollView
-      android:visibility="invisible"
       android:id="@+id/ProgressLayout"
       android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -49,18 +48,17 @@
           <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <Button
+            <ImageButton
               android:id="@+id/editButton1"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
+              android:layout_width="50dp"
+              android:layout_height="50dp"
               android:layout_marginRight="20dp"
               android:layout_alignParentRight="true"
               android:padding="5dp"
-              android:background="@color/button_color"
-              android:drawableLeft="@drawable/editpencil"
-              android:text="EDIT"
-              android:textColor="@color/white"
-              />
+                android:background="@color/white"
+                android:src="@drawable/edit"
+                android:scaleType="centerCrop"
+                />
           </RelativeLayout>
         </LinearLayout>
         <LinearLayout

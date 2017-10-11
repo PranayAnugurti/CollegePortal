@@ -49,7 +49,7 @@ public class Home extends AppCompatActivity
     String reg_no;
     UserInfo info;
     CircleImageView imageView;
-  boolean isCon=false;
+    boolean isCon = false;
     TextView nameView;
     TextView streamView;
     TextView branchView;
@@ -67,37 +67,37 @@ public class Home extends AppCompatActivity
 
         //Profile Activity access
 //Get a reference to the ConnectivityManager to check state of network connectivity
-      ConnectivityManager connMgr = (ConnectivityManager) getSystemService(
-          Context.CONNECTIVITY_SERVICE);
+        ConnectivityManager connMgr = (ConnectivityManager) getSystemService(
+                Context.CONNECTIVITY_SERVICE);
 
-      //Get details on the currently active default data network
-      NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
-      //If there is a network connection,fetch data
-      if (networkInfo != null && networkInfo.isConnected()) {
-        isCon=true;
-        BackgroundTask task = new BackgroundTask(this);
-        task.execute();
-        imageView = (CircleImageView) findViewById(R.id.profilePicImageView);
-        nameView = (TextView) findViewById(R.id.nameTextView);
-        streamView = (TextView) findViewById(R.id.streamTextView);
-        branchView = (TextView) findViewById(R.id.branchTextView);
-        regView = (TextView) findViewById(R.id.regTextView);
-        viewProfileButton = (Button) findViewById(R.id.viewProfileButton);
-        loadingIndicator = (ProgressBar) findViewById(R.id.loading_indicator);
+        //Get details on the currently active default data network
+        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+        //If there is a network connection,fetch data
+        if (networkInfo != null && networkInfo.isConnected()) {
+            isCon = true;
+            BackgroundTask task = new BackgroundTask(this);
+            task.execute();
+            imageView = (CircleImageView) findViewById(R.id.profilePicImageView);
+            nameView = (TextView) findViewById(R.id.nameTextView);
+            streamView = (TextView) findViewById(R.id.streamTextView);
+            branchView = (TextView) findViewById(R.id.branchTextView);
+            regView = (TextView) findViewById(R.id.regTextView);
+            viewProfileButton = (Button) findViewById(R.id.viewProfileButton);
+            loadingIndicator = (ProgressBar) findViewById(R.id.loading_indicator);
 
-        viewProfileButton.setOnClickListener(new View.OnClickListener() {
-          @Override
-          public void onClick(View v) {
-            Intent intent = new Intent(getApplicationContext(), Profile.class);
-            intent.putExtra("reg_no", reg_no);
-            intent.putExtra("image", info.image_server_link);
-            intent.putExtra("pdf", info.pdf_server_link);
-            startActivity(intent);
-          }
-        });
-      }else{
-        Snackbar.make(findViewById(R.id.drawer_layout),"No Internet Connection!",Snackbar.LENGTH_LONG).show();
-      }
+            viewProfileButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), Profile.class);
+                    intent.putExtra("reg_no", reg_no);
+                    intent.putExtra("image", info.image_server_link);
+                    intent.putExtra("pdf", info.pdf_server_link);
+                    startActivity(intent);
+                }
+            });
+        } else {
+            Snackbar.make(findViewById(R.id.drawer_layout), "No Internet Connection!", Snackbar.LENGTH_LONG).show();
+        }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -105,7 +105,9 @@ public class Home extends AppCompatActivity
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setItemIconTintList(null);
         navigationView.setNavigationItemSelectedListener(this);
+
     }
 
     @Override
@@ -139,8 +141,18 @@ public class Home extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.logOut) {
-            Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(intent);
+        }
+        if (id == R.id.aboutdevelopers) {
+            Intent intent = new Intent(getApplicationContext(), AboutDevelopers.class);
+            startActivity(intent);
+
+        }
+        if (id == R.id.help) {
+            Intent intent = new Intent(getApplicationContext(), Help.class);
+            startActivity(intent);
+
         }
 
         return super.onOptionsItemSelected(item);
@@ -149,38 +161,39 @@ public class Home extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-      // Handle navigation view item clicks here.
-      int id = item.getItemId();
-      if (isCon) {
-        if (id == R.id.nav_currentOpening) {
-          Intent intent = new Intent(Home.this, CurrentOpenings.class);
-          startActivity(intent);
-        } else if (id == R.id.nav_registeredCompanies) {
-          Intent intent = new Intent(Home.this, RegisterCompanies.class);
-          startActivity(intent);
-        } else if (id == R.id.nav_addInterviewExperience) {
-          Intent intent = new Intent(Home.this, AddInterviewExperience.class);
-          startActivity(intent);
-        } else if (id == R.id.nav_currentOpening) {
-          Intent intent = new Intent(Home.this, CurrentOpenings.class);
-          startActivity(intent);
-        } else if (id == R.id.nav_registeredCompanies) {
-          Intent intent = new Intent(Home.this, RegisterCompanies.class);
-          startActivity(intent);
-        } else if (id == R.id.nav_interviewExperinces) {
-          Intent intent = new Intent(Home.this, InterviewExperinces.class);
-          startActivity(intent);
+        // Handle navigation view item clicks here.
+        int id = item.getItemId();
+        if (isCon) {
+            if (id == R.id.nav_currentOpening) {
+                Intent intent = new Intent(Home.this, CurrentOpenings.class);
+                startActivity(intent);
+            } else if (id == R.id.nav_registeredCompanies) {
+                Intent intent = new Intent(Home.this, RegisterCompanies.class);
+                startActivity(intent);
+            } else if (id == R.id.nav_addInterviewExperience) {
+                Intent intent = new Intent(Home.this, AddInterviewExperience.class);
+                startActivity(intent);
+            } else if (id == R.id.nav_currentOpening) {
+                Intent intent = new Intent(Home.this, CurrentOpenings.class);
+                startActivity(intent);
+            } else if (id == R.id.nav_registeredCompanies) {
+                Intent intent = new Intent(Home.this, RegisterCompanies.class);
+                startActivity(intent);
+            } else if (id == R.id.nav_interviewExperinces) {
+                Intent intent = new Intent(Home.this, InterviewExperinces.class);
+                startActivity(intent);
 
-        } else if (id == R.id.nav_place_stats) {
-          Intent intent = new Intent(getApplicationContext(), PlaceMentStatistics.class);
-          startActivity(intent);
+            } else if (id == R.id.nav_place_stats) {
+                Intent intent = new Intent(getApplicationContext(), PlaceMentStatistics.class);
+                startActivity(intent);
+            }
         }
-      }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
 
     }
+
     public class BackgroundTask extends AsyncTask<Void, Void, String> {
 
         String json_url;
@@ -197,8 +210,8 @@ public class Home extends AppCompatActivity
             Intent intent = getIntent();
             reg_no = intent.getStringExtra("reg_no");
 
-            if (reg_no==null){
-                reg_no=UserInfo.reg_no;
+            if (reg_no == null) {
+                reg_no = UserInfo.reg_no;
             }
             //     Log.d("O_MY", reg_no);
         }
