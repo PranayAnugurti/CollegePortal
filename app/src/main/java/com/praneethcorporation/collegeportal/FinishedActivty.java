@@ -3,6 +3,7 @@ package com.praneethcorporation.collegeportal;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -16,13 +17,19 @@ import java.util.List;
 
 public class FinishedActivty extends AppCompatActivity {
 
-    Button backToLogin;
+    FloatingActionButton backToLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_finished_activty);
-        backToLogin = (Button)findViewById(R.id.backtoLogin);
+        backToLogin = (FloatingActionButton)findViewById(R.id.backtoLogin);
+            backToLogin.setScaleX(0);
+        backToLogin.setScaleY(0);
+        backToLogin.animate().scaleX(1).scaleY(1).setDuration(2000).start();
+
+
+
         backToLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

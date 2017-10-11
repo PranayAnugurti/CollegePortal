@@ -5,6 +5,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
+import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
@@ -20,8 +21,11 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -45,6 +49,9 @@ MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
     private Context context;
     TextView registerNow;
+    ImageView rocket;
+    Animation bottomToUp;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +61,11 @@ MainActivity extends AppCompatActivity {
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         context = this;
+
+        rocket = (ImageView) findViewById(R.id.rocket);
+        bottomToUp = AnimationUtils.loadAnimation(this, R.anim.translateanimation);
+
+
 
     /*  binding.registration.addTextChangedListener(new TextWatcher() {
         @Override
@@ -100,8 +112,35 @@ MainActivity extends AppCompatActivity {
         binding.registerNow.setOnClickListener(new OnClickListener() {
                                                    @Override
                                                    public void onClick(View v) {
-                                                       Intent intent = new Intent(getApplicationContext(), Registration.class);
-                                                       startActivity(intent);
+                                                       binding.loginBtn.setVisibility(View.INVISIBLE);
+                                                       binding.tvRegistration.setTextColor(Color.WHITE);
+                                                       binding.tvRegistration.setTextSize((float)25);
+                                                       binding.tvRegistration.setText("''Brace Yourself''\n Its going to be a long ride");
+                                                       binding.tvPassword.setVisibility(View.INVISIBLE);
+                                                       binding.pass.setVisibility(View.INVISIBLE);
+                                                       binding.registerNow.setVisibility(View.INVISIBLE);
+                                                       binding.registration.setVisibility(View.INVISIBLE);
+                                                       binding.MainImage.setVisibility(View.INVISIBLE);
+                                                       rocket.setVisibility(View.VISIBLE);
+                                                       rocket.setAnimation(bottomToUp);
+                                                       bottomToUp.setAnimationListener(new Animation.AnimationListener() {
+                                                           @Override
+                                                           public void onAnimationStart(Animation animation) {
+
+                                                           }
+
+                                                           @Override
+                                                           public void onAnimationEnd(Animation animation) {
+                                                               Intent intent = new Intent(getApplicationContext(), Registration.class);
+                                                               startActivity(intent);
+                                                           }
+
+                                                           @Override
+                                                           public void onAnimationRepeat(Animation animation) {
+
+                                                           }
+                                                       });
+
                                                    }
                                                }
         );

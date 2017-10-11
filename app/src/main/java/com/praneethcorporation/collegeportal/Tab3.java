@@ -378,7 +378,19 @@ public class Tab3 extends Fragment {
             }
         });
 
+         animate();
+
         return view;
+    }
+
+    private void animate() {
+
+        addIntern.setScaleX(0);
+        addIntern.setScaleY(0);
+        addproject.setScaleX(0);
+        addproject.setScaleY(0);
+        addproject.animate().scaleX(1).scaleY(1).setDuration(1000).start();
+        addIntern.animate().scaleX(1).scaleY(1).setDuration(1000).start();
     }
 
 
