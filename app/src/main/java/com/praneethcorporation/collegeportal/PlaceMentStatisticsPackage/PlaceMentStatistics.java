@@ -20,6 +20,7 @@ import com.praneethcorporation.collegeportal.AddInterviewExperience;
 import com.praneethcorporation.collegeportal.CurrentOpenings;
 import com.praneethcorporation.collegeportal.Help;
 import com.praneethcorporation.collegeportal.Home;
+import com.praneethcorporation.collegeportal.InfoClasses.User;
 import com.praneethcorporation.collegeportal.InterviewExperinces;
 import com.praneethcorporation.collegeportal.MainActivity;
 import com.praneethcorporation.collegeportal.R;
@@ -114,7 +115,9 @@ public class PlaceMentStatistics extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.logOut) {
-            Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+            User user = new User(getApplicationContext());
+            user.remove();
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(intent);
         }
         if (id == R.id.aboutdevelopers) {

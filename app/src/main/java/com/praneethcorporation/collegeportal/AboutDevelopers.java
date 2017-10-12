@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.praneethcorporation.collegeportal.InfoClasses.User;
+
 public class AboutDevelopers extends AppCompatActivity {
 
     @Override
@@ -30,6 +32,8 @@ public class AboutDevelopers extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.logOut) {
+            User user = new User(getApplicationContext());
+            user.remove();
             Intent intent = new Intent(getApplicationContext(),MainActivity.class);
             startActivity(intent);
         }

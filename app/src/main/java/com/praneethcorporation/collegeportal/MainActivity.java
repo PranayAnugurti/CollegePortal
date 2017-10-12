@@ -30,6 +30,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.praneethcorporation.collegeportal.InfoClasses.User;
 import com.praneethcorporation.collegeportal.databinding.ActivityMainBinding;
 
 import java.io.BufferedReader;
@@ -52,13 +53,19 @@ MainActivity extends AppCompatActivity {
     TextView registerNow;
     ImageView rocket;
     Animation bottomToUp;
+    User user;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        user = new User(getApplicationContext());
+if (user.getRegNo()!=""){
+    Intent intent = new Intent(this,Home.class);
+    intent.putExtra("reg_no",user.getRegNo());
+    startActivity(intent);
+}
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         context = this;
 
@@ -277,6 +284,8 @@ MainActivity extends AppCompatActivity {
                 //Toast.makeText(ctx,result,Toast.LENGTH_LONG).show();
                 Snackbar.make(findViewById(R.id.main), result, Snackbar.LENGTH_SHORT)
                         .show();
+                User user = new User(getApplicationContext());
+                user.setRegNo(result.substring(24,32));
                 Intent intent = new Intent(getApplicationContext(), Home.class);
                 intent.putExtra("reg_no", result.substring(24, 32));
 

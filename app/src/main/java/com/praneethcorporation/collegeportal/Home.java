@@ -23,6 +23,7 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.praneethcorporation.collegeportal.InfoClasses.User;
 import com.praneethcorporation.collegeportal.PlaceMentStatisticsPackage.PlaceMentStatistics;
 import com.squareup.picasso.Picasso;
 
@@ -141,6 +142,8 @@ public class Home extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.logOut) {
+            User user = new User(getApplicationContext());
+            user.remove();
             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(intent);
         }

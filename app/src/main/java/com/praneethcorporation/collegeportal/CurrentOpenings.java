@@ -21,6 +21,7 @@ import android.widget.ProgressBar;
 
 import com.praneethcorporation.collegeportal.Adapters.CurrentOpeningsAdapter;
 import com.praneethcorporation.collegeportal.InfoClasses.CurrentOpeningCompanies;
+import com.praneethcorporation.collegeportal.InfoClasses.User;
 import com.praneethcorporation.collegeportal.PlaceMentStatisticsPackage.PlaceMentStatistics;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -211,6 +212,8 @@ progressBar.setVisibility(View.INVISIBLE);
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.logOut) {
+            User user = new User(getApplicationContext());
+            user.remove();
             Intent intent = new Intent(getApplicationContext(),MainActivity.class);
             startActivity(intent);
         }

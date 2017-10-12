@@ -16,6 +16,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.praneethcorporation.collegeportal.InfoClasses.User;
 import com.praneethcorporation.collegeportal.PlaceMentStatisticsPackage.PlaceMentStatistics;
 
 public class
@@ -101,6 +102,8 @@ Profile extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.logOut) {
+            User user = new User(getApplicationContext());
+            user.remove();
             Intent intent = new Intent(getApplicationContext(),MainActivity.class);
             startActivity(intent);
         }
