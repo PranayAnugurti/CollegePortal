@@ -24,16 +24,15 @@
                 android:textSize="20dp"
                 android:textStyle="bold" />
 
-            <android.support.design.widget.FloatingActionButton
-                xmlns:app="http://schemas.android.com/apk/res-auto"
+            <android.support.design.widget.FloatingActionButton xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/addProjectbutton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:elevation="10dp"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="64dp"
                 android:layout_marginTop="20dp"
+                android:elevation="10dp"
                 android:scaleType="center"
                 android:src="@drawable/fab_add"
                 app:fabSize="mini" />
@@ -46,31 +45,19 @@
             android:background="@color/black" />
 
 
-        <!--    <Button
-                android:id="@+id/addProjectbutton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:layout_margin="8dp"
-                android:background="@color/button_color"
-                android:drawableLeft="@drawable/file"
-                android:padding="8dp"
-                android:text="Add Project"
-                android:textColor="@color/white"
-                android:textSize="12sp" />
+        <ProgressBar
+            android:id="@+id/progressBar1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
 
-    -->
         <com.github.paolorotolo.expandableheightlistview.ExpandableHeightListView
             android:id="@+id/projectsList"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="16dp" />
+            android:layout_margin="16dp"
+            android:layoutAnimation="@anim/my_layout_animation" />
 
-        <!--
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-        -->
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -90,10 +77,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
-                android:elevation="10dp"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="64dp"
                 android:layout_marginTop="20dp"
+                android:elevation="10dp"
                 android:scaleType="center"
                 android:src="@drawable/fab_add"
                 app:fabSize="mini" />
@@ -105,21 +92,11 @@
             android:layout_margin="8dp"
             android:background="@color/black" />
 
-        <!--    <Button
-                android:id="@+id/addInternbutton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_gravity="right"
-                android:layout_margin="8dp"
-                android:background="@color/button_color"
-                android:drawableLeft="@drawable/file"
-                android:padding="8dp"
-                android:text="Add INTERN"
-                android:textColor="@color/white"
-                android:textSize="12sp" />
-    -->
+        <ProgressBar
+            android:id="@+id/progressBar2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
 
         <com.github.paolorotolo.expandableheightlistview.ExpandableHeightListView
             android:id="@+id/intenshipsList"

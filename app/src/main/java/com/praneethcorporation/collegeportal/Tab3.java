@@ -24,6 +24,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ExpandableListView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import android.widget.Toast;
@@ -65,6 +66,8 @@ public class Tab3 extends Fragment {
     ArrayList<Project> projects;
     ArrayList<Internship> internships;
     String reg_no;
+ProgressBar projectProgressBar;
+    ProgressBar internProgressBar;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -75,7 +78,9 @@ public class Tab3 extends Fragment {
         addproject = (FloatingActionButton) view.findViewById(R.id.addProjectbutton);
         addIntern = (FloatingActionButton) view.findViewById(R.id.addInternbutton);
 
+        projectProgressBar = (ProgressBar)view.findViewById(R.id.progressBar1);
 
+        internProgressBar = (ProgressBar)view.findViewById(R.id.progressBar2);
         addproject.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -488,6 +493,7 @@ public class Tab3 extends Fragment {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
+            internProgressBar.setVisibility(View.INVISIBLE);
 
 
         }
@@ -586,7 +592,7 @@ public class Tab3 extends Fragment {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-
+projectProgressBar.setVisibility(View.INVISIBLE);
 
         }
     }

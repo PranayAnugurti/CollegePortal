@@ -3,6 +3,7 @@ package com.praneethcorporation.collegeportal;
 import android.content.Context;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Build.VERSION_CODES;
 import android.os.Bundle;
@@ -12,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import com.praneethcorporation.collegeportal.databinding.Tab1Binding;
 
@@ -35,6 +37,7 @@ import org.json.JSONObject;
 
 public class Tab1 extends Fragment {
 
+  ProgressBar progressBar;
   Tab1Binding b;
   String reg_no;
   UserInfo info;
@@ -45,7 +48,6 @@ public class Tab1 extends Fragment {
 
     b= DataBindingUtil.inflate(inflater,R.layout.tab1, container, false);
     Context c = getActivity().getApplicationContext();
-
     Intent i = getActivity().getIntent();
     reg_no = i.getStringExtra("reg_no");
     BackgroundTask task = new BackgroundTask(c);
@@ -75,6 +77,7 @@ public class Tab1 extends Fragment {
 
     @Override
     protected void onPreExecute() {
+      b.progressBar.setVisibility(View.VISIBLE);
       json_url = "http://139.59.5.186/php/user_info.php";
       Log.d("O_MY", reg_no);
     }
@@ -130,6 +133,7 @@ public class Tab1 extends Fragment {
     @Override
     protected void onPostExecute(String result) {
 
+
       try {
 
         Log.d("O_MY", result);
@@ -174,6 +178,8 @@ public class Tab1 extends Fragment {
       } catch (JSONException e) {
         e.printStackTrace();
       }
+    b.progressBar.setVisibility(View.INVISIBLE);
+      b.ProgressLayout.setVisibility(View.VISIBLE);
     }
   }
 

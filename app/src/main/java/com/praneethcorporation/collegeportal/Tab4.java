@@ -27,6 +27,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -42,6 +43,7 @@ import net.gotev.uploadservice.MultipartUploadRequest;
 import net.gotev.uploadservice.UploadNotificationConfig;
 
 import static android.app.Activity.RESULT_OK;
+import static android.content.Context.LOCATION_SERVICE;
 import static com.praneethcorporation.collegeportal.R.id.imageView;
 
 /**
@@ -54,6 +56,7 @@ public class Tab4 extends Fragment implements SingleUploadBroadcastReceiver.Dele
 
     Button UploadBn, ChooseImg, BrowseBtn, UploadPdfBtn, DownloadPdfBtn;
     ImageView imgView;
+    ProgressBar progressBar;
     TextView pdfPathTextView;
     EditText pdfPathEditTxt;
     String ImagePath = "image_path";
@@ -93,6 +96,7 @@ public class Tab4 extends Fragment implements SingleUploadBroadcastReceiver.Dele
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.tab4, container, false);
         Context c = getActivity().getApplicationContext();
+        progressBar = (ProgressBar) view.findViewById(R.id.progressBar);
         reg_no = getActivity().getIntent().getStringExtra("reg_no");
         imageServerLink = getActivity().getIntent().getStringExtra("image");
         pdfServerLink = getActivity().getIntent().getStringExtra("pdf");
@@ -106,7 +110,17 @@ public class Tab4 extends Fragment implements SingleUploadBroadcastReceiver.Dele
         pdfPathEditTxt = (EditText) view.findViewById(R.id.pdfNameFeild);
         pdfPathTextView = (TextView) view.findViewById(R.id.pdfName);
         imgView = (ImageView) view.findViewById(imageView);
-        Picasso.with(getContext()).load(imageServerLink).into(imgView);
+        Picasso.with(getContext()).load(imageServerLink).into(imgView, new com.squareup.picasso.Callback() {
+            @Override
+            public void onSuccess() {
+                progressBar.setVisibility(View.INVISIBLE);
+            }
+
+            @Override
+            public void onError() {
+                Toast.makeText(getContext(), "Image Fetch Failed", Toast.LENGTH_LONG).show();
+            }
+        });
         ChooseImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -314,8 +328,11 @@ public class Tab4 extends Fragment implements SingleUploadBroadcastReceiver.Dele
     @Override
     public void onCompleted(int serverResponseCode, byte[] serverResponseBody) {
         dialog.dismiss();
-        Log.d("O_MY", serverResponseBody + "ResponseCode" + serverResponseBody);
         Snackbar.make(getActivity().findViewById(R.id.linearLayout), "Whoila!!! File Uploaded Successfully!", Snackbar.LENGTH_LONG).show();
+        Intent intent = new Intent(getContext(), Home.class);
+        startActivity(intent);
+
+        Log.d("O_MY", serverResponseBody + "ResponseCode" + serverResponseBody);
     }
 
 

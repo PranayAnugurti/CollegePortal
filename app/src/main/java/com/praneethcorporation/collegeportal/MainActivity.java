@@ -10,6 +10,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Build.VERSION_CODES;
+import android.sax.RootElement;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
@@ -29,6 +30,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.praneethcorporation.collegeportal.InfoClasses.User;
 import com.praneethcorporation.collegeportal.databinding.ActivityMainBinding;
 
 import java.io.BufferedReader;
@@ -51,14 +53,19 @@ MainActivity extends AppCompatActivity {
     TextView registerNow;
     ImageView rocket;
     Animation bottomToUp;
+    User user;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_main);
-
+        user = new User(getApplicationContext());
+if (user.getRegNo()!=""){
+    Intent intent = new Intent(this,Home.class);
+    intent.putExtra("reg_no",user.getRegNo());
+    startActivity(intent);
+}
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         context = this;
 
@@ -93,6 +100,10 @@ MainActivity extends AppCompatActivity {
         binding.loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                int isValid = 1;
+
+
 //Get a reference to the ConnectivityManager to check state of network connectivity
                 ConnectivityManager connMgr = (ConnectivityManager) getSystemService(
                         Context.CONNECTIVITY_SERVICE);
@@ -101,9 +112,20 @@ MainActivity extends AppCompatActivity {
                 NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
                 //If there is a network connection,fetch data
                 if (networkInfo != null && networkInfo.isConnected()) {
-                    BackgroundTask task = new BackgroundTask(context);
-                    task.execute("login", binding.registration.getText().toString(),
-                            binding.pass.getText().toString());
+
+                    if (binding.registration.getText().toString().isEmpty()) {
+                        binding.registration.setError(getString(R.string.RegistartionNoCheck));
+                        isValid = 0;
+                    }
+                    if (binding.pass.getText().toString().isEmpty()) {
+                        binding.pass.setError(getString(R.string.MainPasswordCheck));
+                        isValid = 0;
+                    }
+                    if (isValid == 1) {
+                        BackgroundTask task = new BackgroundTask(context);
+                        task.execute("login", binding.registration.getText().toString(),
+                                binding.pass.getText().toString());
+                    }
                 } else {
                     Snackbar.make(findViewById(R.id.main), "No Internet Connection!", Snackbar.LENGTH_LONG).show();
                 }
@@ -114,7 +136,7 @@ MainActivity extends AppCompatActivity {
                                                    public void onClick(View v) {
                                                        binding.loginBtn.setVisibility(View.INVISIBLE);
                                                        binding.tvRegistration.setTextColor(Color.WHITE);
-                                                       binding.tvRegistration.setTextSize((float)25);
+                                                       binding.tvRegistration.setTextSize((float) 25);
                                                        binding.tvRegistration.setText("''Brace Yourself''\n Its going to be a long ride");
                                                        binding.tvPassword.setVisibility(View.INVISIBLE);
                                                        binding.pass.setVisibility(View.INVISIBLE);
@@ -151,7 +173,6 @@ MainActivity extends AppCompatActivity {
 
     public class BackgroundTask extends AsyncTask<String, Void, String> {
 
-        AlertDialog alertDialog;
         private Dialog loadingDialog;
         Context ctx;
 
@@ -263,6 +284,8 @@ MainActivity extends AppCompatActivity {
                 //Toast.makeText(ctx,result,Toast.LENGTH_LONG).show();
                 Snackbar.make(findViewById(R.id.main), result, Snackbar.LENGTH_SHORT)
                         .show();
+                User user = new User(getApplicationContext());
+                user.setRegNo(result.substring(24,32));
                 Intent intent = new Intent(getApplicationContext(), Home.class);
                 intent.putExtra("reg_no", result.substring(24, 32));
 
@@ -271,5 +294,10 @@ MainActivity extends AppCompatActivity {
 
 
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        Snackbar.make(binding.main,"That Action is Disabled",Snackbar.LENGTH_SHORT).show();
     }
 }

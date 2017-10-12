@@ -178,6 +178,8 @@ public class Tab2 extends Fragment {
     } catch (JSONException e) {
       e.printStackTrace();
     }
+    binding.progressBar.setVisibility(View.INVISIBLE);
+    binding.ProgressLayout.setVisibility(View.VISIBLE);
   }
 }
 }

@@ -13,11 +13,15 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 
 import com.praneethcorporation.collegeportal.Adapters.CompaniesAdapter;
 import com.praneethcorporation.collegeportal.InfoClasses.Company;
+import com.praneethcorporation.collegeportal.InfoClasses.User;
 import com.praneethcorporation.collegeportal.PlaceMentStatisticsPackage.PlaceMentStatistics;
 
 import java.io.BufferedReader;
@@ -53,11 +57,14 @@ public class RegisterCompanies extends AppCompatActivity {
     String json_url;
     String reg_no;
 
+    ProgressBar progressBar;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.registeredcompanies);
+
+        progressBar = (ProgressBar)findViewById(R.id.progressBar);
 
         ArrayList<Company> companyArrayList = new ArrayList<>();
 
@@ -74,6 +81,7 @@ public class RegisterCompanies extends AppCompatActivity {
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.drawerOpen, R.string.drawerClose);
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         navigationView = (NavigationView) findViewById(R.id.navigationView);
+        navigationView.setItemIconTintList(null);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -111,6 +119,40 @@ public class RegisterCompanies extends AppCompatActivity {
         });
 
 
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.home, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.logOut) {
+            User user = new User(getApplicationContext());
+            user.remove();
+            Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+            startActivity(intent);
+        }
+        if (id == R.id.aboutdevelopers) {
+            Intent intent = new Intent(getApplicationContext(), AboutDevelopers.class);
+            startActivity(intent);
+
+        }
+        if (id == R.id.help) {
+            Intent intent = new Intent(getApplicationContext(), Help.class);
+            startActivity(intent);
+
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
 
@@ -211,7 +253,7 @@ public class RegisterCompanies extends AppCompatActivity {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-
+progressBar.setVisibility(View.INVISIBLE);
 
         }
     }
