@@ -343,6 +343,7 @@ public class Tab4 extends Fragment implements SingleUploadBroadcastReceiver.Dele
         public void run() {
           //Do something after 100ms
           Intent intent = new Intent(ctx,Home.class);
+          intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
           ctx.startActivity(intent);
         }
       }, 1000
@@ -418,6 +419,7 @@ public class Tab4 extends Fragment implements SingleUploadBroadcastReceiver.Dele
             Toast.makeText(getContext(), "Download PDf successfully", Toast.LENGTH_SHORT).show();
 
           Intent intent = new Intent(ctx,Home.class);
+          intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
           ctx.startActivity(intent);
             Log.d("Download complete", "----------");
         }
