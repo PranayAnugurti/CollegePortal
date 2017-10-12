@@ -61,11 +61,13 @@ MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         user = new User(getApplicationContext());
+
 if (user.getRegNo()!=""){
     Intent intent = new Intent(this,Home.class);
     intent.putExtra("reg_no",user.getRegNo());
     startActivity(intent);
 }
+
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         context = this;
 
