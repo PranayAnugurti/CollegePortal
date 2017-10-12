@@ -133,6 +133,14 @@ if (user.getRegNo()!=""){
                 }
             }
         });
+
+        binding.forgotPassword.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),ForgotPassword.class);
+                startActivity(intent);
+            }
+        });
         binding.registerNow.setOnClickListener(new OnClickListener() {
                                                    @Override
                                                    public void onClick(View v) {

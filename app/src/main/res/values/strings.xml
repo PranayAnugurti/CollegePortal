@@ -55,6 +55,14 @@
         <item>MCA</item>
     </string-array>
 
+    <string-array name="securityQestions">
+        <item>Who is your favourite Professor</item>
+        <item>What is your pet’s name?</item>
+        <item>In what year was your father born?</item>
+        <item>What is your favorite game?</item>
+    </string-array>
+
+
     <string-array name="branch">
         <item>Electronics and Communication Engineering</item>
         <item>Computer Science and Engineering</item>

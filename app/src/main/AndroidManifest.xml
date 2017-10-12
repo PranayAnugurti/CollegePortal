@@ -55,22 +55,26 @@
             android:name=".InterviewExperinces"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Help" />
-        <activity android:name=".AboutDevelopers"></activity>
-      <service android:name=".NotificationService">
-        <intent-filter>
-          <action android:name="com.google.firebase.MESSAGING_EVENT"/>
-        </intent-filter>
-      </service>
-      <provider
-        android:name="android.support.v4.content.FileProvider"
-        android:authorities="@string/file_provider_authority"
-        android:exported="false"
-        android:grantUriPermissions="true">
-        <meta-data
-          android:name="android.support.FILE_PROVIDER_PATHS"
-          android:resource="@xml/file_provider_path" />
-      </provider>
+        <activity android:name=".AboutDevelopers" />
 
+        <service android:name=".NotificationService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="@string/file_provider_authority"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_provider_path" />
+        </provider>
+
+        <activity android:name=".ForgotPassword" />
+        <activity android:name=".ChangePassword"></activity>
     </application>
 
 </manifest>
