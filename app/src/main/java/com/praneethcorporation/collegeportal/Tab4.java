@@ -3,6 +3,7 @@ package com.praneethcorporation.collegeportal;
 import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.ActivityNotFoundException;
+import android.content.ClipData;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -10,9 +11,11 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Build.VERSION_CODES;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
 import android.provider.MediaStore;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.Snackbar;
@@ -117,7 +120,7 @@ public class Tab4 extends Fragment implements SingleUploadBroadcastReceiver.Dele
         Picasso.with(getContext()).load(imageServerLink).into(imgView, new com.squareup.picasso.Callback() {
             @Override
             public void onSuccess() {
-                progressBar.setVisibility(View.INVISIBLE);
+                progressBar.setVisibility(View.GONE);
             }
 
             @Override
@@ -147,6 +150,7 @@ public class Tab4 extends Fragment implements SingleUploadBroadcastReceiver.Dele
             }
         });
         pdfPathTextView.setOnClickListener(new OnClickListener() {
+            @RequiresApi(api = VERSION_CODES.JELLY_BEAN)
             @Override
             public void onClick(View v) {
                 viewPDF();
@@ -265,7 +269,7 @@ public class Tab4 extends Fragment implements SingleUploadBroadcastReceiver.Dele
                     .setMaxRetries(2)
                     .startUpload(); //Starting the upload
         } catch (MalformedURLException exc) {
-            Toast.makeText(getContext(), exc.getMessage(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), exc.getMessage(), Toast.LENGTH_LONG).show();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -298,7 +302,7 @@ public class Tab4 extends Fragment implements SingleUploadBroadcastReceiver.Dele
                         .startUpload(); //Starting the upload
 
             } catch (Exception exc) {
-                Toast.makeText(getContext(), exc.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), exc.getMessage(), Toast.LENGTH_LONG).show();
             }
         }
     }
@@ -326,17 +330,24 @@ public class Tab4 extends Fragment implements SingleUploadBroadcastReceiver.Dele
 
     @Override
     public void onError(Exception exception) {
-        Toast.makeText(getContext(), "" + exception, Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(), "" + exception, Toast.LENGTH_LONG).show();
     }
 
     @Override
     public void onCompleted(int serverResponseCode, byte[] serverResponseBody) {
         dialog.dismiss();
         Snackbar.make(getActivity().findViewById(R.id.linearLayout), "Whoila!!! File Uploaded Successfully!", Snackbar.LENGTH_LONG).show();
-      Intent intent = new Intent(ctx,Profile.class);
-      intent.putExtra("viewpager_position",3);
-      intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-      ctx.startActivity(intent);
+      final Handler handler = new Handler();
+      handler.postDelayed(new Runnable() {
+        @Override
+        public void run() {
+          //Do something after 100ms
+          Intent intent = new Intent(ctx,Home.class);
+          ctx.startActivity(intent);
+        }
+      }, 1000
+      );
+
 
 
       Log.d("O_MY", serverResponseBody + "ResponseCode" + serverResponseBody);
@@ -349,24 +360,28 @@ public class Tab4 extends Fragment implements SingleUploadBroadcastReceiver.Dele
     }
 
     public void downloadPDF() {
-        new DownloadFile().execute(pdfServerLink, pdfServerLink.substring(pdfServerLink.lastIndexOf("/") + 1));
+       new DownloadFile().execute(pdfServerLink, pdfServerLink.substring(pdfServerLink.lastIndexOf("/") + 1));
     }
 
-    public void viewPDF() {
-        File pdfFile = new File(Environment.getExternalStorageDirectory() + "/PDF DOWNLOAD/" + pdfServerLink.substring(pdfServerLink.lastIndexOf("/") + 1));
-        Uri path = Uri.fromFile(pdfFile);
-       /*Uri path=FileProvider.getUriForFile(getContext(),
-          getString(R.string.file_provider_authority),
-          pdfFile);*/
-        Intent pdfIntent = new Intent(Intent.ACTION_VIEW);
-        pdfIntent.setDataAndType(path, "application/pdf");
-        pdfIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        try {
-            startActivity(pdfIntent);
-        } catch (ActivityNotFoundException e) {
-            Toast.makeText(getContext(), "No Application available to view PDF", Toast.LENGTH_SHORT).show();
-        }
+  @RequiresApi(api = VERSION_CODES.JELLY_BEAN)
+  public void viewPDF() {
+    File pdfFile = new File(Environment.getExternalStorageDirectory() + "/PDF DOWNLOAD/" + pdfServerLink.substring(pdfServerLink.lastIndexOf("/") + 1));  // -> filename = maven.pdf
+    //Uri path = Uri.fromFile(pdfFile);
+    Uri path = FileProvider.getUriForFile(getActivity().getApplicationContext(),
+        getString(R.string.file_provider_authority),
+        pdfFile);
+
+    Intent pdfIntent = new Intent(Intent.ACTION_VIEW);
+    pdfIntent.setDataAndType(path, "application/pdf");
+    pdfIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+      pdfIntent.setClipData(ClipData.newRawUri("", path));
+      pdfIntent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION|Intent.FLAG_GRANT_READ_URI_PERMISSION);
+    try {
+      startActivity(pdfIntent);
+    } catch (ActivityNotFoundException e) {
+      Toast.makeText(getContext(), "No Application available to view PDF", Toast.LENGTH_SHORT).show();
     }
+  }
 
     private class DownloadFile extends AsyncTask<String, Void, Void> {
 
@@ -402,9 +417,7 @@ public class Tab4 extends Fragment implements SingleUploadBroadcastReceiver.Dele
             hidepDialog();
             Toast.makeText(getContext(), "Download PDf successfully", Toast.LENGTH_SHORT).show();
 
-          Intent intent = new Intent(ctx,Profile.class);
-          intent.putExtra("viewpager_position",3);
-          intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+          Intent intent = new Intent(ctx,Home.class);
           ctx.startActivity(intent);
             Log.d("Download complete", "----------");
         }

@@ -91,6 +91,6 @@
         <item>Punjab</item>
         <item>Harayana</item>
     </string-array>
-  <string name="file_provider_authority" translatable="false">com.quiro.fileproviderexample.fileprovider</string>
+  <string name="file_provider_authority" translatable="false">com.praneethcorporation.collegeportal.fileprovider</string>
 
 </resources>
