@@ -235,7 +235,7 @@ public class Tab1Form extends AppCompatActivity {
                                     permanent_address.getText().toString(),
                                     martial.getText().toString(),
                                     stateSpinner.getSelectedItem().toString(),
-                                    countrySpinner.getSelectedItem().toString()
+                                    countrySpinner.getSelectedItem().toString(),"",""
                             );
 
                             BackgroundTask task = new BackgroundTask(context);

@@ -57,7 +57,7 @@
 
     <string-array name="securityQestions">
         <item>Who is your favourite Professor</item>
-        <item>What is your pet’s name?</item>
+        <item>What is your pet name?</item>
         <item>In what year was your father born?</item>
         <item>What is your favorite game?</item>
     </string-array>

@@ -154,7 +154,7 @@ public class Tab1 extends Fragment {
             a.getString("category"), a.getString("phd"), a.getString("residential_status"),
             a.getString("guardian"),
             a.getString("present_address"), a.getString("permanent_address"),
-            a.getString("marital_status"), a.getString("state"), a.getString("country"));
+            a.getString("marital_status"), a.getString("state"), a.getString("country"),"","");
         Log.d("O_MY_PAPPI", a.getString("reg_no") + a.getString("email"));
 
         b.tvRenid.setText(info.reg_no);

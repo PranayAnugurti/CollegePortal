@@ -32,11 +32,13 @@ public class UserInfo implements Parcelable{
     public static  String marital_status;
     public static  String state;
     public static  String country;
+    public static  String pass_ques;
+    public static  String pass_ans;
 
     public UserInfo(String reg_no,String name,String pass,String image_url,String image_server_link,String pdf_server_link,String course,String branch,
                     String dob,String email,String skype,String linkedin,String gender,
                     String category,String phd,String residential_status,String
-                            guardian,String present_address,String permanent_address,String marital_status,String state,String country){
+                            guardian,String present_address,String permanent_address,String marital_status,String state,String country,String pass_ques,String pass_ans){
         this.reg_no=reg_no;
         this.name=name;
         this.pass=pass;
@@ -59,6 +61,8 @@ public class UserInfo implements Parcelable{
         this.marital_status=marital_status;
         this.state=state;
         this.country=country;
+        this.pass_ques=pass_ques;
+        this.pass_ans=pass_ans;
     }
 
     protected UserInfo(Parcel in) {
@@ -84,6 +88,8 @@ public class UserInfo implements Parcelable{
         this.marital_status=in.readString();//marital_status;
         this.state=in.readString();//state;
         this.country=in.readString();//country;
+        this.pass_ques=in.readString();//country;
+        this.pass_ans=in.readString();//country;
     }
 
     @Override
@@ -110,6 +116,8 @@ public class UserInfo implements Parcelable{
         dest.writeString(marital_status);
         dest.writeString(state);
         dest.writeString(country);
+        dest.writeString(pass_ques);
+        dest.writeString(pass_ques);
     }
 
     @Override

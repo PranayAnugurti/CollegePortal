@@ -50,7 +50,7 @@ import java.util.List;
 public class Registration extends AppCompatActivity {
 
   private Button next;
-  EditText dateofbirth, name, reg_no, email, skype, guardian, present_address, permanent_address, password, reEnterPassword;
+  EditText dateofbirth, name, reg_no, email,securityAns, skype, guardian, present_address, permanent_address, password, reEnterPassword;
   private DatePicker datePicker;
   private Calendar calendar;
   private int year, month, day;
@@ -76,6 +76,7 @@ public class Registration extends AppCompatActivity {
     email = (EditText) findViewById(R.id.etemialId);
     skype = (EditText) findViewById(R.id.etSkypeId);
     guardian = (EditText) findViewById(R.id.etguardian);
+    securityAns = (EditText) findViewById(R.id.securityQuestionAnswer);
     present_address = (EditText) findViewById(R.id.presentAddress);
     permanent_address = (EditText) findViewById(R.id.permanentAddress);
     reg_no = (EditText) findViewById(R.id.et_registration);
@@ -228,7 +229,9 @@ public class Registration extends AppCompatActivity {
                   permanent_address.getText().toString(),
                   martial.getText().toString(),
                   stateSpinner.getSelectedItem().toString(),
-                  countrySpinner.getSelectedItem().toString()
+                  countrySpinner.getSelectedItem().toString(),
+                  securitySpinner.getSelectedItem().toString(),
+                  securityAns.getText().toString()
               );
 
               BackgroundTask task = new BackgroundTask(context);
@@ -394,7 +397,11 @@ public class Registration extends AppCompatActivity {
                 + "&" +
                 URLEncoder.encode("state", "UTF-8") + "=" + URLEncoder.encode(infoItem.state, "UTF-8")
                 + "&" +
-                URLEncoder.encode("country", "UTF-8") + "=" + URLEncoder.encode(infoItem.country, "UTF-8");
+                URLEncoder.encode("country", "UTF-8") + "=" + URLEncoder.encode(infoItem.country, "UTF-8")
+                + "&" +
+        URLEncoder.encode("pass_ques", "UTF-8") + "=" + URLEncoder.encode(infoItem.pass_ques, "UTF-8")
+            + "&" +
+                URLEncoder.encode("pass_ans", "UTF-8") + "=" + URLEncoder.encode(infoItem.pass_ans, "UTF-8");
         bufferedWriter.write(data);
         bufferedWriter.flush();
         bufferedWriter.close();
