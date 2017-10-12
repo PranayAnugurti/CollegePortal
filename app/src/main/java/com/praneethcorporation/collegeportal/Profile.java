@@ -33,6 +33,11 @@ Profile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+      int position = 0;
+      Bundle extras = getIntent().getExtras();
+      if(extras != null) {
+        position = extras.getInt("viewpager_position");
+      }
         tabLayout = (TabLayout) findViewById(R.id.tablayout);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -83,6 +88,7 @@ Profile extends AppCompatActivity {
         viewPagerAdapter.addFragements(new Tab3(), "Projects");
         viewPagerAdapter.addFragements(new Tab4(), "Attachments");
         viewPager.setAdapter(viewPagerAdapter);
+        viewPager.setCurrentItem(position);
         tabLayout.setupWithViewPager(viewPager);
     }
 

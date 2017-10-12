@@ -1,5 +1,6 @@
 package com.praneethcorporation.collegeportal;
 
+import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Context;
@@ -320,7 +321,7 @@ public class Tab1Form extends AppCompatActivity {
         Context ctx;
 
         BackgroundTask(Context ctx) {
-            this.ctx = ctx;
+            this.ctx = ctx.getApplicationContext();
         }
 
         @Override
@@ -409,11 +410,17 @@ public class Tab1Form extends AppCompatActivity {
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
-            if (s.contains("Record updated successfully")) {
+            if (s.contains("Details updated successfully")) {
                 Toast.makeText(ctx, "Updated Personal Details!", Toast.LENGTH_LONG).show();
+              Intent intent = new Intent(ctx,Profile.class);
+              intent.putExtra("viewpager_position",0);
+              intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+              ctx.startActivity(intent);
+
             } else {
                 Toast.makeText(ctx, s, Toast.LENGTH_SHORT).show();
             }
         }
+
     }
 }

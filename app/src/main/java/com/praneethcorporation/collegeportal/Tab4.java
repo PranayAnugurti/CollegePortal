@@ -19,6 +19,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.content.FileProvider;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,6 +32,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.praneethcorporation.collegeportal.InfoClasses.User;
 import com.squareup.picasso.Picasso;
 
 import java.io.File;
@@ -56,6 +58,7 @@ public class Tab4 extends Fragment implements SingleUploadBroadcastReceiver.Dele
 
     Button UploadBn, ChooseImg, BrowseBtn, UploadPdfBtn, DownloadPdfBtn;
     ImageView imgView;
+  Context ctx;
     ProgressBar progressBar;
     TextView pdfPathTextView;
     EditText pdfPathEditTxt;
@@ -95,9 +98,9 @@ public class Tab4 extends Fragment implements SingleUploadBroadcastReceiver.Dele
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.tab4, container, false);
-        Context c = getActivity().getApplicationContext();
+    ctx= getActivity().getApplicationContext();
         progressBar = (ProgressBar) view.findViewById(R.id.progressBar);
-        reg_no = getActivity().getIntent().getStringExtra("reg_no");
+        reg_no = UserInfo.reg_no;
         imageServerLink = getActivity().getIntent().getStringExtra("image");
         pdfServerLink = getActivity().getIntent().getStringExtra("pdf");
         name = UserInfo.name;
@@ -110,6 +113,7 @@ public class Tab4 extends Fragment implements SingleUploadBroadcastReceiver.Dele
         pdfPathEditTxt = (EditText) view.findViewById(R.id.pdfNameFeild);
         pdfPathTextView = (TextView) view.findViewById(R.id.pdfName);
         imgView = (ImageView) view.findViewById(imageView);
+      UploadPdfBtn.setVisibility(View.INVISIBLE);
         Picasso.with(getContext()).load(imageServerLink).into(imgView, new com.squareup.picasso.Callback() {
             @Override
             public void onSuccess() {
@@ -329,10 +333,13 @@ public class Tab4 extends Fragment implements SingleUploadBroadcastReceiver.Dele
     public void onCompleted(int serverResponseCode, byte[] serverResponseBody) {
         dialog.dismiss();
         Snackbar.make(getActivity().findViewById(R.id.linearLayout), "Whoila!!! File Uploaded Successfully!", Snackbar.LENGTH_LONG).show();
-        Intent intent = new Intent(getContext(), Home.class);
-        startActivity(intent);
+      Intent intent = new Intent(ctx,Profile.class);
+      intent.putExtra("viewpager_position",3);
+      intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+      ctx.startActivity(intent);
 
-        Log.d("O_MY", serverResponseBody + "ResponseCode" + serverResponseBody);
+
+      Log.d("O_MY", serverResponseBody + "ResponseCode" + serverResponseBody);
     }
 
 
@@ -346,8 +353,11 @@ public class Tab4 extends Fragment implements SingleUploadBroadcastReceiver.Dele
     }
 
     public void viewPDF() {
-        File pdfFile = new File(Environment.getExternalStorageDirectory() + "/PDF DOWNLOAD/" + pdfServerLink.substring(pdfServerLink.lastIndexOf("/") + 1));  // -> filename = maven.pdf
+        File pdfFile = new File(Environment.getExternalStorageDirectory() + "/PDF DOWNLOAD/" + pdfServerLink.substring(pdfServerLink.lastIndexOf("/") + 1));
         Uri path = Uri.fromFile(pdfFile);
+       /*Uri path=FileProvider.getUriForFile(getContext(),
+          getString(R.string.file_provider_authority),
+          pdfFile);*/
         Intent pdfIntent = new Intent(Intent.ACTION_VIEW);
         pdfIntent.setDataAndType(path, "application/pdf");
         pdfIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -391,7 +401,11 @@ public class Tab4 extends Fragment implements SingleUploadBroadcastReceiver.Dele
             super.onPostExecute(aVoid);
             hidepDialog();
             Toast.makeText(getContext(), "Download PDf successfully", Toast.LENGTH_SHORT).show();
-            DownloadPdfBtn.setText("Pdf Downloaded!!");
+
+          Intent intent = new Intent(ctx,Profile.class);
+          intent.putExtra("viewpager_position",3);
+          intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+          ctx.startActivity(intent);
             Log.d("Download complete", "----------");
         }
     }

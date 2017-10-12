@@ -2,6 +2,7 @@ package com.praneethcorporation.collegeportal;
 
 import static java.lang.Integer.parseInt;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -245,9 +246,11 @@ public class Tab2Form extends AppCompatActivity {
             super.onPostExecute(s);
             Toast.makeText(ctx, s, Toast.LENGTH_SHORT).show();
 
-            Intent intent_name = new Intent();
-            intent_name.setClass(ctx,Tab2.class);
-            ctx.startActivity(intent_name);
+          Intent intent = new Intent(ctx,Profile.class);
+          intent.putExtra("viewpager_position",1);
+          intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+          ctx.startActivity(intent);
+
         }
     }
 }

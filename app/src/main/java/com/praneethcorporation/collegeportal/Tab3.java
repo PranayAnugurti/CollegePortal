@@ -192,7 +192,7 @@ ProgressBar projectProgressBar;
         ArrayList<Internship> arrayOfInternships = new ArrayList<Internship>();
         ArrayList<Project> arrayOfProjects = new ArrayList<Project>();
         Intent i = getActivity().getIntent();
-        reg_no = i.getStringExtra("reg_no");
+        reg_no =UserInfo.reg_no;
 
         adapter = new InternshipAdapter(view.getContext(), arrayOfInternships);
         projectAdapter = new ProjectAdapter(view.getContext(), arrayOfProjects);
@@ -411,7 +411,6 @@ ProgressBar projectProgressBar;
         @Override
         protected void onPreExecute() {
             json_url = "http://139.59.5.186/php/internship_info.php";
-            Log.d("O_MY", reg_no);
         }
 
         @Override
@@ -511,7 +510,6 @@ ProgressBar projectProgressBar;
         @Override
         protected void onPreExecute() {
             json_url = "http://139.59.5.186/php/project_info.php";
-            Log.d("O_MY", reg_no);
         }
 
         @Override
@@ -602,13 +600,12 @@ projectProgressBar.setVisibility(View.INVISIBLE);
         Context ctx;
 
         UpdateProjectAsyncTask(Context ctx) {
-            this.ctx = ctx;
+            this.ctx = ctx.getApplicationContext();
         }
 
         @Override
         protected void onPreExecute() {
             update_url = "http://139.59.5.186/php/update_project_info.php";
-            Log.d("O_MY", reg_no);
         }
 
         @Override
@@ -673,6 +670,11 @@ projectProgressBar.setVisibility(View.INVISIBLE);
             super.onPostExecute(s);
             if (s.contains("Project updated successfully")) {
                 Toast.makeText(ctx, s, Toast.LENGTH_LONG).show();
+              Intent intent = new Intent(ctx,Profile.class);
+              intent.putExtra("viewpager_position",2);
+              intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+              ctx.startActivity(intent);
+
             } else {
                 Toast.makeText(ctx, s, Toast.LENGTH_SHORT).show();
             }
@@ -684,13 +686,12 @@ projectProgressBar.setVisibility(View.INVISIBLE);
         Context ctx;
 
         UpdateInternAsyncTask(Context ctx) {
-            this.ctx = ctx;
+            this.ctx = ctx.getApplicationContext();
         }
 
         @Override
         protected void onPreExecute() {
             update_url = "http://139.59.5.186/php/update_internship_info.php";
-            Log.d("O_MY", reg_no);
         }
 
         @Override
@@ -753,6 +754,12 @@ projectProgressBar.setVisibility(View.INVISIBLE);
             super.onPostExecute(s);
             if (s.contains("Intern updated successfully")) {
                 Toast.makeText(ctx, s, Toast.LENGTH_LONG).show();
+              Intent intent = new Intent(ctx,Profile.class);
+              intent.putExtra("viewpager_position",2
+              );
+              intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+              ctx.startActivity(intent);
+
             } else {
                 Toast.makeText(ctx, s, Toast.LENGTH_SHORT).show();
             }
@@ -764,13 +771,12 @@ projectProgressBar.setVisibility(View.INVISIBLE);
         Context ctx;
 
         AddInternAsyncTask(Context ctx) {
-            this.ctx = ctx;
+            this.ctx = ctx.getApplicationContext();
         }
 
         @Override
         protected void onPreExecute() {
             update_url = "http://139.59.5.186/php/add_internship.php";
-            Log.d("O_MY", reg_no);
         }
 
         @Override
@@ -832,6 +838,11 @@ projectProgressBar.setVisibility(View.INVISIBLE);
             super.onPostExecute(s);
             if (s.contains("Internship details saved successfully!!")) {
                 Toast.makeText(ctx, s, Toast.LENGTH_LONG).show();
+              Intent intent = new Intent(ctx,Profile.class);
+              intent.putExtra("viewpager_position",2);
+              intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+              ctx.startActivity(intent);
+
             } else {
                 Toast.makeText(ctx, s, Toast.LENGTH_SHORT).show();
             }
@@ -843,13 +854,12 @@ projectProgressBar.setVisibility(View.INVISIBLE);
         Context ctx;
 
         AddProjectAsyncTask(Context ctx) {
-            this.ctx = ctx;
+            this.ctx = ctx.getApplicationContext();
         }
 
         @Override
         protected void onPreExecute() {
             update_url = "http://139.59.5.186/php/add_project.php";
-            Log.d("O_MY", reg_no);
         }
 
         @Override
@@ -911,6 +921,11 @@ projectProgressBar.setVisibility(View.INVISIBLE);
             super.onPostExecute(s);
             if (s.contains("Project details saved successfully!!")) {
                 Toast.makeText(ctx, s, Toast.LENGTH_LONG).show();
+              Intent intent = new Intent(ctx,Profile.class);
+              intent.putExtra("viewpager_position",2);
+              intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+              ctx.startActivity(intent);
+
             } else {
                 Toast.makeText(ctx, s, Toast.LENGTH_SHORT).show();
             }

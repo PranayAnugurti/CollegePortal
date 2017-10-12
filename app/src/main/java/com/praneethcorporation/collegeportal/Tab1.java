@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
+import com.praneethcorporation.collegeportal.InfoClasses.User;
 import com.praneethcorporation.collegeportal.databinding.Tab1Binding;
 
 import java.io.BufferedReader;
@@ -49,7 +50,7 @@ public class Tab1 extends Fragment {
     b= DataBindingUtil.inflate(inflater,R.layout.tab1, container, false);
     Context c = getActivity().getApplicationContext();
     Intent i = getActivity().getIntent();
-    reg_no = i.getStringExtra("reg_no");
+    reg_no = UserInfo.reg_no;
     BackgroundTask task = new BackgroundTask(c);
     task.execute();
 
@@ -78,8 +79,8 @@ public class Tab1 extends Fragment {
     @Override
     protected void onPreExecute() {
       b.progressBar.setVisibility(View.VISIBLE);
+      b.ProgressLayout.setVisibility(View.INVISIBLE);
       json_url = "http://139.59.5.186/php/user_info.php";
-      Log.d("O_MY", reg_no);
     }
 
     @Override
@@ -178,7 +179,7 @@ public class Tab1 extends Fragment {
       } catch (JSONException e) {
         e.printStackTrace();
       }
-    b.progressBar.setVisibility(View.INVISIBLE);
+      b.progressBar.setVisibility(View.INVISIBLE);
       b.ProgressLayout.setVisibility(View.VISIBLE);
     }
   }

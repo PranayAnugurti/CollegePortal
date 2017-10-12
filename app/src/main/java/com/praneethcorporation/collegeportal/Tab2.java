@@ -53,7 +53,6 @@ public class Tab2 extends Fragment {
         });
 
       Intent i = getActivity().getIntent();
-      reg_no = i.getStringExtra("reg_no");
       BackgroundTask task = new BackgroundTask(c);
       task.execute();
         return binding.getRoot();
@@ -69,8 +68,9 @@ public class Tab2 extends Fragment {
 
   @Override
   protected void onPreExecute() {
+    binding.progressBar.setVisibility(View.VISIBLE);
+    binding.ProgressLayout.setVisibility(View.INVISIBLE);
     json_url = "http://139.59.5.186/php/acad_info.php";
-    Log.d("O_MY", reg_no);
   }
 
   @Override
@@ -87,7 +87,7 @@ public class Tab2 extends Fragment {
       BufferedWriter bufferedWriter = new BufferedWriter(
           new OutputStreamWriter(outputStream, "UTF-8"));
       String data =
-          URLEncoder.encode("reg_no", "UTF-8") + "=" + URLEncoder.encode(reg_no, "UTF-8");
+          URLEncoder.encode("reg_no", "UTF-8") + "=" + URLEncoder.encode(UserInfo.reg_no, "UTF-8");
 
       bufferedWriter.write(data);
       bufferedWriter.flush();
