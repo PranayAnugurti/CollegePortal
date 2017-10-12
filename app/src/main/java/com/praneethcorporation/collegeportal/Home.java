@@ -1,6 +1,7 @@
 package com.praneethcorporation.collegeportal;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -9,6 +10,7 @@ import android.os.Build.VERSION_CODES;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -142,13 +144,37 @@ public class Home extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.logOut) {
-            User user = new User(getApplicationContext());
-            user.remove();
-            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-            startActivity(intent);
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(Home.this);
+// Add the buttons
+            builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+
+                    User user = new User(getApplicationContext());
+                    user.remove();
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(intent);
+
+                    // User clicked OK button
+                }
+            });
+            builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    // User cancelled the dialog
+                    dialog.dismiss();
+                }
+            });
+
+// Create the AlertDialog
+            builder.setMessage("Do you really want to Log Out ?");
+
+            AlertDialog dialog = builder.create();
+            dialog.show();
+
+
         }
         if (id == R.id.aboutdevelopers) {
-            Intent intent = new Intent(getApplicationContext(), AboutDevelopers.class);
+            Intent intent = new Intent(Home.this, AboutDevelopers.class);
             startActivity(intent);
 
         }
