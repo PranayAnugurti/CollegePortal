@@ -61,6 +61,8 @@ public class Home extends AppCompatActivity
     String JSON_STRING;
     ProgressBar loadingIndicator;
 
+    TextView drawerName;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -109,6 +111,8 @@ public class Home extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setItemIconTintList(null);
         navigationView.setNavigationItemSelectedListener(this);
+
+
 
     }
 
