@@ -59,8 +59,8 @@ public class Registration extends AppCompatActivity {
   RadioGroup radiophGroup, radioresedentialgroup, radiomartialgroup;
   RadioButton ph, res, martial;
   UserInfo infoItem;
-  Spinner genderSpinner, branchSpinner, courseSpinner, countrySpinner, stateSpinner, categorySpinner;
-  ArrayAdapter<CharSequence> genderAdapter, branchAdapter, courseAdapter, countryAdapter, stateAdapter, categoryAdapter;
+  Spinner genderSpinner, branchSpinner, courseSpinner, countrySpinner, stateSpinner, categorySpinner,securitySpinner;
+  ArrayAdapter<CharSequence> genderAdapter, branchAdapter, courseAdapter, countryAdapter, stateAdapter, categoryAdapter,securityAdapter;
   Context context;
 
   @Override
@@ -85,6 +85,13 @@ public class Registration extends AppCompatActivity {
     radioresedentialgroup = (RadioGroup) findViewById(R.id.radioresedentialGroup);
 
     radiomartialgroup = (RadioGroup) findViewById(R.id.radiomartialGroup);
+
+    securitySpinner = (Spinner) findViewById(R.id.securityQuestion);
+    securityAdapter = ArrayAdapter
+            .createFromResource(this, R.array.securityQestions, R.layout.support_simple_spinner_dropdown_item);
+    securityAdapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
+    securitySpinner.setAdapter(securityAdapter);
+
     genderSpinner = (Spinner) findViewById(R.id.genderspinner);
     genderAdapter = ArrayAdapter
         .createFromResource(this, R.array.gender, R.layout.support_simple_spinner_dropdown_item);

@@ -88,6 +88,32 @@
                         android:textAppearance="@style/normaltextstyle" />
 
                     <TextView
+                        android:id="@+id/tv_securityQuestion"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="@style/headertextstyle"
+                        android:layout_marginTop="16dp"
+                        android:text="Select Your Security Question and Answer Here"
+                        android:textColor="@color/black"
+                        />
+
+                    <Spinner
+                        android:id="@+id/securityQuestion"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginTop="8dp" />
+                    <EditText
+                        android:id="@+id/securityQuestionAnswer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="xyz"
+                        android:textColor="@color/black"
+                        android:textAppearance="@style/normaltextstyle"
+                         />
+
+
+                    <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Registartion Id:"
