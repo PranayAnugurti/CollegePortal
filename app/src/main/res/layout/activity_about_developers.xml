@@ -1,9 +1,142 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical"
     tools:context="com.praneethcorporation.collegeportal.AboutDevelopers">
 
-</android.support.constraint.ConstraintLayout>
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        >
+
+        <LinearLayout
+            android:padding="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/homepic"
+                app:civ_border_color="@color/colorPrimary"
+                app:civ_border_width="2dp" />
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:orientation="vertical">
+          <TextView
+              android:layout_weight="1"
+              android:gravity="center"
+              android:layout_width="match_parent"
+              android:layout_height="0dp"
+              android:text="Yerra Bala Praneeth Kumar"
+              android:textSize="18dp"
+              android:textAlignment="center"/>
+          <LinearLayout
+              android:layout_weight="1"
+              android:layout_width="match_parent"
+              android:layout_height="0dp"
+              android:orientation="horizontal">
+              <ImageView
+                  android:id="@+id/praneethGmail"
+                  android:layout_width="0dp"
+                  android:layout_height="30dp"
+                  android:layout_weight="1"
+                  android:src="@drawable/gmail"/>
+              <ImageView
+                  android:id="@+id/praneethLinkedIn"
+                  android:layout_width="0dp"
+                  android:layout_height="30dp"
+                  android:layout_weight="1"
+                  android:src="@drawable/linkedin"/>
+              <ImageView
+                  android:id="@+id/praneethGithub"
+                  android:layout_width="0dp"
+                  android:layout_height="30dp"
+                  android:layout_weight="1"
+                  android:src="@drawable/github"/>
+              <ImageView
+                  android:id="@+id/praneethPhone"
+                  android:layout_width="0dp"
+                  android:layout_height="30dp"
+                  android:layout_weight="1"
+                  android:src="@drawable/phone"/>
+
+          </LinearLayout>
+      </LinearLayout>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        >
+
+        <LinearLayout
+            android:padding="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/pranay"
+                app:civ_border_color="@color/colorPrimary"
+                app:civ_border_width="2dp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:text="PranayKumar Anugurti"
+                    android:textSize="18dp"
+                    android:textAlignment="center"/>
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:id="@+id/pranayGmail"
+                        android:layout_width="0dp"
+                        android:layout_height="30dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/gmail"/>
+                    <ImageView
+                        android:id="@+id/pranayLinkedIn"
+                        android:layout_width="0dp"
+                        android:layout_height="30dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/linkedin"/>
+                    <ImageView
+                        android:id="@+id/pranayGithub"
+                        android:layout_width="0dp"
+                        android:layout_height="30dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/github"/>
+                    <ImageView
+                        android:id="@+id/pranayPhone"
+                        android:layout_width="0dp"
+                        android:layout_height="30dp"
+                        android:layout_weight="1"
+                        android:src="@drawable/phone"/>
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+
+</LinearLayout>
