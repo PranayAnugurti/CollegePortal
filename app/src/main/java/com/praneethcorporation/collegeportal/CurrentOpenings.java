@@ -1,5 +1,7 @@
 package com.praneethcorporation.collegeportal;
 
+import static com.praneethcorporation.collegeportal.UserInfo.reg_no;
+
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -14,17 +16,26 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.Button;
 import android.widget.ListView;
 import com.praneethcorporation.collegeportal.Adapters.CurrentOpeningsAdapter;
 import com.praneethcorporation.collegeportal.InfoClasses.CurrentOpeningCompanies;
 import com.praneethcorporation.collegeportal.PlaceMentStatisticsPackage.PlaceMentStatistics;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -39,6 +50,7 @@ public class CurrentOpenings extends AppCompatActivity {
 
     Toolbar toolbar;
     DrawerLayout drawerLayout;
+  public static String user_cpi;
     ActionBarDrawerToggle actionBarDrawerToggle;
     NavigationView navigationView;
 
@@ -103,6 +115,7 @@ CurrentOpeningsAdapter currentOpeningsAdapter;
         listView.setAdapter(currentOpeningsAdapter);
         BackgroundTask task=new BackgroundTask(this);
         task.execute();
+
     }
   public class BackgroundTask extends AsyncTask<String,Void,String> {
 
@@ -124,10 +137,20 @@ CurrentOpeningsAdapter currentOpeningsAdapter;
       try {
         URL url = new URL(json_url);
         HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
-        httpURLConnection.setRequestMethod("GET");
+        httpURLConnection.setRequestMethod("POST");
         //Log.d("O_MY", String.valueOf(httpURLConnection.getResponseCode()));
-        httpURLConnection.setDoOutput(false);
+        httpURLConnection.setDoOutput(true);
         httpURLConnection.setDoInput(true);
+        OutputStream outputStream = httpURLConnection.getOutputStream();
+        BufferedWriter bufferedWriter = new BufferedWriter(
+            new OutputStreamWriter(outputStream, "UTF-8"));
+        String data =
+            URLEncoder.encode("reg_no", "UTF-8") + "=" + URLEncoder.encode(reg_no, "UTF-8");
+
+        bufferedWriter.write(data);
+        bufferedWriter.flush();
+        bufferedWriter.close();
+        outputStream.close();
         InputStream inputStream = httpURLConnection.getInputStream();
         BufferedReader bufferedReader = new BufferedReader(
             new InputStreamReader(inputStream, "iso-8859-1"));
@@ -161,22 +184,26 @@ CurrentOpeningsAdapter currentOpeningsAdapter;
         JSONArray jsonArray = base_json.getJSONArray("response");
         int i = 0;
         Log.d("O_MY","length="+jsonArray.length());
+        user_cpi=jsonArray.getJSONObject(i).getString("user_cpi");
+        i=1;
         while (i<jsonArray.length()) {
           Log.d("O_MY","pos="+i);
           JSONObject current = jsonArray.getJSONObject(i);
 
 
           CurrentOpeningCompanies Currentopening = new CurrentOpeningCompanies(
+              current.getString("id"),
               current.getString("company"),
               current.getString("profile"),
-              current.getString("ctc"),
               current.getString("branches"),
+              current.getString("cpi"),
+              current.getString("ctc"),
               current.getString("examdate"),
               current.getString("isRegistered"),
               current.getString("location")
           );
 
-          openings.add(i,Currentopening);
+          openings.add(Currentopening);
           i++;
         }
         currentOpeningsAdapter.addAll(openings);

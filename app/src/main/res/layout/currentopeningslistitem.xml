@@ -42,11 +42,17 @@
                 android:text="Branches Allowed"
                 android:textAppearance="@style/normaltextstyle"/>
             <TextView
-                android:id="@+id/ctc"
+                android:id="@+id/cpi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Stipend"
+                android:text="cpi"
                 android:textAppearance="@style/normaltextstyle"/>
+          <TextView
+            android:id="@+id/ctc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Stipend"
+            android:textAppearance="@style/normaltextstyle"/>
             <TextView
                 android:id="@+id/deadline"
                 android:textSize="18dp"
