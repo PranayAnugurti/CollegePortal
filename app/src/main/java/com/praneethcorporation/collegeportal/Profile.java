@@ -54,8 +54,8 @@ Profile extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 int id = item.getItemId();
 
-                if (id == R.id.nav_currentOpening) {
-                    Intent intent = new Intent(getApplicationContext(), CurrentOpenings.class);
+                if (id == R.id.nav_home) {
+                    Intent intent = new Intent(getApplicationContext(), Home.class);
                     startActivity(intent);
                 } else if (id == R.id.nav_registeredCompanies) {
                     Intent intent = new Intent(getApplicationContext(), RegisterCompanies.class);
